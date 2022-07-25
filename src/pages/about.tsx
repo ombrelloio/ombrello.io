@@ -28,12 +28,12 @@ export default function Page() {
             <Col lg="8">
               <div className="richtext text-24 mt-8">
                 <p>
-                  We have a shared passion for making people's lives better
+                  We have a shared passion for making peoples live better
                   through design and technology. Our team consists of
                   experienced design specialists. We cover user experience,
                   strategic facilitation and visual design. We team up with
                   skilled partners - from coders to copywriters and industry
-                  specialists. If you ever want to visit us, you'll find us at
+                  specialists. If you ever want to visit us, youll find us at
                   our Nørrebro office in beautiful Copenhagen. We promise to
                   serve a great cup of coffee alongside our expertise.
                 </p>
