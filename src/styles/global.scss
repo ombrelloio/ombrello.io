@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "fonts";
+@import "typographies";
+
+// $minFont: 16;
+// $maxFont: 18;
+// $from: 1680;
+// $to: 2560;
+
+// html {
+//   @media screen and (min-width:#{$from}px) {
+//     font-size: calc(
+//       #{$minFont}px + (#{$maxFont} - #{$minFont}) *
+//         ((100vw - #{$from}px) / (#{$to} - #{$from}))
+//     );
+//   }
+// }
+
+html,
+body,
+#__next {
+  @apply h-full overscroll-none;
+}
+
+body {
+  @apply font-sans leading-normal antialiased bg-black text-white;
+}
