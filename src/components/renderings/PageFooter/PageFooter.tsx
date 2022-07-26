@@ -5,7 +5,7 @@ type PageFooterProps = {};
 
 function PageFooter() {
   return (
-    <footer className="sticky top-[100vh] mt-12 md:mt-24 py-16">
+    <footer className="sticky top-[100vh] mt-12 md:mt-24 py-16" id="contact">
       <Container>
         <div className="text-center mb-64">
           <h2 className="text-120 font-bold">Let´s talk</h2>

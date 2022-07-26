@@ -12,7 +12,7 @@ const Service = ({ headline }: { headline: string }) => (
         layout="fill"
         object-fit="cover"
         object-position="center"
-        src="https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1810&q=80"
+        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dGVjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1640&q=60"
       />
     </div>
     <div className="mt-4">
@@ -21,7 +21,7 @@ const Service = ({ headline }: { headline: string }) => (
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
         reprehenderit sunt iste? Harum voluptas amet nam enim fuga perferendis.
       </p>
-      <Link href="/about">
+      <Link href="/technologyservices">
         <a className="mt-8 inline-block underline underline-offset-4 opacity-0 group-hover:opacity-100 duration-300">
           Learn more about our technology & Services
         </a>
@@ -95,7 +95,7 @@ export default function Page() {
               </div>
               <Link href="/about">
                 <a className="mt-8 inline-block underline underline-offset-4">
-                  Learn more
+                  Learn more about us
                 </a>
               </Link>
             </Col>

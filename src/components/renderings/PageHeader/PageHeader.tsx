@@ -43,6 +43,11 @@ const PageHeader = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/cases">
+                  <a>Cases</a>
+                </Link>
+              </li>
+              <li>
                 <Link href="/about">
                   <a>About</a>
                 </Link>

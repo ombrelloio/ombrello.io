@@ -134,6 +134,163 @@ export default function Page() {
           </Row>
         </Container>
       </section>
+
+      <section className="my-32 md:my-64">
+        <Container>
+          <h2 className="text-24 md:text-40 font-bold mb-16 md:mb-32 max-w-xl">
+            Meet the team Lorem ipsum, dolor sit amet consectetur adipisicing
+            elit. Nobis totam, alias numquam perferendis blanditiis.
+          </h2>
+
+          <Row className="gap-y-16">
+            <Col md="4" lg="3">
+              <div className="relative aspect-square mb-4">
+                <Image
+                  layout="fill"
+                  object-fit="cover"
+                  object-position="center"
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                />
+              </div>
+              <h3 className="text-20 font-bold">Name</h3>
+              <p>Position</p>
+            </Col>
+            <Col md="4" lg="3">
+              <div className="relative aspect-square mb-4">
+                <Image
+                  layout="fill"
+                  object-fit="cover"
+                  object-position="center"
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                />
+              </div>
+              <h3 className="text-20 font-bold">Name</h3>
+              <p>Position</p>
+            </Col>
+            <Col md="4" lg="3">
+              <div className="relative aspect-square mb-4">
+                <Image
+                  layout="fill"
+                  object-fit="cover"
+                  object-position="center"
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                />
+              </div>
+              <h3 className="text-20 font-bold">Name</h3>
+              <p>Position</p>
+            </Col>
+            <Col md="4" lg="3">
+              <div className="relative aspect-square mb-4">
+                <Image
+                  layout="fill"
+                  object-fit="cover"
+                  object-position="center"
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                />
+              </div>
+              <h3 className="text-20 font-bold">Name</h3>
+              <p>Position</p>
+            </Col>
+            <Col md="4" lg="3">
+              <div className="relative aspect-square mb-4">
+                <Image
+                  layout="fill"
+                  object-fit="cover"
+                  object-position="center"
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                />
+              </div>
+              <h3 className="text-20 font-bold">Name</h3>
+              <p>Position</p>
+            </Col>
+            <Col md="4" lg="3">
+              <div className="relative aspect-square mb-4">
+                <Image
+                  layout="fill"
+                  object-fit="cover"
+                  object-position="center"
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                />
+              </div>
+              <h3 className="text-20 font-bold">Name</h3>
+              <p>Position</p>
+            </Col>
+            <Col md="4" lg="3">
+              <div className="relative aspect-square mb-4">
+                <Image
+                  layout="fill"
+                  object-fit="cover"
+                  object-position="center"
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                />
+              </div>
+              <h3 className="text-20 font-bold">Name</h3>
+              <p>Position</p>
+            </Col>
+            <Col md="4" lg="3">
+              <div className="relative aspect-square mb-4">
+                <Image
+                  layout="fill"
+                  object-fit="cover"
+                  object-position="center"
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                />
+              </div>
+              <h3 className="text-20 font-bold">Name</h3>
+              <p>Position</p>
+            </Col>
+            <Col md="4" lg="3">
+              <div className="relative aspect-square mb-4">
+                <Image
+                  layout="fill"
+                  object-fit="cover"
+                  object-position="center"
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                />
+              </div>
+              <h3 className="text-20 font-bold">Name</h3>
+              <p>Position</p>
+            </Col>
+            <Col md="4" lg="3">
+              <div className="relative aspect-square mb-4">
+                <Image
+                  layout="fill"
+                  object-fit="cover"
+                  object-position="center"
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                />
+              </div>
+              <h3 className="text-20 font-bold">Name</h3>
+              <p>Position</p>
+            </Col>
+            <Col md="4" lg="3">
+              <div className="relative aspect-square mb-4">
+                <Image
+                  layout="fill"
+                  object-fit="cover"
+                  object-position="center"
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                />
+              </div>
+              <h3 className="text-20 font-bold">Name</h3>
+              <p>Position</p>
+            </Col>
+            <Col md="4" lg="3">
+              <div className="relative aspect-square mb-4">
+                <Image
+                  layout="fill"
+                  object-fit="cover"
+                  object-position="center"
+                  src="https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1810&q=80"
+                />
+              </div>
+              <h3 className="text-20 font-bold">Name</h3>
+              <p>Position</p>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
       <section className="my-32 md:my-64">
         <Container>
           <div className="bg-white p-8 md:py-32 md:px-16 rounded-lg text-black text-center">
