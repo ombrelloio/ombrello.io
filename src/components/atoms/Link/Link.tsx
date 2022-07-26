@@ -7,6 +7,6 @@ const Link: FC<{
   children: ReactNode;
   className?: string;
   target?: string;
-}> = (props) => <NextLink {...props} scroll={false} />;
+}> = (props) => <NextLink {...props} />;
 
 export { Link };

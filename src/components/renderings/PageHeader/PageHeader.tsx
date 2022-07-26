@@ -24,8 +24,8 @@ const PageHeader = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full pointer-events-none z-50 duration-300">
-        <Container className="flex justify-between items-center py-6">
+      <header className="fixed top-0 left-0 w-full pointer-events-none z-50 duration-300 bg-black">
+        <Container className="flex justify-between items-center py-5">
           <Link href="/">
             <a
               className={classNames(
@@ -38,13 +38,8 @@ const PageHeader = () => {
           <nav className="pointer-events-auto hidden md:block">
             <ul className="flex text-16 gap-x-8">
               <li>
-                <Link href="/">
+                <Link href="/technologyservices">
                   <a>Technology & Services</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <a>Work</a>
                 </Link>
               </li>
               <li>
@@ -53,7 +48,12 @@ const PageHeader = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/">
+                <Link href="/career">
+                  <a>Career</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="#contact">
                   <a>Contact</a>
                 </Link>
               </li>
