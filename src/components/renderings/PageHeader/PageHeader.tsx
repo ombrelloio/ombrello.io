@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Container } from "@layout";
 import { Logo, Link } from "@atoms";
 import classNames from "classnames";
@@ -9,6 +9,8 @@ type PageHeaderProps = {};
 const PageHeader = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [dateState, setDateState] = useState(new Date());
+  const [weatherIcon, setWeatherIcon] = useState<string | null>(null);
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -20,6 +22,22 @@ const PageHeader = () => {
     return () => {
       router.events.on("routeChangeStart", handleRouteChange);
     };
+  }, []);
+
+  useEffect(() => {
+    setInterval(() => setDateState(new Date()), 30000);
+  }, []);
+
+  useEffect(() => {
+    fetch(
+      "https://api.openweathermap.org/data/2.5/weather?q=copenhagen&appid=ea0864f73dea512e836aa80459349d70"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.weather && data.weather[0]) {
+          setWeatherIcon(data.weather[0].icon);
+        }
+      });
   }, []);
 
   return (
@@ -35,8 +53,8 @@ const PageHeader = () => {
               <Logo />
             </a>
           </Link>
-          <nav className="pointer-events-auto hidden md:block">
-            <ul className="flex text-16 gap-x-8">
+          <nav className="absolute left-0 w-full justify-center hidden md:flex pointer-events-none">
+            <ul className="flex text-16 gap-x-8 pointer-events-auto">
               <li>
                 <Link href="/technologyservices">
                   <a>Technology & Services</a>
@@ -64,6 +82,25 @@ const PageHeader = () => {
               </li>
             </ul>
           </nav>
+          <div className="flex items-center space-x-2">
+            <span>Copenhagen</span>
+            <span className="w-8">
+              {weatherIcon && (
+                <img
+                  src={`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
+                  alt=""
+                  className="block w-full h-auto"
+                />
+              )}
+            </span>
+            <span>
+              {dateState.toLocaleString("en-US", {
+                hour: "numeric",
+                minute: "numeric",
+                hour12: false,
+              })}
+            </span>
+          </div>
           <button
             className="w-5 pointer-events-auto md:hidden"
             onClick={() => setIsOpen(!isOpen)}
@@ -112,7 +149,33 @@ const PageHeader = () => {
       </header>
       {isOpen && (
         <div className="fixed top-0 left-0 w-full h-full z-40 bg-black text-white md:hidden py-10 flex flex-col justify-between overflow-y-scroll">
-          <ul className="text-center pt-20" />
+          <ul className="text-center pt-20 text-20 space-y-6">
+            <li>
+              <Link href="/technologyservices">
+                <a>Technology & Services</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/cases">
+                <a>Cases</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about">
+                <a>About</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/career">
+                <a>Career</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="#contact">
+                <a>Contact</a>
+              </Link>
+            </li>
+          </ul>
         </div>
       )}
     </>
