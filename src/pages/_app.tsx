@@ -1,12 +1,16 @@
 import { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import { Layout } from "@layout";
+import { menuProps } from "@types";
 
 import "@app/styles/global.scss";
+import { getMenu } from "@app/api";
 
-interface extendedAppProps extends AppProps {}
+interface extendedAppProps extends AppProps {
+  menu: menuProps;
+}
 
-function App({ Component, pageProps }: extendedAppProps) {
+function App({ Component, pageProps, menu }: extendedAppProps) {
   return (
     <>
       <DefaultSeo
@@ -102,5 +106,11 @@ function App({ Component, pageProps }: extendedAppProps) {
     </>
   );
 }
+
+App.getInitialProps = async () => {
+  const menu = await getMenu();
+
+  return { menu };
+};
 
 export default App;

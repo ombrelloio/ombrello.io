@@ -14,7 +14,9 @@ const Renderings = ({ list }: { list: any }) => {
           }
           return (
             <div key={index} className="w-full text-center py-16 border-b">
-              {key}
+              {key
+                ? `Key with no rendering registered: ${key} `
+                : "undefined: missing key(__typename) or missing schema in query"}
             </div>
           );
         })}
