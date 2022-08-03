@@ -14,7 +14,7 @@ module.exports = {
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
-    }, 
+    },
     ecmaVersion: "latest",
     sourceType: "module",
   },
@@ -41,7 +41,7 @@ module.exports = {
     "react/jsx-props-no-spreading": 0,
     "react/function-component-definition": 0,
     "arrow-body-style": [
-      "error",
+      0,
       "as-needed",
       { requireReturnForObjectLiteral: true },
     ],

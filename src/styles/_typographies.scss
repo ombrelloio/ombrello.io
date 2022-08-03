@@ -1,25 +1,28 @@
 .richtext {
-
   * {
-    @apply my-4;
+    @apply mt-2 mb-4;
   }
 
   > *:first-child {
-    margin-top:0;
+    margin-top: 0;
   }
 
   > *:last-child {
-    margin-bottom:0;
+    margin-bottom: 0;
   }
 
-  h1,h2,h3,h4,h5,h6 {
-    @apply text-24 mt-16 mb-2;
-
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-24 mt-md mb-2 leading-snug;
   }
 
   ul,
   ol {
     list-style: revert;
-    padding-left:1em; 
+    padding-left: 1em;
   }
 }

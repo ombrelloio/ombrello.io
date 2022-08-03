@@ -1,0 +1,14 @@
+@layer base {
+  .text-h1 {
+    @apply text-40 md:text-48 lg:text-64 xl:text-80 xxl:text-102 display:text-120 font-bold;
+  }
+  .text-h1-vw {
+    @apply text-[6.25vw] display:text-120 font-bold leading-none;
+  }
+  .text-h2 {
+    @apply text-24 md:text-40 font-bold;
+  }
+  .text-h3 {
+    @apply text-20 font-bold;
+  }
+}

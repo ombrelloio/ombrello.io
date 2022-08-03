@@ -10,11 +10,19 @@ const Renderings = ({ list }: { list: any }) => {
           const Component = renderings[key];
 
           if (Component) {
-            return <Component key={index} {...rendering} position={index} />;
+            return (
+              <Component
+                key={rendering.id || index}
+                {...rendering}
+                position={index}
+              />
+            );
           }
           return (
             <div key={index} className="w-full text-center py-16 border-b">
-              {key}
+              {key
+                ? `Key with no rendering registered: ${key} `
+                : "undefined: missing key(__typename) or missing schema in query"}
             </div>
           );
         })}
