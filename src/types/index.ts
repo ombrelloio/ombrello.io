@@ -52,7 +52,7 @@ export type PageProps = {
       height?: number;
     };
   };
-  renderings: any;
+  renderings: unknown[];
   pageColors?: {
     bodyBackground?: {
       hex: string | undefined;

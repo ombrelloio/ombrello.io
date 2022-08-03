@@ -3,14 +3,23 @@ import { Container } from "@layout";
 import { Logo, Link } from "@atoms";
 import classNames from "classnames";
 import { useRouter } from "next/router";
+import { PageProps } from "@types";
+import { fixSlug } from "@app/helpers/utils.helpers";
 
-type PageHeaderProps = {};
+type PageHeaderProps = {
+  menu: {
+    siteMenu: {
+      pages: PageProps[];
+    };
+  };
+};
 
-const PageHeader = () => {
+const PageHeader = ({ menu: { siteMenu } }: PageHeaderProps) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [dateState, setDateState] = useState(new Date());
   const [weatherIcon, setWeatherIcon] = useState<string | null>(null);
+  const { pages = [] } = siteMenu;
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -53,35 +62,20 @@ const PageHeader = () => {
               <Logo />
             </span>
           </Link>
-          <nav className="absolute left-0 w-full justify-center hidden md:flex pointer-events-none">
-            <ul className="flex text-16 gap-x-8 pointer-events-auto">
-              <li>
-                <Link href="/technologyservices">
-                  <span>Technology & Services</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/cases">
-                  <span>Cases</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/about">
-                  <span>About</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/career">
-                  <span>Career</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact">
-                  <span>Contact</span>
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          {pages.length && (
+            <nav className="absolute left-0 w-full justify-center hidden md:flex pointer-events-none">
+              <ul className="flex text-16 gap-x-8 pointer-events-auto">
+                {pages.map(({ slug, navigationLabel }) => (
+                  <li key={slug}>
+                    <Link href={fixSlug(slug)} noUnderline>
+                      {navigationLabel}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+
           <div className="flex items-center space-x-2">
             <span>Copenhagen</span>
             <span className="w-8">
@@ -149,8 +143,16 @@ const PageHeader = () => {
       </header>
       {isOpen && (
         <div className="fixed top-0 left-0 w-full h-full z-40 bg-black text-white md:hidden py-10 flex flex-col justify-between overflow-y-scroll">
-          <ul className="text-center pt-20 text-20 space-y-6">
-            <li>
+          {pages.length && (
+            <ul className="text-center pt-20 text-20 space-y-6">
+              {pages.map(({ slug, navigationLabel }) => (
+                <li key={slug}>
+                  <Link href={fixSlug(slug)} noUnderline>
+                    {navigationLabel}
+                  </Link>
+                </li>
+              ))}
+              {/* <li>
               <Link href="/technologyservices">
                 <a>Technology & Services</a>
               </Link>
@@ -174,8 +176,9 @@ const PageHeader = () => {
               <Link href="#contact">
                 <a>Contact</a>
               </Link>
-            </li>
-          </ul>
+            </li> */}
+            </ul>
+          )}
         </div>
       )}
     </>

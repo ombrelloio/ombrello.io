@@ -1,37 +1,37 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NextSeo } from "next-seo";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Renderings } from "@layout";
 import { PageProps } from "@types";
 import { getPage, getPages } from "../api";
 
-export default function Page({ seo, renderings, pageColors }: PageProps) {
-  useEffect(() => {
-    const root = document.documentElement;
-    const cssVars = [
-      "bodyBackground",
-      "bodyTextColor",
-      "headerBackground",
-      "headerTextColor",
-    ];
+export default function Page({ seo, renderings }: PageProps) {
+  // useEffect(() => {
+  // const root = document.documentElement;
+  // const cssVars = [
+  //   "bodyBackground",
+  //   "bodyTextColor",
+  //   "headerBackground",
+  //   "headerTextColor",
+  // ];
 
-    for (let i = 0; i < cssVars.length; i += 1) {
-      const cssVar = cssVars[i];
+  // for (let i = 0; i < cssVars.length; i += 1) {
+  //   const cssVar = cssVars[i];
 
-      if (
-        pageColors &&
-        Object.prototype.hasOwnProperty.call(pageColors, cssVar)
-      ) {
-        // @ts-ignore: Can't make typescript approve this!
-        if (pageColors && pageColors[cssVar]) {
-          // @ts-ignore: Can't make typescript approve this!
-          root.style.setProperty(`--${cssVar}`, pageColors[cssVar].hex);
-        }
-      } else {
-        root.style.removeProperty(`--${cssVar}`);
-      }
-    }
-  });
+  // if (
+  //   pageColors &&
+  //   Object.prototype.hasOwnProperty.call(pageColors, cssVar)
+  // ) {
+  //   // @ts-ignore: Can't make typescript approve this!
+  //   if (pageColors && pageColors[cssVar]) {
+  //     // @ts-ignore: Can't make typescript approve this!
+  //     root.style.setProperty(`--${cssVar}`, pageColors[cssVar].hex);
+  //   }
+  // } else {
+  //   root.style.removeProperty(`--${cssVar}`);
+  // }
+  // }
+  // });
   return (
     <>
       <NextSeo
