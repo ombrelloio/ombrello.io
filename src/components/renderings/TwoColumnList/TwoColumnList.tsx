@@ -1,31 +1,71 @@
-import { Col, Container, Row } from "@layout";
-import { TwoColumnListProps } from "@types";
+import { Image, Multiline, Link } from "@atoms";
+import { Col, Container, FadeIntersect, Row, Section } from "@layout";
+import { ImageCardProps, TwoColumnListProps } from "@types";
+import cx from "classnames";
 
-const TwoColumnList = ({ imageCards }: TwoColumnListProps) => {
+const ListItem = ({
+  imageCardTitle,
+  text,
+  image,
+  internalLink,
+  internalLinkLabel,
+}: ImageCardProps) => {
+  if (!image || !image.url) return null;
   return (
-    <section
-      className="w-full p-16 pt-20 border-b-[1px]"
-      data-rendering="TwoColumnList"
-    >
-      <p className="font-bold mb-10">TwoColumnList</p>
-
-      {imageCards && imageCards.length && (
-        <Container>
-          <Row className="gap-y-10">
-            {imageCards.map(
-              ({ title, text, image, id }) =>
-                image?.url && (
-                  <Col root="6" key={id}>
-                    <img src={image.url} alt={title} />
-                    <p>{title}</p>
-                    <p>{text}</p>
-                  </Col>
-                )
-            )}
-          </Row>
-        </Container>
+    <FadeIntersect>
+      <div className="relative aspect-square mb-sm">
+        <Image
+          src={image.url}
+          alt={imageCardTitle}
+          layout="fill"
+          objectPosition="center"
+          objectFit="cover"
+        />
+      </div>
+      {imageCardTitle && <h3 className="text-h3 mb-2">{imageCardTitle}</h3>}
+      {text && <Multiline text={text} />}
+      {internalLink && internalLink.page.slug && (
+        <p className="mt-md opacity-30 group-hover:opacity-100 transition duration-300 underline underline-offset-4">
+          {internalLinkLabel || "Link"}
+        </p>
       )}
-    </section>
+    </FadeIntersect>
+  );
+};
+
+const TwoColumnList = ({ heading, imageCards }: TwoColumnListProps) => {
+  return (
+    <Section rendering="TwoColumnList">
+      <Container>
+        {heading && (
+          <h2 className="text-h2 mb-lg md:mb-xl max-w-xl">{heading}</h2>
+        )}
+        {imageCards && imageCards.length && (
+          <Row className="gap-y-md justify-between">
+            {imageCards.map((cardItem) => (
+              <Col
+                sm="6"
+                md="5"
+                key={cardItem.id}
+                className="relative even:sm:top-16 even:md:top-32 even:last:sm:mb-16 even:last:md:mb-32"
+              >
+                {cardItem.internalLink && cardItem.internalLink.page.slug ? (
+                  <Link
+                    href={cardItem.internalLink.page.slug}
+                    className="block group"
+                    noUnderline
+                  >
+                    <ListItem {...cardItem} />
+                  </Link>
+                ) : (
+                  <ListItem {...cardItem} />
+                )}
+              </Col>
+            ))}
+          </Row>
+        )}
+      </Container>
+    </Section>
   );
 };
 

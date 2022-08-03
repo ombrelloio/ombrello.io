@@ -1,17 +1,27 @@
+import { Image } from "@atoms";
+import { Container, FadeIntersect, Section } from "@layout";
 import { MediaProps } from "@types";
 
 const Media = ({ image }: MediaProps) => {
   return (
-    <section
-      className="w-full p-16 pt-20 border-b-[1px]"
-      data-rendering="Media"
-    >
-      Media
-      <p>image: {image?.url}</p>
-      <p className="max-w-2xl">
-        <img src={image.url} alt="" />
-      </p>
-    </section>
+    <Section rendering="Media">
+      <Container>
+        {image && image.url && (
+          <div className="relative aspect-video">
+            <FadeIntersect>
+              <Image
+                src={image.url}
+                alt={image.fileName}
+                layout="fill"
+                objectFit="cover"
+                placeholder="blur"
+                blurDataURL={image.smallUrl}
+              />
+            </FadeIntersect>
+          </div>
+        )}
+      </Container>
+    </Section>
   );
 };
 

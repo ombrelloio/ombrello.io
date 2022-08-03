@@ -10,7 +10,7 @@ import {
   openPositionsSchema,
   jobDescriptionSchema,
   pageTitleSchema,
-  twoColumnList,
+  twoColumnListSchema,
 } from "./schema";
 
 const client = new GraphQLClient(
@@ -44,6 +44,9 @@ export async function getMenu() {
 //     title
 //   }
 
+/*
+ */
+
 export async function getPage(slug: string) {
   const query = gql`
     query Page {
@@ -55,14 +58,14 @@ export async function getPage(slug: string) {
             ${heroSchema}
             ${bannerSchema}
             ${headlineAndTextAndLinkSchema}
+            ${pageTitleSchema}
             ${mediaSchema}
             ${cardListSchema}
             ${caseListschema}
             ${imageCardListSchema}
             ${openPositionsSchema}
+            ${twoColumnListSchema}
             ${jobDescriptionSchema}
-            ${pageTitleSchema}
-            ${twoColumnList}
         }
         seo {
           noIndex

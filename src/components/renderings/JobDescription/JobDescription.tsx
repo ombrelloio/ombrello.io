@@ -1,19 +1,23 @@
+import { RichText } from "@atoms";
+import { Col, Row, Section, Container } from "@layout";
 import { JobDescriptionProps } from "@types";
 
 const JobDescription = ({ jobHeader, jobDescription }: JobDescriptionProps) => {
   return (
-    <section
-      className="w-full p-16 pt-20 border-b-[1px]"
-      data-rendering="JobDescription"
-    >
-      <p className="font-bold mb-10">JobDescription</p>
-      <p> header: {jobHeader}</p>
-      {jobDescription?.html && (
-        // eslint-disable-next-line react/no-danger
-        <div dangerouslySetInnerHTML={{ __html: jobDescription.html }} />
-      )}
-    </section>
+    <Section rendering="JobDescription">
+      <Container>
+        <Row className="mb-xl">
+          <Col md="6">
+            {jobHeader && <h1 className="text-h1-vw mb-lg">{jobHeader}</h1>}
+          </Col>
+          <Col md="6">
+            {jobDescription && jobDescription.html && (
+              <RichText text={jobDescription.html} />
+            )}
+          </Col>
+        </Row>
+      </Container>
+    </Section>
   );
 };
-
 export { JobDescription };

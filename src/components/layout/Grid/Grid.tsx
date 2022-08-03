@@ -28,6 +28,8 @@ export type cols =
   | "11"
   | "12";
 
+export type PushCols = cols | "0"; // cant use 0 as number because the validation will always be false
+
 type tags = "div" | "section" | "article" | "aside" | "header" | "footer";
 const defaultTag = "div";
 
@@ -42,6 +44,20 @@ export interface GridType {
   display?: cols;
   tag?: tags;
   children?: ReactNode;
+}
+
+export type ColPushType = {
+  root?: PushCols;
+  sm?: PushCols;
+  md?: PushCols;
+  lg?: PushCols;
+  xl?: PushCols;
+  xxl?: PushCols;
+  display?: PushCols;
+};
+
+export interface ColType extends GridType {
+  push?: ColPushType;
 }
 
 const Container: FC<GridType> = (props) => {
@@ -73,7 +89,7 @@ const Row: FC<{ className?: string; tag?: tags; children?: ReactNode }> = (
     </Component>
   );
 };
-const Col: FC<GridType> = (params) => {
+const Col: FC<ColType> = (params) => {
   const {
     children,
     root = 12,
@@ -84,22 +100,41 @@ const Col: FC<GridType> = (params) => {
     xxl,
     display,
     className,
+    push,
     tag: Component = defaultTag,
     ...rest
   } = params;
 
+  /* set push values for breakpoints
+    (exclude root value as this is handled in the className object) */
+  const pushClasses =
+    !!push &&
+    Object.entries(push)
+      .map(([bp, size]) => (bp !== "root" ? `${bp}:ml-${size}/12` : ""))
+      .join(" ");
+
+  /* set width in a breakpoint */
+  const colWidth = (bp?: cols) => (bp == 12 ? "full" : `${bp}/12`);
+
   return (
     <Component
-      className={classnames("px-3", {
-        [`w-${root == 12 ? "full" : `${root}/12`}`]: root,
-        [`sm:w-${sm == 12 ? "full" : `${sm}/12`}`]: sm,
-        [`md:w-${md == 12 ? "full" : `${md}/12`}`]: md,
-        [`lg:w-${lg == 12 ? "full" : `${lg}/12`}`]: lg,
-        [`xl:w-${xl == 12 ? "full" : `${xl}`}/12`]: xl,
-        [`xxl:w-${xxl == 12 ? "full" : `${xxl}/12`}`]: xxl,
-        [`display:w-${display == 12 ? "full" : `${display}/12`}`]: display,
-        [`${className}`]: className,
-      })}
+      className={classnames(
+        "px-3",
+        {
+          // width values
+          [`w-${colWidth(root)}`]: root,
+          [`sm:w-${colWidth(sm)}`]: sm,
+          [`md:w-${colWidth(md)}`]: md,
+          [`lg:w-${colWidth(lg)}`]: lg,
+          [`xl:w-${colWidth(xl)}`]: xl,
+          [`xxl:w-${colWidth(xxl)}`]: xxl,
+          [`display:w-${colWidth(display)}`]: display,
+          // push values (margin left)
+          [`ml-${push?.root}/12`]: push?.root,
+        },
+        pushClasses,
+        className
+      )}
       {...rest}
       data-comp="Col"
     >

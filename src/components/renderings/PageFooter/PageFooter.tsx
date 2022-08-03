@@ -34,7 +34,7 @@ function PageFooter() {
             <p className="max-w-xs">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.{" "}
               <Link href="/career">
-                <a className="underline underline-offset-2">Learn more</a>
+                <span className="underline underline-offset-2">Learn more</span>
               </Link>{" "}
               at dolorum voluptatibus
             </p>

@@ -1,4 +1,12 @@
-import { url } from "inspector";
+import { ReactNode } from "react";
+
+export type LinkTargetType = "_blank" | "_self" | "_parent" | "_top";
+
+export interface BaseFCType {
+  children: ReactNode;
+  className?: string;
+  rendering?: string;
+}
 
 export type MenuPageItem = {
   slug: string;
@@ -62,57 +70,88 @@ export type PageProps = {
 };
 
 export interface HeroProps {
+  id: string;
   title: string;
   text?: string;
 }
 
 export interface BannerProps {
+  id: string;
   title: string;
-  text?: string;
+  text?: {
+    html: string;
+  };
   pageLink?: PageProps;
 }
 
+export type InternalLinkType = {
+  slug: string;
+  navigationLabel?: string;
+};
 export interface HeadlineAndTextAndLinkProps {
+  id: string;
   headline: string;
-  text?: string;
-  pageLink?: PageProps;
+  text?: { html: string };
+  link?: {
+    label: string;
+    internalLink?: InternalLinkType;
+  };
 }
 
 export interface MediaProps {
+  id: string;
   image: {
     url: string;
+    fileName: string;
+    smallUrl: string;
   };
 }
 
 export interface CardListProps {
+  id: string;
+  heading?: string;
   list?: {
     title?: string;
     text?: string;
   }[];
 }
 
-export interface CaseListProps {
-  cases?: {
-    title: string;
-    text?: string;
-    tags?: string;
-    externalLinkLabel?: string;
-    externalLink?: string;
-    images?: {
-      url?: string;
-    }[];
+export interface CaseProps {
+  id?: string;
+  title: string;
+  text?: string;
+  tags?: string;
+  externalLinkLabel?: string;
+  externalLink?: string;
+  images?: {
+    id: string;
+    url?: string;
+    smallUrl?: string;
+    fileName: string;
   }[];
+}
+
+export interface CaseListProps {
+  id: string;
+  cases?: CaseProps[];
 }
 
 export interface ImageCardProps {
   id: string;
-  title?: string;
+  imageCardTitle?: string;
   text?: string;
   image?: {
     url?: string;
+    fileName: string;
   };
+  internalLink?: {
+    page: InternalLinkType;
+  };
+  internalLinkLabel?: string;
 }
 export interface ImageCardListProps {
+  id: string;
+  heading?: string;
   images?: ImageCardProps[];
 }
 
@@ -124,7 +163,8 @@ export interface JobDescriptionProps {
 }
 
 export interface OpenPositionsProps {
-  title?: string;
+  id: string;
+  heading?: string;
   text?: string;
   contactEmail?: string;
   contactPageLink?: { slug: string };
@@ -141,10 +181,13 @@ export interface OpenPositionsProps {
 }
 
 export interface PageTitleProps {
+  id: string;
   title: string;
   text?: string;
 }
 
 export interface TwoColumnListProps {
+  id: string;
+  heading?: string;
   imageCards?: ImageCardProps[];
 }

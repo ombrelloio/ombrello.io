@@ -3,17 +3,15 @@ import { FC } from "react";
 
 const Image: FC<ImageProps> = ({ src, className, ...rest }) => {
   const isRelativeURL = typeof src === "string" && src.startsWith("/");
+  const imageSrc = isRelativeURL ? `https:${src}` : src;
 
   return (
     <NextImage
-      src={isRelativeURL ? `https:${src}` : src}
-      lazyBoundary="9999px"
-      layout="fill"
-      objectFit="cover"
-      objectPosition="center"
+      src={imageSrc}
+      lazyBoundary="1500px"
       quality="80"
-      {...rest}
       className={className}
+      {...rest}
     />
   );
 };

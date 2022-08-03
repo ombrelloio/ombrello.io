@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import { FC, ReactNode } from "react";
 import classNames from "classnames";
 
@@ -5,12 +6,9 @@ const RichText: FC<{
   className?: string;
   text: string;
   children?: ReactNode;
-  styled?: boolean;
-}> = ({ children, text, styled = false, className }) => (
+}> = ({ children, text, className }) => (
   <div
-    className={classNames("richtext", className, {
-      styled,
-    })}
+    className={classNames("richtext", className)}
     dangerouslySetInnerHTML={{ __html: text }}
   >
     {children}

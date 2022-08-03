@@ -1,24 +1,37 @@
-import { Col, Container, Row } from "@layout";
+import { Image, Multiline } from "@atoms";
+import { Col, Container, Row, Section } from "@layout";
 import { ImageCardListProps } from "@types";
 
-const ImageCardList = ({ images }: ImageCardListProps) => {
+const ImageCardList = ({ images, heading }: ImageCardListProps) => {
   return (
-    <section
-      className="w-full p-16 pt-20 border-b-[1px]"
-      data-rendering="ImageCardList"
-    >
-      <p className="font-bold mb-10">ImageCardList</p>
+    <Section rendering="ImageCardList">
+      <Container>
+        {heading && (
+          <h2 className="text-h2 mb-lg md:mb-xl max-w-xl">{heading}</h2>
+        )}
+      </Container>
+
       {images && images.length && (
         <Container>
-          <Row className="gap-y-10">
+          <Row className="gap-y-lg">
             {images.map(
-              ({ id, title, text, image }) =>
+              ({ id, imageCardTitle, text, image }) =>
                 image?.url && (
                   <Col key={id} sm="6" md="4" lg="3">
                     <div>
-                      <img src={image.url} alt="" />
-                      <p className="font-bold">{title}</p>
-                      <p>{text}</p>
+                      <div className="relative aspect-square mb-sm">
+                        <Image
+                          src={image.url}
+                          alt={imageCardTitle}
+                          layout="fill"
+                          objectFit="cover"
+                          objectPosition="center"
+                        />
+                      </div>
+                      {imageCardTitle && (
+                        <h3 className="text-h3">{imageCardTitle}</h3>
+                      )}
+                      {text && <Multiline text={text} />}
                     </div>
                   </Col>
                 )
@@ -26,7 +39,7 @@ const ImageCardList = ({ images }: ImageCardListProps) => {
           </Row>
         </Container>
       )}
-    </section>
+    </Section>
   );
 };
 

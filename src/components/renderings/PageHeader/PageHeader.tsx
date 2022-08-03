@@ -45,39 +45,39 @@ const PageHeader = () => {
       <header className="fixed top-0 left-0 w-full pointer-events-none z-50 duration-300 bg-black">
         <Container className="flex justify-between items-center py-5">
           <Link href="/">
-            <a
+            <span
               className={classNames(
                 "w-24 block pointer-events-auto text-white"
               )}
             >
               <Logo />
-            </a>
+            </span>
           </Link>
           <nav className="absolute left-0 w-full justify-center hidden md:flex pointer-events-none">
             <ul className="flex text-16 gap-x-8 pointer-events-auto">
               <li>
                 <Link href="/technologyservices">
-                  <a>Technology & Services</a>
+                  <span>Technology & Services</span>
                 </Link>
               </li>
               <li>
                 <Link href="/cases">
-                  <a>Cases</a>
+                  <span>Cases</span>
                 </Link>
               </li>
               <li>
                 <Link href="/about">
-                  <a>About</a>
+                  <span>About</span>
                 </Link>
               </li>
               <li>
                 <Link href="/career">
-                  <a>Career</a>
+                  <span>Career</span>
                 </Link>
               </li>
               <li>
                 <Link href="#contact">
-                  <a>Contact</a>
+                  <span>Contact</span>
                 </Link>
               </li>
             </ul>

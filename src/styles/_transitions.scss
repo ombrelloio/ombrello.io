@@ -1,0 +1,42 @@
+// BASE PROPS
+.transition-base-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition-timing-function: ease-out;
+  pointer-events: none;
+  visibility: hidden;
+}
+.transition-base-visible {
+  opacity: 1;
+  pointer-events: all;
+  visibility: visible;
+}
+
+// PULL UP
+.pullup-hidden {
+  transition-property: opacity, transform;
+  transform: translateY(1rem) scale(0.999);
+}
+
+.pullup-visible {
+  transform: none;
+}
+
+// FADE
+.fade-hidden {
+  transition-property: opacity;
+}
+
+.fade-visible {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+}
+
+// extra prop: duration
+.duration-normal {
+  transition-duration: 0.25s;
+}
+.duration-slow {
+  transition-duration: 0.5s;
+}
