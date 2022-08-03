@@ -11,6 +11,7 @@ import {
   jobDescriptionSchema,
   pageTitleSchema,
   twoColumnListSchema,
+  textCollectionFragment,
 } from "./schema";
 
 const client = new GraphQLClient(
@@ -26,13 +27,29 @@ export async function getMenu() {
           navigationLabel
         }
       }
+      siteFooter(where: { id: "cl6dig8srr38p0bunfnanoyws" }) {
+        mainContent {
+            ${textCollectionFragment}
+        }
+        leftColumn {
+          ${textCollectionFragment}
+        }
+        centerColumn {
+            ${textCollectionFragment}
+        }
+        rightColumn {
+            ${textCollectionFragment}
+        }
+
+      }
     }
   `;
   return client.request(query);
 }
 
-//   footer(where: { id: "cl0gojamnkdlh0axmw8d9zoak" }) {
+//   footer(where: { id: "cl6dig8srr38p0bunfnanoyws" }) {
 //     leftColumn {
+
 //       html
 //     }
 //     rightColumn {

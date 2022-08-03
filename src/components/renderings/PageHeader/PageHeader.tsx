@@ -3,23 +3,15 @@ import { Container } from "@layout";
 import { Logo, Link } from "@atoms";
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import { PageProps } from "@types";
+import { PageHeaderProps, PageProps } from "@types";
 import { fixSlug } from "@app/helpers/utils.helpers";
 
-type PageHeaderProps = {
-  menu: {
-    siteMenu: {
-      pages: PageProps[];
-    };
-  };
-};
-
-const PageHeader = ({ menu: { siteMenu } }: PageHeaderProps) => {
+const PageHeader = ({ pages = [] }: PageHeaderProps) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [dateState, setDateState] = useState(new Date());
   const [weatherIcon, setWeatherIcon] = useState<string | null>(null);
-  const { pages = [] } = siteMenu;
+  // const { pages = [] } = siteMenu;
 
   useEffect(() => {
     const handleRouteChange = () => {

@@ -8,29 +8,28 @@ export interface BaseFCType {
   rendering?: string;
 }
 
+/** BEGIN HYGRAPH TYPES  */
 export type MenuPageItem = {
   slug: string;
   navigationLabel: string;
 };
 
+export type TextCollectionType = {
+  title?: string;
+  text?: {
+    html: string;
+  };
+  multiLink?: {
+    label?: string;
+    emailLink?: string;
+    externalUrl?: string;
+    pageLink?: MenuPageItem;
+  };
+};
+
 export type MenuSoMe = {
   url: string;
   title: string;
-};
-
-export type menuProps = {
-  siteMenu: {
-    pages: MenuPageItem[];
-  };
-  soMes: MenuSoMe[];
-  footer: {
-    leftColumn: {
-      html: string;
-    };
-    rightColumn: {
-      html: string;
-    };
-  };
 };
 
 export type PageProps = {
@@ -68,6 +67,8 @@ export type PageProps = {
     };
   };
 };
+
+// RENDERINGS FROM HYGRAPH:
 
 export interface HeroProps {
   id: string;
@@ -190,4 +191,38 @@ export interface TwoColumnListProps {
   id: string;
   heading?: string;
   imageCards?: ImageCardProps[];
+}
+
+/**
+ * ----------------
+ * END HYGRAP TYPES
+ */
+
+export type PageHeaderProps = {
+  pages: MenuPageItem[];
+};
+
+export interface PageFooterProps {
+  mainContent: TextCollectionType;
+  leftColumn: TextCollectionType;
+  centerColumn: TextCollectionType;
+  rightColumn: TextCollectionType;
+}
+
+export type menuProps = {
+  siteMenu: {
+    pages: MenuPageItem[];
+  };
+  soMes: MenuSoMe[];
+  siteFooter: PageFooterProps;
+};
+
+export interface LayoutProps {
+  children: ReactNode;
+  menu: {
+    siteMenu: {
+      pages: MenuPageItem[];
+    };
+    siteFooter: PageFooterProps;
+  };
 }

@@ -1,3 +1,19 @@
+export const textCollectionFragment = `
+    title
+    text {
+        html
+    }
+    multiLink {
+        label
+        emailLink
+        externalUrl
+        pageLink {
+            slug
+            navigationLabel
+        }
+    }
+`;
+
 export const heroSchema = `
     ... on Hero {
         __typename
