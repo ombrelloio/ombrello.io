@@ -65,9 +65,9 @@ const PageHeader = () => {
                   </li>
                 ))}
                 <li>
-                  <Link href="#contact" noUnderline>
-                    Contact
-                  </Link>
+                  <a href="#contact">
+                    <button onClick={() => setIsOpen(false)}>Contact</button>
+                  </a>
                 </li>
               </ul>
             </nav>
@@ -151,9 +151,9 @@ const PageHeader = () => {
                 </li>
               ))}
               <li>
-                <Link href="#contact" noUnderline>
+                <a href="#contact">
                   <button onClick={() => setIsOpen(false)}>Contact</button>
-                </Link>
+                </a>
               </li>
             </ul>
           )}
