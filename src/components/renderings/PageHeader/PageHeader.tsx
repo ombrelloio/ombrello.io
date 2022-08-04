@@ -64,6 +64,11 @@ const PageHeader = () => {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link href="#contact" noUnderline>
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </nav>
           )}
@@ -145,6 +150,11 @@ const PageHeader = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="#contact" noUnderline>
+                  <button onClick={() => setIsOpen(false)}>Contact</button>
+                </Link>
+              </li>
             </ul>
           )}
         </div>
