@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { UrlObject } from "url";
 
 export type LinkTargetType = "_blank" | "_self" | "_parent" | "_top";
 
@@ -9,8 +10,10 @@ export interface BaseFCType {
 }
 
 /** BEGIN HYGRAPH TYPES  */
+type SlugUrlObject = string | UrlObject;
+
 export type MenuPageItem = {
-  slug: string;
+  slug: SlugUrlObject;
   navigationLabel: string;
 };
 
@@ -33,7 +36,7 @@ export type MenuSoMe = {
 };
 
 export type PageProps = {
-  slug: string;
+  slug: SlugUrlObject;
   navigationLabel: string;
   // highlightColor: {
   //   hex: string | undefined;
@@ -86,7 +89,7 @@ export interface BannerProps {
 }
 
 export type InternalLinkType = {
-  slug: string;
+  slug: SlugUrlObject;
   navigationLabel?: string;
 };
 export interface HeadlineAndTextAndLinkProps {
@@ -168,9 +171,9 @@ export interface OpenPositionsProps {
   heading?: string;
   text?: string;
   contactEmail?: string;
-  contactPageLink?: { slug: string };
+  contactPageLink?: { slug: SlugUrlObject; navigationLabel?: string };
   jobPages?: {
-    slug: string;
+    slug: SlugUrlObject;
     navigationLabel?: string;
     renderings?: {
       id: string;

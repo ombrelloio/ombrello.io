@@ -12,7 +12,7 @@ export const PageContextWrapper = ({
 }) => <PageContext.Provider value={value}>{children}</PageContext.Provider>;
 
 export function usePageContext() {
-  const context = React.useContext(PageContext);
+  const context = useContext(PageContext);
   if (context === undefined) {
     throw new Error("usePageContext must be used within a PageContextProvider");
   }

@@ -1,7 +1,6 @@
 import { Link, RichText } from "@atoms";
 import { Container, Section, Row, Col } from "@layout";
 import { HeadlineAndTextAndLinkProps } from "@types";
-import { fixSlug } from "@app/helpers/utils.helpers";
 
 const HeadlineAndTextAndLink = ({
   headline,
@@ -28,7 +27,7 @@ const HeadlineAndTextAndLink = ({
           <Col md="6" className="space-y-md">
             {text && text.html && <RichText text={text.html} />}
             {internalLink?.slug && (
-              <Link href={fixSlug(internalLink.slug)} className="inline-block">
+              <Link href={internalLink.slug} className="inline-block">
                 {label}
               </Link>
             )}

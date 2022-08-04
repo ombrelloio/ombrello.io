@@ -4,7 +4,6 @@ import { Logo, Link } from "@atoms";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import { PageHeaderProps, PageProps } from "@types";
-import { fixSlug } from "@app/helpers/utils.helpers";
 
 const PageHeader = ({ pages = [] }: PageHeaderProps) => {
   const router = useRouter();
@@ -58,8 +57,8 @@ const PageHeader = ({ pages = [] }: PageHeaderProps) => {
             <nav className="absolute left-0 w-full justify-center hidden md:flex pointer-events-none">
               <ul className="flex text-16 gap-x-8 pointer-events-auto">
                 {pages.map(({ slug, navigationLabel }) => (
-                  <li key={slug}>
-                    <Link href={fixSlug(slug)} noUnderline>
+                  <li key={slug as string}>
+                    <Link href={slug} noUnderline>
                       {navigationLabel}
                     </Link>
                   </li>
@@ -138,8 +137,8 @@ const PageHeader = ({ pages = [] }: PageHeaderProps) => {
           {pages.length && (
             <ul className="text-center pt-20 text-20 space-y-6">
               {pages.map(({ slug, navigationLabel }) => (
-                <li key={slug}>
-                  <Link href={fixSlug(slug)} noUnderline>
+                <li key={slug as string}>
+                  <Link href={slug} noUnderline>
                     {navigationLabel}
                   </Link>
                 </li>

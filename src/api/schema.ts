@@ -138,6 +138,7 @@ export const openPositionsSchema = `
     contactEmail
     contactPageLink {
         slug
+        navigationLabel
     }
     jobPages {
         slug

@@ -1,4 +1,3 @@
-import { fixSlug } from "@app/helpers/utils.helpers";
 import { Link, RichText } from "@atoms";
 import { Container, Section } from "@layout";
 import { BannerProps } from "@types";
@@ -14,9 +13,7 @@ const Banner = ({ title, text, pageLink }: BannerProps) => {
           )}
           {pageLink && pageLink.slug && (
             <p className="mt-8">
-              <Link href={fixSlug(pageLink.slug)}>
-                {pageLink.navigationLabel}
-              </Link>
+              <Link href={pageLink.slug}>{pageLink.navigationLabel}</Link>
             </p>
           )}
         </div>

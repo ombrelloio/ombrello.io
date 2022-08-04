@@ -1,6 +1,6 @@
 import { KeyboardEvent, MouseEvent, ReactNode } from "react";
 import NextLink, { LinkProps } from "next/link";
-import { isURL } from "@app/helpers/utils.helpers";
+import { fixSlug, isURL } from "@app/helpers/utils.helpers";
 import { LinkTargetType } from "@types";
 import cx from "classnames";
 
@@ -33,7 +33,12 @@ const Link = ({
   //   console.warn("undefined href in Link", href, children);
   // }
   return href ? (
-    <NextLink {...props} scroll={false} href={href} passHref>
+    <NextLink
+      {...props}
+      scroll={false}
+      href={isURL(href) ? href : fixSlug(href)}
+      passHref
+    >
       <a
         role={role}
         className={cx(className, "", {

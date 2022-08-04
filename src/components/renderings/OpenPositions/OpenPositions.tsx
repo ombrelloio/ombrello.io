@@ -24,7 +24,10 @@ const OpenPositions = ({
             )}
             {contactPageLink?.slug && (
               <p>
-                <Link href={contactPageLink.slug}>{contactPageLink?.slug}</Link>
+                <Link href={contactPageLink.slug}>
+                  {contactPageLink?.navigationLabel ||
+                    (contactPageLink.slug as string)}
+                </Link>
               </p>
             )}
           </Col>
@@ -40,14 +43,15 @@ const OpenPositions = ({
                 return (
                   !!position &&
                   slug && (
-                    <a
-                      href={`/${slug}`}
+                    <Link
+                      href={slug}
                       key={index}
                       className="block bg-white/95 rounded-lg text-black p-8 transition hover:bg-white"
+                      noUnderline
                     >
                       <p className="font-bold">{position.jobHeader}</p>
                       <p>{position.hours}</p>
-                    </a>
+                    </Link>
                   )
                 );
               })}
