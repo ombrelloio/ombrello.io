@@ -33,12 +33,7 @@ const Link = ({
   //   console.warn("undefined href in Link", href, children);
   // }
   return href ? (
-    <NextLink
-      {...props}
-      scroll={false}
-      href={isURL(href) ? href : fixSlug(href)}
-      passHref
-    >
+    <NextLink {...props} href={isURL(href) ? href : fixSlug(href)} passHref>
       <a
         role={role}
         className={cx(className, "", {
