@@ -3,8 +3,6 @@ import { NextSeo } from "next-seo";
 import { Container, Row, Col } from "@layout";
 import { Image, Link } from "@atoms";
 
-type PageProps = {};
-
 export default function Page() {
   return (
     <>
@@ -83,9 +81,9 @@ export default function Page() {
                 </p>
               </div>
               <Link href="/#">
-                <a className="inline-block mt-8 underline underline-offset-2">
+                <span className="inline-block mt-8 underline underline-offset-2">
                   Visit site
-                </a>
+                </span>
               </Link>
             </Col>
           </Row>
@@ -131,9 +129,9 @@ export default function Page() {
                 </p>
               </div>
               <Link href="/#">
-                <a className="inline-block mt-8 underline underline-offset-2">
+                <span className="inline-block mt-8 underline underline-offset-2">
                   Visit site
-                </a>
+                </span>
               </Link>
             </Col>
           </Row>
@@ -179,9 +177,9 @@ export default function Page() {
                 </p>
               </div>
               <Link href="/#">
-                <a className="inline-block mt-8 underline underline-offset-2">
+                <span className="inline-block mt-8 underline underline-offset-2">
                   Visit site
-                </a>
+                </span>
               </Link>
             </Col>
           </Row>

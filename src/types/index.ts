@@ -212,20 +212,8 @@ export interface PageFooterProps {
   rightColumn: TextCollectionType;
 }
 
-export type menuProps = {
-  siteMenu: {
-    pages: MenuPageItem[];
-  };
-  soMes: MenuSoMe[];
+export interface HGPageProps {
+  page: PageProps;
+  siteMenu: PageHeaderProps;
   siteFooter: PageFooterProps;
-};
-
-export interface LayoutProps {
-  children: ReactNode;
-  menu: {
-    siteMenu: {
-      pages: MenuPageItem[];
-    };
-    siteFooter: PageFooterProps;
-  };
 }

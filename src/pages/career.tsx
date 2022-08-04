@@ -3,8 +3,6 @@ import { NextSeo } from "next-seo";
 import { Container, Row, Col } from "@layout";
 import { Image, Link } from "@atoms";
 
-type PageProps = {};
-
 const Service = ({ headline }: { headline: string }) => (
   <div className="group">
     <div className="relative aspect-square">
@@ -22,9 +20,9 @@ const Service = ({ headline }: { headline: string }) => (
         reprehenderit sunt iste? Harum voluptas amet nam enim fuga perferendis.
       </p>
       <Link href="/about">
-        <a className="mt-8 inline-block underline underline-offset-4 opacity-0 group-hover:opacity-100 duration-300">
+        <span className="mt-8 inline-block underline underline-offset-4 opacity-0 group-hover:opacity-100 duration-300">
           Learn more about our technology & Services
-        </a>
+        </span>
       </Link>
     </div>
   </div>
@@ -95,35 +93,35 @@ export default function Page() {
                 </p>
               </div>
               <Link href="#contact">
-                <a className="inline-block underline underline-offset-2 mt-4">
+                <span className="inline-block underline underline-offset-2 mt-4">
                   Get in touch
-                </a>
+                </span>
               </Link>
             </Col>
             <Col md="6" className="space-y-8">
               <Link href="/position">
-                <a className="bg-white rounded-lg p-8 text-black block">
+                <span className="bg-white rounded-lg p-8 text-black block">
                   <h2 className="font-bold">Senior Sitecore developer</h2>
                   <p>Full time</p>
-                </a>
+                </span>
               </Link>
               <Link href="/position">
-                <a className="bg-white rounded-lg p-8 text-black block">
+                <span className="bg-white rounded-lg p-8 text-black block">
                   <h2 className="font-bold">Fullstack Architect</h2>
                   <p>Full time</p>
-                </a>
+                </span>
               </Link>
               <Link href="/position">
-                <a className="bg-white rounded-lg p-8 text-black block">
+                <span className="bg-white rounded-lg p-8 text-black block">
                   <h2 className="font-bold">React developer</h2>
                   <p>Full time</p>
-                </a>
+                </span>
               </Link>
               <Link href="/position">
-                <a className="bg-white rounded-lg p-8 text-black block">
+                <span className="bg-white rounded-lg p-8 text-black block">
                   <h2 className="font-bold">Project Manager</h2>
                   <p>Full time</p>
-                </a>
+                </span>
               </Link>
             </Col>
           </Row>

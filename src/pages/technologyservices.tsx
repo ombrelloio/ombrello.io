@@ -3,8 +3,6 @@ import { NextSeo } from "next-seo";
 import { Container, Row, Col } from "@layout";
 import { Image, Link } from "@atoms";
 
-type PageProps = {};
-
 const Service = ({ headline }: { headline: string }) => (
   <div className="group">
     <div className="relative aspect-square">
@@ -241,9 +239,9 @@ export default function Page() {
               </p>
             </div>
             <Link href="/cases">
-              <a className="inline-block mt-8 underline underline-offset-2">
+              <span className="inline-block mt-8 underline underline-offset-2">
                 See our cases
-              </a>
+              </span>
             </Link>
           </div>
         </Container>

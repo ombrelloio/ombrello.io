@@ -1,18 +1,19 @@
 import React, { createContext, ReactNode, useContext } from "react";
-import { PageProps } from "@types";
+import { HGPageProps } from "@types";
 
-export const PageContext = createContext<PageProps | null>(null);
+export const PageContext = createContext<HGPageProps | null>(null);
 
 export const PageContextWrapper = ({
   children,
   value,
 }: {
-  value: PageProps;
+  value: HGPageProps;
   children: ReactNode;
 }) => <PageContext.Provider value={value}>{children}</PageContext.Provider>;
 
 export function usePageContext() {
   const context = useContext(PageContext);
+
   if (context === undefined) {
     throw new Error("usePageContext must be used within a PageContextProvider");
   }

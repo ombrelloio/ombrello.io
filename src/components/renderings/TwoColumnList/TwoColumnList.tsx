@@ -1,7 +1,6 @@
 import { Image, Multiline, Link } from "@atoms";
 import { Col, Container, FadeIntersect, Row, Section } from "@layout";
 import { ImageCardProps, TwoColumnListProps } from "@types";
-import cx from "classnames";
 
 const ListItem = ({
   imageCardTitle,

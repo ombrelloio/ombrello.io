@@ -2,14 +2,13 @@ import { memo, ReactNode } from "react";
 import { GridDebug } from "@layout";
 
 import { PageHeader, PageFooter } from "@renderings";
-import { LayoutProps, PageFooterProps, PageProps } from "@types";
 
-const Layout = memo(({ children, menu }: LayoutProps) => {
+const Layout = memo(({ children }: { children: ReactNode }) => {
   return (
     <>
-      <PageHeader {...menu.siteMenu} />
+      <PageHeader />
       <main>{children}</main>
-      <PageFooter {...menu.siteFooter} />
+      <PageFooter />
       <GridDebug />
     </>
   );

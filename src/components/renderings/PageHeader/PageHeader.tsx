@@ -1,16 +1,17 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import classNames from "classnames";
 import { Container } from "@layout";
 import { Logo, Link } from "@atoms";
-import classNames from "classnames";
-import { useRouter } from "next/router";
-import { PageHeaderProps, PageProps } from "@types";
+import { usePageContext } from "@app/hooks/PageContext/PageContext";
 
-const PageHeader = ({ pages = [] }: PageHeaderProps) => {
+const PageHeader = () => {
+  const { siteMenu } = usePageContext() || {};
+  const { pages } = siteMenu || {};
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [dateState, setDateState] = useState(new Date());
   const [weatherIcon, setWeatherIcon] = useState<string | null>(null);
-  // const { pages = [] } = siteMenu;
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -53,7 +54,7 @@ const PageHeader = ({ pages = [] }: PageHeaderProps) => {
               <Logo />
             </span>
           </Link>
-          {pages.length && (
+          {pages && pages.length && (
             <nav className="absolute left-0 w-full justify-center hidden md:flex pointer-events-none">
               <ul className="flex text-16 gap-x-8 pointer-events-auto">
                 {pages.map(({ slug, navigationLabel }) => (
@@ -71,6 +72,7 @@ const PageHeader = ({ pages = [] }: PageHeaderProps) => {
             <span>Copenhagen</span>
             <span className="w-8">
               {weatherIcon && (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
                   alt=""
@@ -134,7 +136,7 @@ const PageHeader = ({ pages = [] }: PageHeaderProps) => {
       </header>
       {isOpen && (
         <div className="fixed top-0 left-0 w-full h-full z-40 bg-black text-white md:hidden py-10 flex flex-col justify-between overflow-y-scroll">
-          {pages.length && (
+          {pages && pages.length && (
             <ul className="text-center pt-20 text-20 space-y-6">
               {pages.map(({ slug, navigationLabel }) => (
                 <li key={slug as string}>
@@ -143,31 +145,6 @@ const PageHeader = ({ pages = [] }: PageHeaderProps) => {
                   </Link>
                 </li>
               ))}
-              {/* <li>
-              <Link href="/technologyservices">
-                <a>Technology & Services</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/cases">
-                <a>Cases</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about">
-                <a>About</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/career">
-                <a>Career</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="#contact">
-                <a>Contact</a>
-              </Link>
-            </li> */}
             </ul>
           )}
         </div>

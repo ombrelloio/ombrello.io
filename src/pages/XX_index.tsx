@@ -3,8 +3,6 @@ import { NextSeo } from "next-seo";
 import { Container, Row, Col } from "@layout";
 import { Image, Link } from "@atoms";
 
-type PageProps = {};
-
 const Service = ({ headline }: { headline: string }) => (
   <div className="group">
     <div className="relative aspect-square">
@@ -22,9 +20,9 @@ const Service = ({ headline }: { headline: string }) => (
         reprehenderit sunt iste? Harum voluptas amet nam enim fuga perferendis.
       </p>
       <Link href="/technologyservices">
-        <a className="mt-8 inline-block underline underline-offset-4 opacity-0 group-hover:opacity-100 duration-300">
+        <span className="mt-8 inline-block underline underline-offset-4 opacity-0 group-hover:opacity-100 duration-300">
           Learn more about our technology & Services
-        </a>
+        </span>
       </Link>
     </div>
   </div>
@@ -94,9 +92,9 @@ export default function Page() {
                 </p>
               </div>
               <Link href="/about">
-                <a className="mt-8 inline-block underline underline-offset-4">
+                <span className="mt-8 inline-block underline underline-offset-4">
                   Learn more about us
-                </a>
+                </span>
               </Link>
             </Col>
           </Row>
@@ -144,9 +142,9 @@ export default function Page() {
               </p>
             </div>
             <Link href="/career">
-              <a className="inline-block mt-8 underline underline-offset-2">
+              <span className="inline-block mt-8 underline underline-offset-2">
                 Learn more
-              </a>
+              </span>
             </Link>
           </div>
         </Container>

@@ -1,13 +1,16 @@
+import { usePageContext } from "@app/hooks/PageContext/PageContext";
 import renderings from "@renderings";
 
-const Renderings = ({ list }: { list: any }) => {
-  if (list && list.length > 0) {
+const Renderings = () => {
+  const { page } = usePageContext() || {};
+  const renderingsList = page?.renderings;
+
+  if (renderingsList && renderingsList.length > 0) {
     return (
       <>
-        {list.map((rendering: any, index: number) => {
+        {renderingsList.map((rendering: any, index: number) => {
           const { __typename } = rendering;
-          const key = __typename;
-          const Component = renderings[key];
+          const Component = renderings[__typename];
 
           if (Component) {
             return (
@@ -20,9 +23,9 @@ const Renderings = ({ list }: { list: any }) => {
           }
           return (
             <div key={index} className="w-full text-center py-16 border-b">
-              {key
-                ? `Key with no rendering registered: ${key} `
-                : "undefined: missing key(__typename) or missing schema in query"}
+              {__typename
+                ? `Key with no rendering registered: ${__typename} `
+                : "undefined: missing '__typename' or missing schema in query"}
             </div>
           );
         })}

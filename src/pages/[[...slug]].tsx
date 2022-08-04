@@ -1,63 +1,38 @@
 import React from "react";
 import { NextSeo } from "next-seo";
 import { GetStaticProps, GetStaticPaths } from "next";
-import { Renderings } from "@layout";
-import { PageProps } from "@types";
+import { Layout, Renderings } from "@layout";
+import { HGPageProps } from "@types";
+import { PageContextWrapper } from "@app/hooks/PageContext/PageContext";
 import { getPage, getPages } from "../api";
 
-export default function Page({ seo, renderings }: PageProps) {
-  // useEffect(() => {
-  // const root = document.documentElement;
-  // const cssVars = [
-  //   "bodyBackground",
-  //   "bodyTextColor",
-  //   "headerBackground",
-  //   "headerTextColor",
-  // ];
-
-  // for (let i = 0; i < cssVars.length; i += 1) {
-  //   const cssVar = cssVars[i];
-
-  // if (
-  //   pageColors &&
-  //   Object.prototype.hasOwnProperty.call(pageColors, cssVar)
-  // ) {
-  //   // @ts-ignore: Can't make typescript approve this!
-  //   if (pageColors && pageColors[cssVar]) {
-  //     // @ts-ignore: Can't make typescript approve this!
-  //     root.style.setProperty(`--${cssVar}`, pageColors[cssVar].hex);
-  //   }
-  // } else {
-  //   root.style.removeProperty(`--${cssVar}`);
-  // }
-  // }
-  // });
+export default function Page({ page, siteMenu, siteFooter }: HGPageProps) {
+  const { seo } = page;
   return (
-    <>
-      <NextSeo
-        title={seo.title}
-        description={seo.description}
-        twitter={{
-          handle: "BlixtDunder",
-          site: "https://www.blixtdunder.com/",
-          cardType: "summary_large_image",
-        }}
-        openGraph={{
-          title: seo.title,
-          description: seo.description,
-          images: [
-            {
-              url: seo.image?.url || "",
-              width: seo.image?.width,
-              height: seo.image?.height,
-              alt: seo.image?.caption,
-            },
-          ],
-        }}
-        noindex={seo.noIndex}
-      />
-      <Renderings list={renderings} />
-    </>
+    <PageContextWrapper value={{ page, siteMenu, siteFooter }}>
+      {seo && (
+        <NextSeo
+          title={seo.title}
+          description={seo.description}
+          openGraph={{
+            title: seo.title,
+            description: seo.description,
+            images: [
+              {
+                url: seo.image?.url || "",
+                width: seo.image?.width,
+                height: seo.image?.height,
+                alt: seo.image?.caption,
+              },
+            ],
+          }}
+          noindex={seo.noIndex}
+        />
+      )}
+      <Layout>
+        <Renderings />
+      </Layout>
+    </PageContextWrapper>
   );
 }
 
@@ -67,7 +42,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   if (data.page) {
     return {
-      props: data.page,
+      props: {
+        page: data.page,
+        siteMenu: data.siteMenu,
+        siteFooter: data.siteFooter,
+      },
       revalidate: 5,
       notFound: false,
     };

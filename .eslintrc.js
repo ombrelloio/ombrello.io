@@ -56,6 +56,7 @@ module.exports = {
     "jsx-a11y/no-static-element-interactions": 1,
     "jsx-a11y/click-events-have-key-events": 1,
     "react/prop-types": 1,
+    "no-underscore-dangle": ["error", { allow: ["__typename"] }],
   },
   settings: {
     react: {

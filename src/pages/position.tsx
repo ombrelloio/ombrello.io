@@ -3,8 +3,6 @@ import { NextSeo } from "next-seo";
 import { Container, Row, Col } from "@layout";
 import { Image, Link } from "@atoms";
 
-type PageProps = {};
-
 const Service = ({ headline }: { headline: string }) => (
   <div className="group">
     <div className="relative aspect-square">
@@ -101,9 +99,9 @@ export default function Page() {
                 </p>
               </div>
               <Link href="mailto:apply@ombrello.io">
-                <a className="mt-8 inline-block underline underline-offset-4">
+                <span className="mt-8 inline-block underline underline-offset-4">
                   Apply now the position
-                </a>
+                </span>
               </Link>
             </Col>
           </Row>
@@ -246,9 +244,9 @@ export default function Page() {
               </p>
             </div>
             <Link href="mailto:apply@ombrello.io">
-              <a className="inline-block mt-8 underline underline-offset-2">
+              <span className="inline-block mt-8 underline underline-offset-2">
                 Apply now
-              </a>
+              </span>
             </Link>
           </div>
         </Container>

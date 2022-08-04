@@ -1,6 +1,7 @@
-import { Logo, Link, RichText } from "@atoms";
+import { usePageContext } from "@app/hooks/PageContext/PageContext";
+import { RichText } from "@atoms";
 import { Container, Row, Col } from "@layout";
-import { PageFooterProps, PageProps, TextCollectionType } from "@types";
+import { TextCollectionType } from "@types";
 
 const ColumnData = ({ title, text }: TextCollectionType) => {
   return title || text?.html ? (
@@ -11,12 +12,10 @@ const ColumnData = ({ title, text }: TextCollectionType) => {
   ) : null;
 };
 
-const PageFooter = ({
-  mainContent,
-  leftColumn,
-  centerColumn,
-  rightColumn,
-}: PageFooterProps) => {
+const PageFooter = () => {
+  const { siteFooter } = usePageContext() || {};
+  const { mainContent, leftColumn, centerColumn, rightColumn } =
+    siteFooter || {};
   return (
     <footer className="sticky top-[100vh] mt-12 md:mt-24 py-16" id="contact">
       <Container>

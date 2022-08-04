@@ -18,52 +18,6 @@ const client = new GraphQLClient(
   process.env.NEXT_PUBLIC_GRAPHCMS_URL as string
 );
 
-export async function getMenu() {
-  const query = gql`
-    query Header {
-      siteMenu(where: { id: "cl63bnsi186kt0bunb3qkiboq" }) {
-        pages {
-          slug
-          navigationLabel
-        }
-      }
-      siteFooter(where: { id: "cl6dig8srr38p0bunfnanoyws" }) {
-        mainContent {
-            ${textCollectionFragment}
-        }
-        leftColumn {
-          ${textCollectionFragment}
-        }
-        centerColumn {
-            ${textCollectionFragment}
-        }
-        rightColumn {
-            ${textCollectionFragment}
-        }
-
-      }
-    }
-  `;
-  return client.request(query);
-}
-
-//   footer(where: { id: "cl6dig8srr38p0bunfnanoyws" }) {
-//     leftColumn {
-
-//       html
-//     }
-//     rightColumn {
-//       html
-//     }
-//   }
-//   soMes {
-//     url
-//     title
-//   }
-
-/*
- */
-
 export async function getPage(slug: string) {
   const query = gql`
     query Page {
@@ -99,6 +53,26 @@ export async function getPage(slug: string) {
           }
         }
       }
+      siteMenu(where: { id: "cl63bnsi186kt0bunb3qkiboq" }) {
+        pages {
+          slug
+          navigationLabel
+        }
+      }
+      siteFooter(where: { id: "cl6dig8srr38p0bunfnanoyws" }) {
+        mainContent {
+            ${textCollectionFragment}
+        }
+        leftColumn {
+          ${textCollectionFragment}
+        }
+        centerColumn {
+            ${textCollectionFragment}
+        }
+        rightColumn {
+            ${textCollectionFragment}
+        }
+      }
     }
   `;
   return client.request(query);
@@ -112,6 +86,5 @@ export async function getPages() {
       }
     }
   `;
-  //   console.log(query);
   return client.request(query);
 }

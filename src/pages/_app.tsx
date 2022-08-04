@@ -1,19 +1,11 @@
 import { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import Head from "next/head";
-import { getMenu } from "@app/api";
-
-import { Layout } from "@layout";
-import { menuProps } from "@types";
 
 import SEO from "../../next-seo.config";
 import "@app/styles/global.scss";
 
-interface extendedAppProps extends AppProps {
-  menu: menuProps;
-}
-
-function App({ Component, pageProps, menu }: extendedAppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <DefaultSeo
@@ -119,17 +111,9 @@ function App({ Component, pageProps, menu }: extendedAppProps) {
           crossOrigin="crossOrigin"
         />
       </Head>
-      <Layout menu={menu}>
-        <Component {...pageProps} />
-      </Layout>
+      <Component {...pageProps} />
     </>
   );
 }
-
-App.getInitialProps = async () => {
-  const menu = await getMenu();
-
-  return { menu };
-};
 
 export default App;
