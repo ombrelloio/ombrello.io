@@ -1,13 +1,14 @@
 import { usePageContext } from "@app/hooks/PageContext/PageContext";
-import { RichText } from "@atoms";
+import { MultiLink, RichText } from "@atoms";
 import { Container, Row, Col } from "@layout";
 import { TextCollectionType } from "@types";
 
-const ColumnData = ({ title, text }: TextCollectionType) => {
+const ColumnData = ({ title, text, multiLink }: TextCollectionType) => {
   return title || text?.html ? (
     <>
       {title && <h3 className="text-h3">{title}</h3>}
       {text && text.html && <RichText text={text.html} />}
+      <MultiLink {...multiLink} className="inline-block mt-sm" />
     </>
   ) : null;
 };
@@ -16,6 +17,7 @@ const PageFooter = () => {
   const { siteFooter } = usePageContext() || {};
   const { mainContent, leftColumn, centerColumn, rightColumn } =
     siteFooter || {};
+
   return (
     <footer className="sticky top-[100vh] mt-12 md:mt-24 py-16" id="contact">
       <Container>
@@ -29,6 +31,10 @@ const PageFooter = () => {
               className="max-w-sm m-auto"
             />
           )}
+          <MultiLink
+            {...mainContent?.multiLink}
+            className="inline-block mt-sm"
+          />
         </div>
 
         <Row className="justify-center">

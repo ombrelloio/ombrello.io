@@ -17,17 +17,21 @@ export type MenuPageItem = {
   navigationLabel: string;
 };
 
+export type MultiLinkType = {
+  label?: string;
+  emailLink?: string;
+  externalUrl?: string;
+  pageLink?: MenuPageItem;
+  anchorLink?: string;
+  className?: string;
+};
+
 export type TextCollectionType = {
   title?: string;
   text?: {
     html: string;
   };
-  multiLink?: {
-    label?: string;
-    emailLink?: string;
-    externalUrl?: string;
-    pageLink?: MenuPageItem;
-  };
+  multiLink?: MultiLinkType;
 };
 
 export type MenuSoMe = {

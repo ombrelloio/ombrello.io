@@ -1,8 +1,4 @@
-export const textCollectionFragment = `
-    title
-    text {
-        html
-    }
+const multiLinkFragment = `
     multiLink {
         label
         emailLink
@@ -11,7 +7,15 @@ export const textCollectionFragment = `
             slug
             navigationLabel
         }
+        anchorLink
     }
+`;
+export const textCollectionFragment = `
+    title
+    text {
+        html
+    }
+    ${multiLinkFragment} 
 `;
 
 export const heroSchema = `

@@ -1,3 +1,4 @@
+import { MultiLinkType } from "@types";
 import { UrlObject } from "url";
 
 export const isURL = (url: string | unknown | undefined) => {
@@ -8,5 +9,15 @@ export const isURL = (url: string | unknown | undefined) => {
 
 export const fixSlug = (slug: string | UrlObject) => {
   const strSlug = slug as string;
-  return strSlug.startsWith("/") ? slug : `/${slug}`;
+  return strSlug.startsWith("/") || isURL(slug) ? slug : `/${slug}`;
+};
+
+export const isMultiLinkValid = (link: MultiLinkType | undefined) => {
+  const { emailLink, externalUrl, anchorLink, pageLink } = link || {};
+  return (
+    !!emailLink ||
+    !!externalUrl ||
+    !!anchorLink ||
+    (!!pageLink && !!pageLink.slug)
+  );
 };
