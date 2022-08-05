@@ -69,7 +69,7 @@ export const Locations: FC = () => {
 
   useEffect(() => {
     cachedFetch(
-      `http://api.openweathermap.org/data/2.5/group?id=${locations.join(
+      `https://api.openweathermap.org/data/2.5/group?id=${locations.join(
         ","
       )}&units;=metric&appid=ea0864f73dea512e836aa80459349d70`
     ).then((res) => {
