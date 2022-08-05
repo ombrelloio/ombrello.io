@@ -148,7 +148,7 @@ const GridDebug: FC<GridType> = () => {
   return (
     <>
       <button
-        className="fixed bottom-0 right-0 z-[999] bg-white text-black transition-colors duration-300 ease-out px-4 py-1.5 uppercase text-[10px] border-t border-r"
+        className="fixed bottom-0 right-0 z-[99999999] bg-white text-black transition-colors duration-300 ease-out px-4 py-1.5 uppercase text-[10px] border-t border-r"
         onClick={() => setVisible(!visible)}
       >
         <span className="sm:hidden">root</span>
@@ -160,7 +160,7 @@ const GridDebug: FC<GridType> = () => {
         <span className="hidden display:block">display</span>
       </button>
       {visible && (
-        <div className="fixed inset-0 w-full h-screenz-[998] pointer-events-none">
+        <div className="fixed inset-0 w-full h-screen z-[99999999] pointer-events-none">
           <Container>
             <Row>
               {[...Array(12)].map((_e, i) => (
