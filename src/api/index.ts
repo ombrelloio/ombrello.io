@@ -5,7 +5,7 @@ import {
   headlineAndTextAndLinkSchema,
   mediaSchema,
   cardListSchema,
-  caseListschema,
+  caseListSchema,
   imageCardListSchema,
   openPositionsSchema,
   jobDescriptionSchema,
@@ -32,7 +32,7 @@ export async function getPage(slug: string) {
             ${pageTitleSchema}
             ${mediaSchema}
             ${cardListSchema}
-            ${caseListschema}
+            ${caseListSchema}
             ${imageCardListSchema}
             ${openPositionsSchema}
             ${twoColumnListSchema}

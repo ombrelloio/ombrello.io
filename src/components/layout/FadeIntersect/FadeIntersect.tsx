@@ -7,7 +7,7 @@ const FadeIntersect: FC<
     rootMargin?: string;
     stagger?: string;
     flex?: boolean;
-    method?: "pullup" | "fade";
+    method?: "pullup" | "fade" | "zoomIn";
   }>
 > = ({ children, rootMargin, stagger, flex, method }) => {
   const ref = useRef<HTMLDivElement | null>(null);

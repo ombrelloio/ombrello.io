@@ -87,7 +87,7 @@ export const cardListSchema = `
 }
 `;
 
-export const caseListschema = `
+export const caseListSchema = `
 ... on CaseList {
     __typename 
     id
@@ -190,8 +190,14 @@ export const twoColumnListSchema = `
         imageCardTitle
         text
         image {
+            id,
             url,
-            fileName
+            fileName,
+            lazyUrl: url(
+                transformation: {
+                    image: {resize: {width: 20, fit: clip}}
+                }
+            )
         }
         internalLink {
             page {

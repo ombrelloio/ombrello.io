@@ -149,8 +149,10 @@ export interface ImageCardProps {
   imageCardTitle?: string;
   text?: string;
   image?: {
+    id: string;
     url?: string;
     fileName: string;
+    lazyUrl?: string;
   };
   internalLink?: {
     page: InternalLinkType;

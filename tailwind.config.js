@@ -7,7 +7,7 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./safelist.txt",
   ],
-  darkMode: false,
+  darkMode: "media",
   theme: {
     screens: {
       sm: "640px",

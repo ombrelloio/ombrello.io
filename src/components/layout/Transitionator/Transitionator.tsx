@@ -6,6 +6,7 @@ import cx from "classnames";
 const transitionStyleMap = {
   pullup: ["pullup-hidden", "pullup-visible"], // => default transition style
   fade: ["fade-hidden", "fade-visible"],
+  zoomIn: ["zoomin-hidden", "zoomin-visible"],
 };
 
 const Transitionator = forwardRef<
@@ -14,7 +15,7 @@ const Transitionator = forwardRef<
     children: any;
     isIn: boolean;
     className?: string;
-    method?: "pullup" | "fade";
+    method?: "pullup" | "fade" | "zoomIn";
     duration?: "slow" | "normal";
     stagger?: string;
   }
