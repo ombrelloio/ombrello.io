@@ -4,14 +4,13 @@ import classNames from "classnames";
 import { Container } from "@layout";
 import { Logo, Link } from "@atoms";
 import { usePageContext } from "@app/hooks/PageContext/PageContext";
+import { Locations } from "@molecules";
 
 const PageHeader = () => {
   const { siteMenu } = usePageContext() || {};
   const { pages } = siteMenu || {};
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [dateState, setDateState] = useState(new Date());
-  const [weatherIcon, setWeatherIcon] = useState<string | null>(null);
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -23,22 +22,6 @@ const PageHeader = () => {
     return () => {
       router.events.on("routeChangeStart", handleRouteChange);
     };
-  }, []);
-
-  useEffect(() => {
-    setInterval(() => setDateState(new Date()), 30000);
-  }, []);
-
-  useEffect(() => {
-    fetch(
-      "https://api.openweathermap.org/data/2.5/weather?q=copenhagen&appid=ea0864f73dea512e836aa80459349d70"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.weather && data.weather[0]) {
-          setWeatherIcon(data.weather[0].icon);
-        }
-      });
   }, []);
 
   return (
@@ -73,26 +56,7 @@ const PageHeader = () => {
             </nav>
           )}
 
-          <div className="flex items-center space-x-2">
-            <span>Copenhagen</span>
-            <span className="w-8">
-              {weatherIcon && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
-                  alt=""
-                  className="block w-full h-auto"
-                />
-              )}
-            </span>
-            <span>
-              {dateState.toLocaleString("en-US", {
-                hour: "numeric",
-                minute: "numeric",
-                hour12: false,
-              })}
-            </span>
-          </div>
+          <Locations />
           <button
             className="w-5 pointer-events-auto md:hidden"
             onClick={() => setIsOpen(!isOpen)}

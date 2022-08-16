@@ -51,61 +51,45 @@ function App({ Component, pageProps }: AppProps) {
         // ]}
       />
 
-      {/* <Head>
-        <link
-          rel="preload"
-          href="/fonts/wotfard/Italic/wotfard-regularitalic-webfont.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="crossOrigin"
-        />
-        <link
-          rel="preload"
-          href="/fonts/wotfard/roman/wotfard-medium-webfont.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="crossOrigin"
-        />
-        <link
-          rel="preload"
-          href="/fonts/wotfard/Italic/wotfard-mediumitalic-webfont.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="crossOrigin"
-        />
-        <link
-          rel="preload"
-          href="/fonts/novela/novela-displayregular-webfont.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="crossOrigin"
-        />
-        <link
-          rel="preload"
-          href="/fonts/novela/novela-displayitalic-webfont.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="crossOrigin"
-        />
-        <script
-          defer
-          type="text/javascript"
-          src="https://api.pirsch.io/pirsch.js"
-          id="pirschjs"
-          data-code="03MwK0Tdb6IjR0ArGhEaOJ9O6JmMWCQ8"
-        />
-      </Head> */}
       <Head>
         <link
           rel="preload"
-          href="/fonts/poppins.woff2"
+          href="/fonts/strawford/web/strawford-regular-webfont.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="crossOrigin"
         />
         <link
           rel="preload"
-          href="/fonts/poppinsSemibold.woff2"
+          href="/fonts/strawford/web/strawford-medium-webfont.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="crossOrigin"
+        />
+        <link
+          rel="preload"
+          href="/fonts/strawford/web/strawford-bold-webfont.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="crossOrigin"
+        />
+        <link
+          rel="preload"
+          href="/fonts/strawford/web/strawford-regularitalic-webfont.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="crossOrigin"
+        />
+        <link
+          rel="preload"
+          href="/fonts/strawford/web/strawford-mediumitalic-webfont.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="crossOrigin"
+        />
+        <link
+          rel="preload"
+          href="/fonts/strawford/web/strawford-bolditalic-webfont.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="crossOrigin"
