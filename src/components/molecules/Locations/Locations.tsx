@@ -83,7 +83,7 @@ export const Locations: FC = () => {
 
   useEffect(() => {
     if (list.current && list.current.children) {
-      Array.from(list.current.children).forEach((child, index) => {
+      Array.from(list.current.children).forEach((child) => {
         tl.current
           .fromTo(
             child,
@@ -118,6 +118,7 @@ export const Locations: FC = () => {
             <span>{name}</span>
             <span className="w-8">
               {weather && weather[0] && (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
                   alt=""

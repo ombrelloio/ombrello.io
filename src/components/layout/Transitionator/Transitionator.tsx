@@ -7,6 +7,7 @@ const transitionStyleMap = {
   pullup: ["pullup-hidden", "pullup-visible"], // => default transition style
   fade: ["fade-hidden", "fade-visible"],
   zoomIn: ["zoomin-hidden", "zoomin-visible"],
+  zoomOut: ["zoomout-hidden", "zoomout-visible"],
 };
 
 const Transitionator = forwardRef<
@@ -15,7 +16,7 @@ const Transitionator = forwardRef<
     children: any;
     isIn: boolean;
     className?: string;
-    method?: "pullup" | "fade" | "zoomIn";
+    method?: "pullup" | "fade" | "zoomIn" | "zoomOut";
     duration?: "slow" | "normal";
     stagger?: string;
   }

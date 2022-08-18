@@ -32,14 +32,14 @@
   pointer-events: all;
 }
 
-// ZOOM IN
-.zoomin-hidden {
+// ZOOM OUT
+.zoomout-hidden {
   transition: transform 300ms, opacity 0.75s 0.2s;
   transition-timing-function: ease-out;
   transform: scale(1.15);
 }
 
-.zoomin-visible {
+.zoomout-visible {
   transform: scale(1);
 }
 

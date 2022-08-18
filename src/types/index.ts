@@ -15,6 +15,7 @@ type SlugUrlObject = string | UrlObject;
 export type MenuPageItem = {
   slug: SlugUrlObject;
   navigationLabel: string;
+  pageTheme?: string;
 };
 
 export type MultiLinkType = {
@@ -39,25 +40,28 @@ export type MenuSoMe = {
   title: string;
 };
 
+export type SeoProps = {
+  noIndex: boolean;
+  keywords: Array<string>;
+  title: string;
+  updatedAt: string;
+  description: string;
+  image: {
+    url?: string;
+    width?: number;
+    caption?: string;
+    height?: number;
+  };
+};
+
 export type PageProps = {
   slug: SlugUrlObject;
   navigationLabel: string;
+  pageTheme?: string;
   // highlightColor: {
   //   hex: string | undefined;
   // };
-  seo: {
-    noIndex: boolean;
-    keywords: Array<string>;
-    title: string;
-    updatedAt: string;
-    description: string;
-    image: {
-      url?: string;
-      width?: number;
-      caption?: string;
-      height?: number;
-    };
-  };
+  seo: SeoProps;
   renderings: unknown[];
   pageColors?: {
     bodyBackground?: {

@@ -24,6 +24,7 @@ export async function getPage(slug: string) {
       page(where: { slug: "${slug}" }) {
         slug
         navigationLabel
+        pageTheme
         
         renderings {
             ${heroSchema}

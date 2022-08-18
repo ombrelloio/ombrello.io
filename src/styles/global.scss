@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "themes";
 @import "fonts";
 @import "headings";
 @import "typographies";
@@ -28,5 +29,5 @@ body,
 }
 
 body {
-  @apply font-sans leading-normal antialiased bg-black text-white;
+  @apply font-sans leading-normal antialiased text-white bg-th-body-bg text-th-body;
 }

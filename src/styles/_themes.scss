@@ -1,0 +1,20 @@
+:root,
+.th-dark {
+  // primary + variant
+  // secondary + variants
+  // background
+  // background invert
+
+  --body-bg: theme("colors.black");
+  --bg: theme("colors.black");
+  --body-bg-invert: theme("colors.white");
+  --body: theme("colors.offwhite");
+  --on-bg: theme("colors.white");
+}
+
+.th-light {
+  --body-bg: theme("colors.white");
+  --bg: theme("colors.white");
+  --on-bg: theme("colors.black");
+  --body: theme("colors.black");
+}

@@ -15,7 +15,7 @@ interface ImageZoomProps {
  * @className expects "relatve + aspect-*"
  */
 
-const ImageZoomIn = ({
+const ImageZoomOut = ({
   url,
   alt,
   lazyUrl,
@@ -23,8 +23,8 @@ const ImageZoomIn = ({
   className,
 }: ImageZoomProps) => {
   return (
-    <div className={cx(className, "overflow-hidden mb-sm bg-white/5")}>
-      <FadeIntersect method="zoomIn" stagger="200ms">
+    <div className={cx(className, "overflow-hidden mb-sm ")}>
+      <FadeIntersect method="zoomOut" stagger="200ms">
         <div className={className}>
           <Image
             src={url}
@@ -41,4 +41,4 @@ const ImageZoomIn = ({
     </div>
   );
 };
-export { ImageZoomIn };
+export { ImageZoomOut };

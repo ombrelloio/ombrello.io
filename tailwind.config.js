@@ -27,6 +27,10 @@ module.exports = {
       blue: "#2400FF",
       orange: "#FF9900",
       pink: "#FF008A",
+      "th-body-bg": "var(--body-bg)",
+      "th-body": "var(--body)",
+      "th-bg": "var(--bg)",
+      "th-on-bg": "var(--on-bg)",
     },
     fontSize: {
       10: [pxToRem(10), pxToRem(14)],
@@ -40,6 +44,7 @@ module.exports = {
       62: [pxToRem(62), pxToRem(72)],
       64: [pxToRem(64), 1.2],
       80: [pxToRem(80), 1.2],
+      96: [pxToRem(96), 1.2],
       102: [pxToRem(102), pxToRem(122)],
       120: [pxToRem(120), 1],
     },

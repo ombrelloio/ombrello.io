@@ -1,34 +1,36 @@
-import React from "react";
-import { NextSeo } from "next-seo";
+import React, { useEffect } from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Layout, Renderings } from "@layout";
 import { HGPageProps } from "@types";
 import { PageContextWrapper } from "@app/hooks/PageContext/PageContext";
+import { SeoWrapper } from "@app/components/layout/SeoWrapper/SeoWrapper";
+import { arrPageThemes, defaultTheme, prefix } from "@app/constants";
 import { getPage, getPages } from "../api";
 
 export default function Page({ page, siteMenu, siteFooter }: HGPageProps) {
-  const { seo } = page;
+  const { seo, pageTheme } = page;
+
+  /**
+   * THEME CLASS
+   *
+   * Check for each page what the pageTheme is
+   * loop through theme options in constants and
+   * add new active theme class
+   * */
+  useEffect(() => {
+    const activeTheme = pageTheme?.toLowerCase() || defaultTheme;
+    const bodyClass = document.body.classList;
+    arrPageThemes.forEach((theme) => {
+      if (`${prefix}${theme}` !== `${prefix}${activeTheme}`) {
+        bodyClass.remove(`${prefix}${theme}`);
+      }
+    });
+    bodyClass.add(`${prefix}${activeTheme}`);
+  });
+
   return (
     <PageContextWrapper value={{ page, siteMenu, siteFooter }}>
-      {seo && (
-        <NextSeo
-          title={seo.title}
-          description={seo.description}
-          openGraph={{
-            title: seo.title,
-            description: seo.description,
-            images: [
-              {
-                url: seo.image?.url || "",
-                width: seo.image?.width,
-                height: seo.image?.height,
-                alt: seo.image?.caption,
-              },
-            ],
-          }}
-          noindex={seo.noIndex}
-        />
-      )}
+      {seo && <SeoWrapper data={seo} />}
       <Layout>
         <Renderings />
       </Layout>
