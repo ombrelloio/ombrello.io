@@ -11,6 +11,14 @@
   visibility: visible;
 }
 
+// extra prop: duration
+.duration-normal {
+  transition-duration: 0.25s;
+}
+.duration-slow {
+  transition-duration: 0.5s;
+}
+
 // PULL UP
 .pullup-hidden {
   transition-property: opacity, transform;
@@ -32,6 +40,16 @@
   pointer-events: all;
 }
 
+// ZOOM IN
+.zoomin-hidden {
+  transition: transform 300ms, opacity 0.75s 0.2s;
+  transition-timing-function: ease-out;
+  transform: scale(0.95);
+}
+.zoomin-visible {
+  transform: scale(1);
+}
+
 // ZOOM OUT
 .zoomout-hidden {
   transition: transform 300ms, opacity 0.75s 0.2s;
@@ -43,10 +61,33 @@
   transform: scale(1);
 }
 
-// extra prop: duration
-.duration-normal {
-  transition-duration: 0.25s;
+//
+// ANIMATIONS
+//
+@keyframes pulldown {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
 }
-.duration-slow {
-  transition-duration: 0.5s;
+
+@keyframes pullup {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.anim-pulldown {
+  animation-name: pulldown;
+  animation-duration: 400ms;
+}
+
+.anim-pullup {
+  animation-name: pullup;
+  animation-duration: 400ms;
 }

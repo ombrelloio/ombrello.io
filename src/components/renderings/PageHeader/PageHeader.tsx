@@ -26,12 +26,12 @@ const PageHeader = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full pointer-events-none z-50 bg-th-bg">
+      <header className="fixed top-0 left-0 w-full pointer-events-none z-50 bg-th-bg-opaq">
         <Container className="flex justify-between items-center py-5 duration-300">
           <Link href="/">
             <span
               className={classNames(
-                "w-24 block pointer-events-auto text-th-on-bg"
+                "w-24 block pointer-events-auto text-th-body"
               )}
             >
               <Logo />

@@ -22,15 +22,24 @@ module.exports = {
       current: "currentColor",
       white: "#ffffff",
       offwhite: "#FBFAF6",
+      offwhiteRGB: "251, 250, 246",
       black: "#0D0D0D",
+      blackRGB: "13,13,13",
       lightBlack: "#1D1D1D",
       blue: "#2400FF",
       orange: "#FF9900",
       pink: "#FF008A",
-      "th-body-bg": "var(--body-bg)",
-      "th-body": "var(--body)",
       "th-bg": "var(--bg)",
+      "th-bg-opaq": "var(--bg-opaq)",
+      "th-body": "var(--body)",
       "th-on-bg": "var(--on-bg)",
+      "th-bg-inverted": "var(--bg-inverted)",
+      "th-bg-inverted-opaq": "var(--bg-inverted-opaq)",
+      "th-body-inverted": "var(--body-inverted)",
+      // button context
+      "th-btn-prim-front": "var(--btn-prim-front)",
+      "th-btn-prim-bg": "var(--btn-prim-bg)",
+      "th-btn-prim-bg-hover": "var(--btn-prim-bg-hover)",
     },
     fontSize: {
       10: [pxToRem(10), pxToRem(14)],
@@ -61,10 +70,12 @@ module.exports = {
         sans: "strawford",
       },
       spacing: {
-        sm: "1rem",
-        md: "2.5rem",
-        lg: "4rem",
-        xl: "8rem",
+        sm: [pxToRem(16)],
+        md: [pxToRem(40)],
+        lg: [pxToRem(64)],
+        xl: [pxToRem(96)],
+        xxl: [pxToRem(128)],
+        xxxl: [pxToRem(192)],
         // push a column in flex-grid to the right by using these as margin left
         "0/12": "0%",
         "1/12": `${(100 / 12) * 1}%`,
@@ -79,6 +90,29 @@ module.exports = {
         "10/12": `${(100 / 12) * 10}%`,
         "11/12": `${(100 / 12) * 11}%`,
         "12/12": "100%",
+      },
+      keyframes: {
+        slideDown: {
+          "0%": {
+            transform: "scaleY(0)",
+          },
+          "100%": {
+            transform: "scaleY(1)",
+          },
+        },
+        pullupMedia: {
+          "0%": {
+            transform: "translateY(25%)",
+          },
+          "100%": {
+            transform: "translateY(0)",
+          },
+        },
+      },
+      animation: {
+        slideDown: "slideDown 0.4s ease-in 1s forwards",
+        "pullup-media": "pullupMedia 0.3s ease-out 1s forwards",
+        clicked: "slideDown 0.4s ease-in 1s forwards",
       },
     },
   },

@@ -1,5 +1,4 @@
-const multiLinkFragment = `
-    multiLink {
+const multiLinkFields = `
         label
         emailLink
         externalUrl
@@ -8,6 +7,10 @@ const multiLinkFragment = `
             navigationLabel
         }
         anchorLink
+`;
+const multiLinkFragment = `
+    multiLink {
+        ${multiLinkFields}
     }
 `;
 export const textCollectionFragment = `
@@ -24,6 +27,12 @@ export const heroSchema = `
         id
         title
         text
+        componentThemingConfiguration {
+            theme
+        }
+        cta {
+           ${multiLinkFields}
+        }
     }
 `;
 
@@ -63,7 +72,9 @@ export const mediaSchema = `
 ... on Media {
     __typename
     id
-    
+    componentThemingConfiguration {
+        theme
+    }
     image {
         fileName
         url 

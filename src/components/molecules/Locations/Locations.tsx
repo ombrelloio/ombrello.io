@@ -103,7 +103,7 @@ export const Locations: FC = () => {
   }, [data]);
 
   return (
-    <ul className="relative bg-black w-48 h-9 overflow-hidden" ref={list}>
+    <ul className="relative w-48 h-9 overflow-hidden" ref={list}>
       {data &&
         data.list.map(({ name, sys, weather }, index) => (
           <li

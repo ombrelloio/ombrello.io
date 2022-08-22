@@ -8,6 +8,7 @@ interface ImageZoomProps {
   className?: string;
   lazyUrl?: string;
   url: string;
+  direction?: "in" | "out";
 }
 
 /**
@@ -15,16 +16,20 @@ interface ImageZoomProps {
  * @className expects "relatve + aspect-*"
  */
 
-const ImageZoomOut = ({
+const ZoomImage = ({
   url,
   alt,
   lazyUrl,
   sizes,
   className,
+  direction = "out",
 }: ImageZoomProps) => {
   return (
     <div className={cx(className, "overflow-hidden mb-sm ")}>
-      <FadeIntersect method="zoomOut" stagger="200ms">
+      <FadeIntersect
+        method={direction === "out" ? "zoomOut" : "zoomIn"}
+        stagger="200ms"
+      >
         <div className={className}>
           <Image
             src={url}
@@ -41,4 +46,4 @@ const ImageZoomOut = ({
     </div>
   );
 };
-export { ImageZoomOut };
+export { ZoomImage };

@@ -1,10 +1,17 @@
 import { MultiLinkType } from "@types";
 import { isMultiLinkValid } from "@app/helpers/utils.helpers";
-import { Link } from "@atoms";
+import { Link, Button } from "@atoms";
 
 export const MultiLink = (props: MultiLinkType) => {
-  const { label, emailLink, externalUrl, anchorLink, pageLink, className } =
-    props;
+  const {
+    label,
+    emailLink,
+    externalUrl,
+    anchorLink,
+    pageLink,
+    className,
+    asButton,
+  } = props;
   let useAsHref = "";
   let isExternal = false;
 
@@ -40,7 +47,9 @@ export const MultiLink = (props: MultiLinkType) => {
    */
   const useAsLabel = label || pageLink?.navigationLabel || "Link";
 
-  return useAsHref ? (
+  if (!useAsHref) return null;
+
+  return !asButton ? (
     <Link
       href={useAsHref}
       target={isExternal ? "_blank" : "_self"}
@@ -48,5 +57,12 @@ export const MultiLink = (props: MultiLinkType) => {
     >
       {useAsLabel}
     </Link>
-  ) : null;
+  ) : (
+    <Button
+      link={{ href: useAsHref, target: isExternal ? "_blank" : "_self" }}
+      className={className}
+    >
+      {useAsLabel}
+    </Button>
+  );
 };

@@ -1,4 +1,4 @@
-import { Multiline, ImageZoomIn } from "@atoms";
+import { Multiline, ZoomImage } from "@atoms";
 import { ImageCardProps } from "@types";
 
 export const ListItem = ({
@@ -13,11 +13,11 @@ export const ListItem = ({
     <>
       <div className="mb-md">
         {image.url && (
-          <ImageZoomIn
+          <ZoomImage
             url={image.url}
             alt={imageCardTitle}
             lazyUrl={image.lazyUrl}
-            sizes="300px"
+            sizes="600px"
             className="relative aspect-square"
           />
         )}

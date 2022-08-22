@@ -1,20 +1,66 @@
-:root,
-.th-dark {
+:root {
+  // implicitly .th-dark
   // primary + variant
   // secondary + variants
   // background
   // background invert
 
-  --body-bg: theme("colors.black");
+  // COLORS
+  --offwhiteRGB: theme("colors.offwhiteRGB");
+  --offwhite-70: rgba(var(--offwhiteRGB), 0.7);
+
+  --blackRGB: theme("colors.blackRGB");
+  --black-70: rgba(var(--blackRGB), 0.7);
+
+  //
+  // -----------------
+  // MAIN CONTEXT
+  // -----------------
+  //
   --bg: theme("colors.black");
-  --body-bg-invert: theme("colors.white");
+  --bg-opaq: var(--black-70);
+
   --body: theme("colors.offwhite");
-  --on-bg: theme("colors.white");
+  --on-bg: theme("colors.offwhite");
+
+  // inverted MAIN CONTEXT:
+
+  --bg-inverted: theme("colors.offwhite");
+  --bg-inverted-opaq: var(--offwhite-70);
+  --body-inverted: theme("colors.black");
+
+  // -- COMPONENTS --
+  //
+  // Buttons
+  --btn-prim-front: var(--body);
+  --btn-prim-bg: var(--bg);
+  --btn-prim-bg-hover: rgba(var(--offwhiteRGB), 0.3);
+  --btn-prim-bg-hover-inverted: rgba(var(--blackRGB), 0.3);
 }
 
 .th-light {
-  --body-bg: theme("colors.white");
-  --bg: theme("colors.white");
-  --on-bg: theme("colors.black");
+  //
+  // ------------
+  // MAIN CONTEXT
+  // ------------
+  //
+  --bg: theme("colors.offwhite");
+  --bg-opaq: var(--offwhite-70);
+
   --body: theme("colors.black");
+  --on-bg: theme("colors.black");
+
+  // inverted MAIN CONTEXT
+  //
+  --bg-inverted: theme("colors.black");
+  --bg-inverted-opaq: var(--black-70);
+  --body-inverted: theme("colors.offwhite");
+
+  // -- COMPONENTS: --
+  //
+  // Buttons
+  --btn-prim-front: var(--on-body);
+  --btn-prim-bg: var(--bg);
+  --btn-prim-bg-hover: rgba(var(--blackRGB), 0.3);
+  --btn-prim-bg-hover-inverted: rgba(var(--offwhiteRGB), 0.3);
 }

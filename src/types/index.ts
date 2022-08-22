@@ -25,6 +25,7 @@ export type MultiLinkType = {
   pageLink?: MenuPageItem;
   anchorLink?: string;
   className?: string;
+  asButton?: boolean;
 };
 
 export type TextCollectionType = {
@@ -81,10 +82,16 @@ export type PageProps = {
 
 // RENDERINGS FROM HYGRAPH:
 
+type ComponentThemingConfiguration = {
+  theme: null | "inverted" | "split_inverted_top";
+};
+
 export interface HeroProps {
   id: string;
   title: string;
   text?: string;
+  componentThemingConfiguration: ComponentThemingConfiguration;
+  cta: MultiLinkType;
 }
 
 export interface BannerProps {
@@ -117,6 +124,7 @@ export interface MediaProps {
     fileName: string;
     smallUrl: string;
   };
+  componentThemingConfiguration: ComponentThemingConfiguration;
 }
 
 export interface CardListProps {

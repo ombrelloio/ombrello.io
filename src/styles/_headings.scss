@@ -3,7 +3,7 @@
     @apply text-40 md:text-48 lg:text-64 xl:text-96 xxl:text-102 display:text-120;
   }
   .text-h1-vw {
-    @apply text-[6.66vw] display:text-120 leading-none;
+    @apply text-40 md:text-[6.66vw] display:text-120 leading-none;
   }
   .text-h2 {
     @apply text-24 md:text-40 font-bold;

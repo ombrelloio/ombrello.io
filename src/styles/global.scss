@@ -7,6 +7,8 @@
 @import "headings";
 @import "typographies";
 @import "transitions";
+@import "component-themes";
+@import "buttons";
 
 // $minFont: 16;
 // $maxFont: 18;
@@ -29,5 +31,5 @@ body,
 }
 
 body {
-  @apply font-sans leading-normal antialiased text-white bg-th-body-bg text-th-body;
+  @apply font-sans leading-normal antialiased text-white bg-th-bg text-th-body;
 }

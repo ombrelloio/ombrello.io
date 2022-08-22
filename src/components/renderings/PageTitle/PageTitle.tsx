@@ -1,4 +1,4 @@
-import { Multiline } from "@atoms";
+import { Button, Multiline } from "@atoms";
 import { Col, Container, FadeIntersect, Row, Section } from "@layout";
 import { PageTitleProps } from "@types";
 
