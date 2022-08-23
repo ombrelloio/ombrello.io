@@ -7,6 +7,7 @@ const multiLinkFields = `
             navigationLabel
         }
         anchorLink
+        showAsButton
 `;
 const multiLinkFragment = `
     multiLink {
@@ -59,11 +60,7 @@ export const headlineAndTextAndLinkSchema = `
         html
     }
     link {
-        label
-        internalLink {
-            slug
-            navigationLabel
-        }
+       ${multiLinkFields}
     }
 }
 `;

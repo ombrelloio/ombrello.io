@@ -25,7 +25,10 @@ export type MultiLinkType = {
   pageLink?: MenuPageItem;
   anchorLink?: string;
   className?: string;
+  showAsButton?: boolean;
+  /* prop for internal use, not from cms: */
   asButton?: boolean;
+  inline?: boolean;
 };
 
 export type TextCollectionType = {
@@ -111,10 +114,7 @@ export interface HeadlineAndTextAndLinkProps {
   id: string;
   headline: string;
   text?: { html: string };
-  link?: {
-    label: string;
-    internalLink?: InternalLinkType;
-  };
+  link?: MultiLinkType;
 }
 
 export interface MediaProps {

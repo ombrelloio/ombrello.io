@@ -1,7 +1,13 @@
 import { MultiLinkType } from "@types";
 import { isMultiLinkValid } from "@app/helpers/utils.helpers";
 import { Link, Button } from "@atoms";
+import cx from "classnames";
 
+/**
+ * @Multilink
+ * @Spread link props
+ * @returns null if invalid
+ */
 export const MultiLink = (props: MultiLinkType) => {
   const {
     label,
@@ -10,6 +16,8 @@ export const MultiLink = (props: MultiLinkType) => {
     anchorLink,
     pageLink,
     className,
+    showAsButton,
+    inline,
     asButton,
   } = props;
   let useAsHref = "";
@@ -49,11 +57,11 @@ export const MultiLink = (props: MultiLinkType) => {
 
   if (!useAsHref) return null;
 
-  return !asButton ? (
+  return !asButton && !showAsButton ? (
     <Link
       href={useAsHref}
       target={isExternal ? "_blank" : "_self"}
-      className={className}
+      className={cx(inline ? "inline" : "inline-block", className)}
     >
       {useAsLabel}
     </Link>

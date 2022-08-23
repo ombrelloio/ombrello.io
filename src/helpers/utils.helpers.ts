@@ -12,6 +12,11 @@ export const fixSlug = (slug: string | UrlObject) => {
   return strSlug.startsWith("/") || isURL(slug) ? slug : `/${slug}`;
 };
 
+/**
+ * @isMultiLinkValid
+ * checks for these props:
+ * emailLink, externalUrl, anchorLink, pageLink.slug
+ */
 export const isMultiLinkValid = (link: MultiLinkType | undefined) => {
   const { emailLink, externalUrl, anchorLink, pageLink } = link || {};
   return (

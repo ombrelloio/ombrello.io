@@ -4,15 +4,16 @@ import classNames from "classnames";
 
 const RichText: FC<{
   className?: string;
-  text: string;
+  text?: string;
   children?: ReactNode;
-}> = ({ children, text, className }) => (
-  <div
-    className={classNames("richtext", className)}
-    dangerouslySetInnerHTML={{ __html: text }}
-  >
-    {children}
-  </div>
-);
+}> = ({ children, text, className }) =>
+  text ? (
+    <div
+      className={classNames("richtext", className)}
+      dangerouslySetInnerHTML={{ __html: text }}
+    >
+      {children}
+    </div>
+  ) : null;
 
 export { RichText };

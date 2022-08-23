@@ -1,36 +1,33 @@
-import { Link, RichText } from "@atoms";
+import { MultiLink, RichText } from "@atoms";
 import { Container, Section, Row, Col } from "@layout";
 import { HeadlineAndTextAndLinkProps } from "@types";
+import cx from "classnames";
 
 const HeadlineAndTextAndLink = ({
   headline,
   text,
   link,
 }: HeadlineAndTextAndLinkProps) => {
-  const { internalLink, label } = link || {};
+  const { html } = text || {};
 
   return (
     <Section rendering="HeadlineAndTextAndLink">
       <Container>
         <Row className="gap-y-lg">
-          <Col md="6">
-            {headline && (
+          {headline && (
+            <Col md="5" push={{ md: 1 }}>
               <h2
-                className="text-h2"
+                className="text-h2 break-words"
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{
                   __html: headline.replaceAll("\n", "<br/>"),
                 }}
               />
-            )}
-          </Col>
-          <Col md="6" className="space-y-md">
-            {text && text.html && <RichText text={text.html} />}
-            {internalLink?.slug && (
-              <Link href={internalLink.slug} className="inline-block">
-                {label}
-              </Link>
-            )}
+            </Col>
+          )}
+          <Col md="5" className="space-y-md md:pt-[5vw] xl:pt-lg">
+            <RichText text={html} />
+            <MultiLink {...link} />
           </Col>
         </Row>
       </Container>
