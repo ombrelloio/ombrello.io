@@ -64,12 +64,6 @@ export async function getPage(slug: string) {
         mainContent {
             ${textCollectionFragment}
         }
-        leftColumn {
-          ${textCollectionFragment}
-        }
-        centerColumn {
-            ${textCollectionFragment}
-        }
         rightColumn {
             ${textCollectionFragment}
         }

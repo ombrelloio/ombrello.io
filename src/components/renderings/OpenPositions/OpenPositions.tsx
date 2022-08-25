@@ -12,7 +12,7 @@ const OpenPositions = ({
 }: OpenPositionsProps) => {
   return (
     <Section rendering="openPositions">
-      <Container>
+      <Container className="max-w-page">
         <Row className="space-y-md">
           <Col md="6" className="space-y-sm">
             {heading && <h2 className="text-h2 max-w-xl">{heading}</h2>}
@@ -31,7 +31,7 @@ const OpenPositions = ({
               </p>
             )}
           </Col>
-          <Col md="6" className="space-y-8">
+          <Col md="5" push={{ md: 1 }} className="space-y-8">
             {jobPages &&
               jobPages.length &&
               jobPages.map(({ slug, renderings }, index) => {

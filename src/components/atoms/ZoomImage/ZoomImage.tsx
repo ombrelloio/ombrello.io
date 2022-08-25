@@ -9,11 +9,15 @@ interface ImageZoomProps {
   lazyUrl?: string;
   url: string;
   direction?: "in" | "out";
+  inset?: boolean;
+  stagger?: string;
 }
 
 /**
  *
- * @className expects "relatve + aspect-*"
+ * @lazyUrl
+ * @url
+ * @className expects "relative + aspect-*"
  */
 
 const ZoomImage = ({
@@ -23,12 +27,19 @@ const ZoomImage = ({
   sizes,
   className,
   direction = "out",
+  inset,
+  stagger = "200ms",
 }: ImageZoomProps) => {
   return (
-    <div className={cx(className, "overflow-hidden mb-sm ")}>
+    <div
+      className={cx("overflow-hidden", {
+        "absolute inset-0": inset,
+      })}
+    >
       <FadeIntersect
         method={direction === "out" ? "zoomOut" : "zoomIn"}
-        stagger="200ms"
+        stagger={stagger}
+        inset={inset}
       >
         <div className={className}>
           <Image
@@ -40,6 +51,7 @@ const ZoomImage = ({
             blurDataURL={lazyUrl}
             placeholder="blur"
             sizes={sizes}
+            title={alt}
           />
         </div>
       </FadeIntersect>

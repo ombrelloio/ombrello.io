@@ -1,7 +1,7 @@
 import cx from "classnames";
 import { BaseFCType } from "@types";
 
-interface SectionProps extends BaseFCType {
+export interface SectionProps extends BaseFCType {
   flush?: boolean;
 }
 export const Section = ({
@@ -11,7 +11,7 @@ export const Section = ({
   flush,
 }: SectionProps) => (
   <section
-    className={cx({ "my-xxl": !flush }, className)}
+    className={cx({ "my-section-gap": !flush }, className)}
     data-rendering={rendering}
   >
     {children}

@@ -1,35 +1,36 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Link, Multiline, Image } from "@atoms";
+import { Link, Multiline, Image, MultiLink } from "@atoms";
 import { Col, FadeIntersect, Row } from "@layout";
 import { CaseProps } from "@types";
 // eslint-disable-next-line import/no-unresolved
 import "swiper/css";
-import { PushCols } from "@app/components/layout/Grid/Grid";
-
-interface CaseExtProps extends CaseProps {
-  push: PushCols;
-}
 
 const Case = ({
   tags,
   text,
   title,
-  externalLink,
-  externalLinkLabel,
   images,
-  push,
-}: CaseExtProps) => {
+  showLinkToAll,
+  link,
+}: CaseProps) => {
   return (
-    <article className="my-16 md:my-32">
+    <article>
       {images && images.length && (
         <Row>
-          <Col md="10" push={{ md: push }}>
+          <Col md="10" push={{ md: 1 }}>
+            <div className="flex justify-between items-end mb-12">
+              {title && <h2 className="text-h2">{title}</h2>}
+              {!!showLinkToAll && (
+                <MultiLink {...showLinkToAll} className="opacity-50" />
+              )}
+            </div>
+
             <FadeIntersect>
               <Swiper>
                 {images.map(({ id, url = "", smallUrl, fileName }) => {
                   return (
                     <SwiperSlide key={id}>
-                      <div className="relative aspect-video">
+                      <div className="relative aspect-[1368/768]">
                         <Image
                           src={url}
                           alt={fileName}
@@ -47,18 +48,13 @@ const Case = ({
           </Col>
         </Row>
       )}
-      <Row className="mt-lg">
-        <Col md="5" push={{ md: push }}>
-          {title && <h2 className="text-h2">{title}</h2>}
+      <Row className="mt-12 gap-y-sm">
+        <Col md="3" push={{ md: 1 }}>
           {tags && <p>{tags}</p>}
         </Col>
-        <Col md="5">
+        <Col md="7" className="space-y-sm">
           {text && <Multiline text={text} />}
-          {externalLink && (
-            <Link href={externalLink} className="inline-block mt-8">
-              {externalLinkLabel || "Visit site"}
-            </Link>
-          )}
+          {link && <MultiLink {...link} />}
         </Col>
       </Row>
     </article>

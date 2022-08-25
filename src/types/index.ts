@@ -103,7 +103,7 @@ export interface BannerProps {
   text?: {
     html: string;
   };
-  pageLink?: PageProps;
+  link?: MultiLinkType;
 }
 
 export type InternalLinkType = {
@@ -141,18 +141,21 @@ export interface CaseProps {
   title: string;
   text?: string;
   tags?: string;
-  externalLinkLabel?: string;
-  externalLink?: string;
+  link?: MultiLinkType;
   images?: {
     id: string;
     url?: string;
     smallUrl?: string;
     fileName: string;
   }[];
+  // internal
+  showLinkToAll?: MultiLinkType;
 }
 
 export interface CaseListProps {
   id: string;
+  kicker?: string;
+  multiLink?: MultiLinkType;
   cases?: CaseProps[];
 }
 
@@ -170,6 +173,10 @@ export interface ImageCardProps {
     page: InternalLinkType;
   };
   internalLinkLabel?: string;
+  // internal :
+  topSpace?: boolean;
+  first?: boolean;
+  last?: boolean;
 }
 export interface ImageCardListProps {
   id: string;
@@ -206,6 +213,12 @@ export interface PageTitleProps {
   id: string;
   title: string;
   text?: string;
+  picture?: {
+    url?: string;
+    fileName: string;
+    lazyUrl?: string;
+  };
+  componentTheming?: ComponentThemingConfiguration;
 }
 
 export interface TwoColumnListProps {

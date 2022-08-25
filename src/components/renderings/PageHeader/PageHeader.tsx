@@ -37,9 +37,10 @@ const PageHeader = () => {
               <Logo />
             </span>
           </Link>
+          {/* desktop */}
           {pages && pages.length && (
             <nav className="absolute left-0 w-full justify-center hidden md:flex pointer-events-none">
-              <ul className="flex text-16 gap-x-8 pointer-events-auto">
+              <ul className="flex space-x-6 pointer-events-auto">
                 {pages.map(({ slug, navigationLabel }) => (
                   <li key={slug as string}>
                     <Link href={slug} noUnderline>
@@ -47,16 +48,12 @@ const PageHeader = () => {
                     </Link>
                   </li>
                 ))}
-                <li>
-                  <a href="#contact">
-                    <button onClick={() => setIsOpen(false)}>Contact</button>
-                  </a>
-                </li>
               </ul>
             </nav>
           )}
 
           <Locations />
+          {/* mobile */}
           <button
             className="w-5 pointer-events-auto md:hidden"
             onClick={() => setIsOpen(!isOpen)}
@@ -103,6 +100,7 @@ const PageHeader = () => {
           </button>
         </Container>
       </header>
+      {/* mobile  */}
       {isOpen && (
         <div className="fixed top-0 left-0 w-full h-full z-40 bg-black text-white md:hidden py-10 flex flex-col justify-between overflow-y-scroll">
           {pages && pages.length && (

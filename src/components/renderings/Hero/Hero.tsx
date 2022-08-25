@@ -1,9 +1,13 @@
 import cx from "classnames";
-import { Button, Multiline, MultiLink } from "@atoms";
-import { Col, Container, FadeIntersect, Row } from "@layout";
+import { Multiline, MultiLink } from "@atoms";
+import {
+  Col,
+  Container,
+  FadeIntersect,
+  InvertibleHeroSection,
+  Row,
+} from "@layout";
 import { HeroProps } from "@types";
-import { useIntersectionObserver } from "usehooks-ts";
-import { useEffect, useRef } from "react";
 import { isMultiLinkValid } from "@app/helpers/utils.helpers";
 
 const Hero = ({
@@ -12,43 +16,12 @@ const Hero = ({
   cta,
   componentThemingConfiguration: theme,
 }: HeroProps) => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const entry = useIntersectionObserver(ref, {
-    threshold: [0, 0.1, 0.9, 1],
-  });
-
-  // useEffect(() => {
-  //   console.log(ref.current);
-  //   const domElm = ref.current;
-  //   const nextSection = domElm?.nextSibling;
-  //   console.log(nextSection);
-  // }, []);
-
-  // useEffect(() => {
-  //   if (ref?.current && entry) {
-  //     console.log(entry, entry?.intersectionRatio, entry?.isIntersecting);
-  //     if (entry?.intersectionRatio > 0) {
-  //       console.log(ref.current.style);
-  //       if (window) {
-  //         const bgColor = window
-  //           .getComputedStyle(ref.current, null)
-  //           .getPropertyValue("background-color");
-  //         console.log(bgColor);
-  //       }
-  //     }
-  //   }
-  // }, [entry]);
-
   return (
-    <section
-      className={cx(
-        "pt-xxl md:pt-xxxl xl:pt-[208px] pb-xl md:pb-xxxl text-center",
-        {
-          "th-c-inverted": theme?.theme === "inverted",
-        }
-      )}
-      data-rendering="Hero"
-      ref={ref}
+    <InvertibleHeroSection
+      rendering="Hero"
+      className={cx("text-center", {
+        "th-c-inverted": theme?.theme === "inverted",
+      })}
     >
       <Container>
         <Row>
@@ -71,7 +44,7 @@ const Hero = ({
           )}
         </Row>
       </Container>
-    </section>
+    </InvertibleHeroSection>
   );
 };
 export { Hero };

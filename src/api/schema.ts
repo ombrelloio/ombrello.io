@@ -45,9 +45,8 @@ export const bannerSchema = `
     text {
         html
     }
-    pageLink {
-        slug
-        navigationLabel
+    link {
+        ${multiLinkFields}
     }
 }
 `;
@@ -99,13 +98,16 @@ export const caseListSchema = `
 ... on CaseList {
     __typename 
     id
+    kicker
+    ${multiLinkFragment}
     cases {
         id
         title
         text
         tags
-        externalLink
-        externalLinkLabel
+        link {
+            ${multiLinkFields}
+        }
         images {
             id
             url
@@ -137,6 +139,11 @@ export const imageCardListSchema = `
         image {
             url
             fileName
+             lazyUrl: url(
+                transformation: {
+                    image: {resize: {width: 20, fit: clip}}
+                }
+            )
         }
     }
 }`;
@@ -185,6 +192,18 @@ export const pageTitleSchema = `
         id
         text
         title
+        picture: image {
+            url
+            fileName
+            lazyUrl: url(
+                transformation: {
+                    image: {resize: {width: 20, fit:clip}}
+                }
+            )
+        }
+        componentTheming {
+            theme
+        }
       }
 `;
 
@@ -198,9 +217,9 @@ export const twoColumnListSchema = `
         imageCardTitle
         text
         image {
-            id,
-            url,
-            fileName,
+            id
+            url
+            fileName
             lazyUrl: url(
                 transformation: {
                     image: {resize: {width: 20, fit: clip}}

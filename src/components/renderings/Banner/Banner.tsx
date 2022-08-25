@@ -1,22 +1,23 @@
-import { Link, RichText } from "@atoms";
-import { Container, Section } from "@layout";
+import { Link, MultiLink, RichText } from "@atoms";
+import { Col, Container, FadeIntersect, Row, Section } from "@layout";
 import { BannerProps } from "@types";
 
-const Banner = ({ title, text, pageLink }: BannerProps) => {
+const Banner = ({ title, text, link }: BannerProps) => {
+  const { html } = text || {};
   return (
     <Section rendering="Banner">
-      <Container>
-        <div className="bg-white p-8 md:py-32 md:px-16 rounded-lg text-center text-black">
-          {title && <h2 className="text-h2 mb-sm">{title}</h2>}
-          {text && text.html && (
-            <RichText text={text.html} className="max-w-lg m-auto" />
-          )}
-          {pageLink && pageLink.slug && (
-            <p className="mt-8">
-              <Link href={pageLink.slug}>{pageLink.navigationLabel}</Link>
-            </p>
-          )}
-        </div>
+      <Container className="max-w-page">
+        <Row>
+          <Col md="10" push={{ md: 1 }}>
+            <FadeIntersect method="pullup">
+              <div className="p-15 md:py-18 md:px-16 rounded-lg text-center bg-th-banner-bg text-th-banner-on-bg">
+                {title && <h2 className="text-h2 mb-sm">{title}</h2>}
+                <RichText text={html} className="max-w-lg m-auto" />
+                <MultiLink {...link} className="mt-8" asButton />
+              </div>
+            </FadeIntersect>
+          </Col>
+        </Row>
       </Container>
     </Section>
   );

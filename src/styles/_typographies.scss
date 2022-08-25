@@ -25,4 +25,8 @@
     list-style: revert;
     padding-left: 1em;
   }
+
+  a {
+    @apply underline underline-offset-1;
+  }
 }

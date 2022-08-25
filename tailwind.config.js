@@ -40,6 +40,9 @@ module.exports = {
       "th-btn-prim-front": "var(--btn-prim-front)",
       "th-btn-prim-bg": "var(--btn-prim-bg)",
       "th-btn-prim-bg-hover": "var(--btn-prim-bg-hover)",
+      // Banner
+      "th-banner-bg": "var(--banner-bg)",
+      "th-banner-on-bg": "var(--banner-on-bg)",
     },
     fontSize: {
       10: [pxToRem(10), pxToRem(14)],
@@ -68,15 +71,18 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: "strawford",
+        sans: "strawford, sans-serif",
       },
       spacing: {
+        15: [pxToRem(60)],
+        18: [pxToRem(72)],
         sm: [pxToRem(16)],
         md: [pxToRem(40)],
         lg: [pxToRem(64)],
         xl: [pxToRem(96)],
         xxl: [pxToRem(128)],
         xxxl: [pxToRem(192)],
+        "section-gap": [pxToRem(96)],
         // push a column in flex-grid to the right by using these as margin left
         "0/12": "0%",
         "1/12": `${(100 / 12) * 1}%`,
@@ -92,6 +98,9 @@ module.exports = {
         "11/12": `${(100 / 12) * 11}%`,
         "12/12": "100%",
       },
+      maxWidth: {
+        page: "calc(1640px + 6rem - 20px)",
+      },
       keyframes: {
         slideDown: {
           "0%": {
@@ -99,6 +108,17 @@ module.exports = {
           },
           "100%": {
             transform: "scaleY(1)",
+          },
+        },
+        slideUp: {
+          "0%": {
+            transition: "max-height",
+            // transform: "scaleY(1)",
+            "max-height": "10vw",
+          },
+          "100%": {
+            // transform: "scaleY(0)",
+            "max-height": 0,
           },
         },
         pullupMedia: {
@@ -112,6 +132,7 @@ module.exports = {
       },
       animation: {
         slideDown: "slideDown 0.4s ease-in 1s forwards",
+        slideUp: "slideUp 0.4s ease-in 0.4s forwards",
         "pullup-media": "pullupMedia 0.3s ease-out 1s forwards",
         clicked: "slideDown 0.4s ease-in 1s forwards",
       },

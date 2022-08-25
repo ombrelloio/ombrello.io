@@ -15,6 +15,7 @@ interface LinkExtProps extends LinkProps {
   // eslint-disable-next-line no-unused-vars
   keyHandler?: (event: KeyboardEvent<HTMLAnchorElement>) => void;
   noUnderline?: boolean;
+  block?: boolean;
 }
 
 const Link = ({
@@ -27,6 +28,7 @@ const Link = ({
   target,
   ariaLabel,
   noUnderline,
+  block,
   ...props
 }: LinkExtProps) => {
   // if (!href) {
@@ -37,7 +39,9 @@ const Link = ({
       <a
         role={role}
         className={cx(className, "", {
-          "underline underline-offset-2": !noUnderline,
+          "transition underline underline-offset-2 hover:opacity-100":
+            !block && !noUnderline,
+          block,
         })}
         rel={isURL(href) ? "noopener" : ""}
         target={target}

@@ -36,6 +36,10 @@
   --btn-prim-bg: var(--bg);
   --btn-prim-bg-hover: rgba(var(--offwhiteRGB), 0.3);
   --btn-prim-bg-hover-inverted: rgba(var(--blackRGB), 0.3);
+
+  // Banner
+  --banner-bg: theme("colors.blue");
+  --banner-on-bg: theme("colors.offwhite");
 }
 
 .th-light {

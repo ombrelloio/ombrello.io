@@ -1,20 +1,22 @@
 import { FC, useRef, PropsWithChildren } from "react";
 import { useIntersectionObserver } from "usehooks-ts";
 import { Transitionator } from "@layout";
+import cx from "classnames";
 
 const FadeIntersect: FC<
   PropsWithChildren<{
     rootMargin?: string;
     stagger?: string;
-    flex?: boolean;
     method?: "pullup" | "fade" | "zoomIn" | "zoomOut";
+    inset?: boolean;
+    className?: string;
   }>
-> = ({ children, rootMargin, stagger, flex, method }) => {
+> = ({ children, rootMargin, stagger, inset, method, className }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const entry = useIntersectionObserver(ref, {
     freezeOnceVisible: true,
-    rootMargin: rootMargin || "-120px",
+    rootMargin: rootMargin || "-220px",
   });
 
   const isRefVisible = !!entry?.isIntersecting;
@@ -25,7 +27,12 @@ const FadeIntersect: FC<
       isIn={isRefVisible}
       duration="slow"
       stagger={stagger}
-      className={flex ? "flex w-full" : ""}
+      className={cx(
+        {
+          "absolute inset-0": inset,
+        },
+        className
+      )}
       method={method}
     >
       {children}

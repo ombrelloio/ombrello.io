@@ -1,6 +1,6 @@
 import { usePageContext } from "@app/hooks/PageContext/PageContext";
 import { MultiLink, RichText } from "@atoms";
-import { Container, Row, Col } from "@layout";
+import { Container, Row, Col, FadeIntersect } from "@layout";
 import { TextCollectionType } from "@types";
 
 const ColumnData = ({ title, text, multiLink }: TextCollectionType) => {
@@ -19,32 +19,36 @@ const PageFooter = () => {
     siteFooter || {};
 
   return (
-    <footer className="sticky top-[100vh] mt-12 md:mt-24 py-16" id="contact">
-      <Container>
-        <div className="text-center mb-64">
-          {mainContent && mainContent.title && (
-            <h2 className="text-120 font-bold">{mainContent.title}</h2>
-          )}
-          {mainContent && mainContent.text && mainContent.text.html && (
-            <RichText
-              text={mainContent.text.html}
-              className="max-w-sm m-auto"
-            />
-          )}
-          <MultiLink
-            {...mainContent?.multiLink}
-            className="inline-block mt-sm"
-          />
-        </div>
-
-        <Row className="justify-center">
-          <Col md="3">
-            <ColumnData {...leftColumn} />
+    <footer
+      className="sticky top-[100vh] mt-15 md:mt-section-gap pb-[208px]"
+      id="contact"
+    >
+      <Container className="max-w-xxl">
+        <Row className="space-y-12">
+          <Col
+            sm="9"
+            md="7"
+            xxl="6"
+            display="5"
+            push={{ md: 1, xxl: 2, display: 3 }}
+          >
+            <FadeIntersect method="pullup">
+              {mainContent && mainContent.title && (
+                <h2 className="text-vw-small">{mainContent.title}</h2>
+              )}
+              {mainContent && mainContent.text && mainContent.text.html && (
+                <RichText
+                  text={mainContent.text.html}
+                  className="max-w-sm m-auto"
+                />
+              )}
+              <MultiLink
+                {...mainContent?.multiLink}
+                className="inline-block mt-sm"
+              />
+            </FadeIntersect>
           </Col>
-          <Col md="3">
-            <ColumnData {...centerColumn} />
-          </Col>
-          <Col md="3">
+          <Col sm="3" md="2" push={{ md: 1 }}>
             <ColumnData {...rightColumn} />
           </Col>
         </Row>
