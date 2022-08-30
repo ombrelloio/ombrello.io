@@ -9,7 +9,6 @@ import { getPage, getPages } from "../api";
 
 export default function Page({ page, siteMenu, siteFooter }: HGPageProps) {
   const { seo, pageTheme } = page;
-
   /**
    * THEME CLASS
    *

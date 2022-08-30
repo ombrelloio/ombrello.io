@@ -1,0 +1,5 @@
+@layer base {
+  .section-gap-vertical {
+    @apply my-section-gap xl:my-section-gap-xl display:my-section-gap-display;
+  }
+}

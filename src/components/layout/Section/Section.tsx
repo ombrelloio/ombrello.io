@@ -11,7 +11,12 @@ export const Section = ({
   flush,
 }: SectionProps) => (
   <section
-    className={cx({ "my-section-gap": !flush }, className)}
+    className={cx(
+      {
+        "section-gap-vertical": !flush,
+      },
+      className
+    )}
     data-rendering={rendering}
   >
     {children}

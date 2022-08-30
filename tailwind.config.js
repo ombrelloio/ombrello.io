@@ -3,11 +3,12 @@ const pxToRem = (num) => `${num / 16}rem`;
 module.exports = {
   mode: "jit",
   purge: [
+    // TODO: use content https://tailwindcss.com/docs/upgrade-guide#configure-content-sources
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./safelist.txt",
   ],
-  darkMode: "media",
+  darkMode: "media", // can be removed as its default beh TODO:
   theme: {
     screens: {
       sm: "640px",
@@ -83,6 +84,8 @@ module.exports = {
         xxl: [pxToRem(128)],
         xxxl: [pxToRem(192)],
         "section-gap": [pxToRem(96)],
+        "section-gap-xl": "calc(96px + 4.5vw)",
+        "section-gap-display": [pxToRem(192)],
         // push a column in flex-grid to the right by using these as margin left
         "0/12": "0%",
         "1/12": `${(100 / 12) * 1}%`,
@@ -97,6 +100,7 @@ module.exports = {
         "10/12": `${(100 / 12) * 10}%`,
         "11/12": `${(100 / 12) * 11}%`,
         "12/12": "100%",
+        "half-col": "calc((100 / 24) * 1% - 10px)",
       },
       maxWidth: {
         page: "calc(1640px + 6rem - 20px)",

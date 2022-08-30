@@ -18,7 +18,7 @@
   // -----------------
   //
   --bg: theme("colors.black");
-  --bg-opaq: var(--black-70);
+  --bg-opaq: rgba(var(--blackRGB), 0.9);
 
   --body: theme("colors.offwhite");
   --on-bg: theme("colors.offwhite");
@@ -49,7 +49,7 @@
   // ------------
   //
   --bg: theme("colors.offwhite");
-  --bg-opaq: var(--offwhite-70);
+  --bg-opaq: rgba(var(--offwhiteRGB), 0.9);
 
   --body: theme("colors.black");
   --on-bg: theme("colors.black");

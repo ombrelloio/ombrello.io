@@ -34,7 +34,7 @@ const PageFooter = () => {
           >
             <FadeIntersect method="pullup">
               {mainContent && mainContent.title && (
-                <h2 className="text-vw-small">{mainContent.title}</h2>
+                <h2 className="text-vw-medium">{mainContent.title}</h2>
               )}
               {mainContent && mainContent.text && mainContent.text.html && (
                 <RichText

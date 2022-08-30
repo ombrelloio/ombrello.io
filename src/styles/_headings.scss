@@ -6,6 +6,9 @@
   .text-vw-large {
     @apply text-40 md:text-[6.66vw] display:text-120 leading-none;
   }
+  .text-vw-medium {
+    @apply text-40 md:text-[4.75vw] display:text-96;
+  }
   .text-vw-small {
     @apply text-40 md:text-[4.3vw] display:text-62;
   }
