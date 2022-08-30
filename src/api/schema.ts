@@ -192,15 +192,6 @@ export const pageTitleSchema = `
         id
         text
         title
-        picture: image {
-            url
-            fileName
-            lazyUrl: url(
-                transformation: {
-                    image: {resize: {width: 20, fit:clip}}
-                }
-            )
-        }
         componentTheming {
             theme
         }

@@ -85,7 +85,7 @@ export type PageProps = {
 
 // RENDERINGS FROM HYGRAPH:
 
-type ComponentThemingConfiguration = {
+export type ComponentThemingConfiguration = {
   theme: null | "inverted" | "split_inverted_top";
 };
 
@@ -213,11 +213,7 @@ export interface PageTitleProps {
   id: string;
   title: string;
   text?: string;
-  picture?: {
-    url?: string;
-    fileName: string;
-    lazyUrl?: string;
-  };
+
   componentTheming?: ComponentThemingConfiguration;
 }
 

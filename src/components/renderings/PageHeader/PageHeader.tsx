@@ -48,6 +48,11 @@ const PageHeader = () => {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link href="#contact" noUnderline>
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </nav>
           )}
