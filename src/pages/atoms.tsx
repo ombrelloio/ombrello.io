@@ -1,8 +1,7 @@
 import { SeoWrapper } from "@app/components/layout/SeoWrapper/SeoWrapper";
 import { PageContextWrapper } from "@app/hooks/PageContext/PageContext";
-import { Col, Container, Layout, Row } from "@layout";
+import { Layout } from "@layout";
 import { HGPageProps } from "@types";
-import { NextSeo } from "next-seo";
 import React from "react";
 
 export default function StyleGuideAtoms({

@@ -1,4 +1,4 @@
-import { Image, Multiline, ZoomImage } from "@atoms";
+import { Multiline, ZoomImage } from "@atoms";
 import { Col, Container, Row, Section } from "@layout";
 import { ImageCardListProps } from "@types";
 import cx from "classnames";

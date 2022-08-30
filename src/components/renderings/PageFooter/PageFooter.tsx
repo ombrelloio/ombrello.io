@@ -15,8 +15,7 @@ const ColumnData = ({ title, text, multiLink }: TextCollectionType) => {
 
 const PageFooter = () => {
   const { siteFooter } = usePageContext() || {};
-  const { mainContent, leftColumn, centerColumn, rightColumn } =
-    siteFooter || {};
+  const { mainContent, rightColumn } = siteFooter || {};
 
   return (
     <footer

@@ -1,7 +1,6 @@
 import { MultiLink, RichText } from "@atoms";
 import { Container, Section, Row, Col } from "@layout";
 import { HeadlineAndTextAndLinkProps } from "@types";
-import cx from "classnames";
 
 const HeadlineAndTextAndLink = ({
   headline,

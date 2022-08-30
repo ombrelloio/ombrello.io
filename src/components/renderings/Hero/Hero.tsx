@@ -22,6 +22,7 @@ const Hero = ({
       className={cx("text-center", {
         "th-c-inverted": theme?.theme === "inverted",
       })}
+      inverted={theme?.theme === "inverted"}
     >
       <Container>
         <Row>

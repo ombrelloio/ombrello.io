@@ -1,5 +1,5 @@
 import { CardListProps } from "@types";
-import { Col, Container, Row, Section } from "@layout";
+import { Col, Container, FadeIntersect, Row, Section } from "@layout";
 import { RichText } from "@atoms";
 import cx from "classnames";
 
@@ -23,11 +23,13 @@ const CardList = ({ heading, list = [] }: CardListProps) => {
             list.map(({ title, text }, index) => (
               <Col key={index} sm="6" md="4" lg="3">
                 <article>
-                  <h3 className="text-h3 mb-8 flex items-center">
-                    <span className="bg-th-on-bg inline-block w-4 h-[1px] mr-3" />
-                    {title}
-                  </h3>
-                  <RichText text={text} />
+                  <FadeIntersect method="zoomIn" stagger={`${index * 16}ms`}>
+                    <h3 className="text-h3 mb-8 relative">
+                      <span className="relative bg-th-on-bg inline-block w-4 h-[1px] mr-3 bottom-2" />
+                      {title}
+                    </h3>
+                    <RichText text={text} />
+                  </FadeIntersect>
                 </article>
               </Col>
             ))}

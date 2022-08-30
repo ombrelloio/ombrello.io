@@ -1,11 +1,20 @@
 import cx from "classnames";
 import { BaseFCType } from "@types";
+import { useEffect } from "react";
 
+interface InvertibleHeroSectionProps extends BaseFCType {
+  inverted?: boolean;
+}
 const InvertibleHeroSection = ({
   className,
   children,
   rendering,
-}: BaseFCType) => {
+  inverted,
+}: InvertibleHeroSectionProps) => {
+  useEffect(() => {
+    if (inverted) document.body.classList.add("inverted");
+    else document.body.classList.remove("inverted");
+  });
   return (
     <section
       className={cx(

@@ -1,4 +1,4 @@
-import { Link, MultiLink, RichText } from "@atoms";
+import { MultiLink, RichText } from "@atoms";
 import { Col, Container, FadeIntersect, Row, Section } from "@layout";
 import { BannerProps } from "@types";
 

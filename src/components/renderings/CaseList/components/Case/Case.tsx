@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Link, Multiline, Image, MultiLink } from "@atoms";
+import { Multiline, Image, MultiLink } from "@atoms";
 import { Col, FadeIntersect, Row } from "@layout";
 import { CaseProps } from "@types";
 // eslint-disable-next-line import/no-unresolved

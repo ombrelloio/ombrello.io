@@ -8,3 +8,9 @@
   --btn-prim-bg: var(--bg-inverted);
   --btn-prim-bg-hover: var(--btn-prim-bg-hover-inverted);
 }
+
+body.inverted {
+  .pageHeader {
+    @apply bg-th-bg-inverted text-th-body-inverted;
+  }
+}

@@ -1,7 +1,6 @@
-import { Image, ZoomImage } from "@atoms";
-import { Container, FadeIntersect, Section, Transitionator } from "@layout";
+import { ZoomImage } from "@atoms";
+import { Container, Section } from "@layout";
 import { MediaProps } from "@types";
-import { useEffect } from "react";
 
 const Media = ({ image, componentThemingConfiguration: theme }: MediaProps) => {
   const isSplitTop = theme?.theme === "split_inverted_top";
@@ -20,16 +19,6 @@ const Media = ({ image, componentThemingConfiguration: theme }: MediaProps) => {
             lazyUrl={image.smallUrl}
           />
         )}
-        {/* <FadeIntersect> */}
-        {/* <Image
-              src={image.url}
-              alt={image.fileName}
-              layout="fill"
-              objectFit="cover"
-              placeholder="blur"
-              blurDataURL={image.smallUrl}
-            /> */}
-        {/* </FadeIntersect> */}
       </Container>
     </Section>
   );

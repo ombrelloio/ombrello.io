@@ -62,6 +62,7 @@ export type PageProps = {
   slug: SlugUrlObject;
   navigationLabel: string;
   pageTheme?: string;
+  topComponentTheme?: string;
   // highlightColor: {
   //   hex: string | undefined;
   // };
@@ -86,7 +87,7 @@ export type PageProps = {
 // RENDERINGS FROM HYGRAPH:
 
 export type ComponentThemingConfiguration = {
-  theme: null | "inverted" | "split_inverted_top";
+  theme: "inverted" | "split_inverted_top";
 };
 
 export interface HeroProps {
@@ -213,7 +214,6 @@ export interface PageTitleProps {
   id: string;
   title: string;
   text?: string;
-
   componentTheming?: ComponentThemingConfiguration;
 }
 
