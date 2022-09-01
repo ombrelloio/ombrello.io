@@ -23,6 +23,7 @@ const SeoWrapper = ({ data: seo }: SeoWrapperProps) => {
         ],
       }}
       noindex={seo.noIndex}
+      nofollow={seo.noFollow}
     />
   );
 };

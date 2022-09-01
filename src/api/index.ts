@@ -41,6 +41,7 @@ export async function getPage(slug: string) {
         }
         seo {
           noIndex
+          noFollow
           keywords
           title
           updatedAt

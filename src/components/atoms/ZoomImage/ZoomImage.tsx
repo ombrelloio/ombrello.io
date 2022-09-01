@@ -11,6 +11,7 @@ interface ImageZoomProps {
   direction?: "in" | "out";
   inset?: boolean;
   stagger?: string;
+  rootMargin?: string;
 }
 
 /**
@@ -29,6 +30,7 @@ const ZoomImage = ({
   direction = "out",
   inset,
   stagger = "0ms",
+  rootMargin,
 }: ImageZoomProps) => {
   return (
     <div
@@ -40,6 +42,7 @@ const ZoomImage = ({
         method={direction === "out" ? "zoomOut" : "zoomIn"}
         stagger={stagger}
         inset={inset}
+        rootMargin={rootMargin}
       >
         <div className={className}>
           <Image

@@ -23,6 +23,7 @@ export const ListItem = ({
             lazyUrl={image.lazyUrl}
             sizes="600px"
             className="relative aspect-square"
+            rootMargin="500px"
           />
         )}
       </div>

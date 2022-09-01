@@ -46,6 +46,7 @@ export type MenuSoMe = {
 
 export type SeoProps = {
   noIndex: boolean;
+  noFollow: boolean;
   keywords: Array<string>;
   title: string;
   updatedAt: string;
