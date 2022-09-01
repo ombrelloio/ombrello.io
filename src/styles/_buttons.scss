@@ -1,7 +1,8 @@
 .btn {
-  @apply transition inline-flex justify-center items-center border-[1.5px] rounded-[1.5rem] px-4 py-2 text-16 leading-normal no-underline uppercase;
+  @apply inline-flex justify-center items-center border-[1.5px] rounded-[1.5rem] px-4 py-2 text-16 leading-normal no-underline uppercase transition;
 }
 
 .btn-prim {
-  @apply text-th-btn-prim-front bg-transparent hover:bg-th-btn-prim-bg-hover;
+  @apply text-th-btn-prim-front bg-transparent;
+  @apply hover:scale-105;
 }

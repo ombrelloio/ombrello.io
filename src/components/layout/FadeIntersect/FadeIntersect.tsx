@@ -11,12 +11,19 @@ const FadeIntersect: FC<
     inset?: boolean;
     className?: string;
   }>
-> = ({ children, rootMargin, stagger, inset, method, className }) => {
+> = ({
+  children,
+  rootMargin = "-200px",
+  stagger,
+  inset,
+  method,
+  className,
+}) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const entry = useIntersectionObserver(ref, {
     freezeOnceVisible: true,
-    rootMargin: rootMargin || "-220px",
+    rootMargin,
   });
 
   const isRefVisible = !!entry?.isIntersecting;

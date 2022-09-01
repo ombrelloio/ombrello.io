@@ -21,22 +21,20 @@ const Button: FC<ButtonProps> = ({
     </button>
   ) : (
     // BUTTON BUT AS A LINK
-    <div className="space-x-8">
-      <Link
-        href={link.href}
-        target={link.target}
-        className={cx(
-          "btn",
-          {
-            "btn-prim": pType === "primary",
-          },
-          className
-        )}
-        noUnderline
-      >
-        {children}
-      </Link>
-    </div>
+    <Link
+      href={link.href}
+      target={link.target}
+      className={cx(
+        "btn",
+        {
+          "btn-prim": pType === "primary",
+        },
+        className
+      )}
+      noUnderline
+    >
+      {children}
+    </Link>
   );
 };
 export { Button };

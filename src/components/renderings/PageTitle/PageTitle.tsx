@@ -23,7 +23,7 @@ const PageTitle = ({ title, text, componentTheming }: PageTitleProps) => {
           <Row>
             <Col md="6">
               {title && (
-                <FadeIntersect method="zoomIn">
+                <FadeIntersect method="zoomIn" rootMargin="0px" stagger="100ms">
                   <Multiline
                     text={title}
                     tag="h1"

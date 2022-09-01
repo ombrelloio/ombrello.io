@@ -45,11 +45,14 @@ const OpenPositions = ({
                 return (
                   !!position &&
                   slug && (
-                    <FadeIntersect method="zoomIn" stagger={`${index * 16}ms`}>
+                    <FadeIntersect
+                      method="zoomIn"
+                      stagger={`${index * 16}ms`}
+                      key={index}
+                    >
                       <Link
                         href={slug}
-                        key={index}
-                        className="block rounded-lg p-8 transition bg-th-bg-inverted text-th-body-inverted hover:scale-[1.05]"
+                        className="block rounded-lg p-8 transition bg-th-bg-inverted text-th-body-inverted hover:scale-105"
                         noUnderline
                       >
                         <p className="font-bold">{position.jobHeader}</p>

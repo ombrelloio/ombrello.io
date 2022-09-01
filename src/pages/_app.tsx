@@ -1,9 +1,13 @@
 import { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import Head from "next/head";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import SEO from "../../next-seo.config";
 import "@app/styles/global.scss";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App({ Component, pageProps }: AppProps) {
   return (

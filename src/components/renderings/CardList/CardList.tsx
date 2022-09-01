@@ -13,11 +13,7 @@ const CardList = ({ heading, list = [] }: CardListProps) => {
           </Col>
         </Row>
 
-        <Row
-          className={cx("gap-y-md", {
-            "lg:justify-center": list.length < 4,
-          })}
-        >
+        <Row className={cx("gap-y-md")}>
           {list &&
             list.length &&
             list.map(({ title, text }, index) => (

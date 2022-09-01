@@ -28,7 +28,7 @@ const ZoomImage = ({
   className,
   direction = "out",
   inset,
-  stagger = "200ms",
+  stagger = "0ms",
 }: ImageZoomProps) => {
   return (
     <div
