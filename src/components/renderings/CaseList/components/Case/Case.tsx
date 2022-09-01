@@ -4,6 +4,9 @@ import { Col, FadeIntersect, Row } from "@layout";
 import { CaseProps } from "@types";
 // eslint-disable-next-line import/no-unresolved
 import "swiper/css";
+// eslint-disable-next-line import/no-unresolved
+import "swiper/css/effect-fade";
+import { Autoplay, EffectFade } from "swiper";
 
 const Case = ({
   tags,
@@ -26,7 +29,15 @@ const Case = ({
             </div>
 
             <FadeIntersect>
-              <Swiper>
+              <Swiper
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                }}
+                modules={[Autoplay, EffectFade]}
+                effect="fade"
+                loop
+              >
                 {images.map(({ id, url = "", smallUrl, fileName }) => {
                   return (
                     <SwiperSlide key={id}>

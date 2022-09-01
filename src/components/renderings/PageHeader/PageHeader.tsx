@@ -36,7 +36,7 @@ const PageHeader = () => {
           {/* desktop */}
           {pages && pages.length && (
             <nav className="absolute left-0 w-full justify-center hidden md:flex pointer-events-none">
-              <ul className="flex space-x-6 pointer-events-auto">
+              <ul className="flex display:text-[0.8vw] space-x-[1.5em] pointer-events-auto">
                 {pages.map(({ slug, navigationLabel }) => (
                   <li key={slug as string}>
                     <Link href={slug} noUnderline>

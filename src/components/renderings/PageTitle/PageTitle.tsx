@@ -41,7 +41,7 @@ const PageTitle = ({ title, text, componentTheming }: PageTitleProps) => {
             {text && (
               <div className="max-w-xl">
                 <Transitionator method="zoomIn" stagger="100ms" isIn={isReady}>
-                  <Multiline text={text} />
+                  <Multiline text={text} className="text-20" />
                 </Transitionator>
               </div>
             )}

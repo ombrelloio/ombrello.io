@@ -11,19 +11,19 @@
 @import "component-themes";
 @import "buttons";
 
-// $minFont: 16;
-// $maxFont: 18;
-// $from: 1680;
-// $to: 2560;
+$minFont: 16;
+$maxFont: 18;
+$from: 1680;
+$to: 2560;
 
-// html {
-//   @media screen and (min-width:#{$from}px) {
-//     font-size: calc(
-//       #{$minFont}px + (#{$maxFont} - #{$minFont}) *
-//         ((100vw - #{$from}px) / (#{$to} - #{$from}))
-//     );
-//   }
-// }
+html {
+  @media screen and (min-width:#{$from}px) {
+    font-size: calc(
+      #{$minFont}px + (#{$maxFont} - #{$minFont}) *
+        ((100vw - #{$from}px) / (#{$to} - #{$from}))
+    );
+  }
+}
 
 html,
 body,

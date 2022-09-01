@@ -36,7 +36,9 @@ const Hero = ({
           {(text || isMultiLinkValid(cta)) && (
             <Col md="6" push={{ md: 3 }}>
               <FadeIntersect method="zoomIn" stagger="50ms">
-                {text && <Multiline text={text} className="opacity-80 mt-8" />}
+                {text && (
+                  <Multiline text={text} className="text-20 opacity-80 mt-8" />
+                )}
                 {isMultiLinkValid(cta) && (
                   <MultiLink {...cta} asButton className="mt-8" />
                 )}
