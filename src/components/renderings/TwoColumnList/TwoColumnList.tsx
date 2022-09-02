@@ -56,7 +56,10 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
   }, []);
 
   return (
-    <Section rendering="TwoColumnList" className="sm:-mb-[500px]">
+    <Section
+      rendering="TwoColumnList"
+      className="sm:mb-[-300px] lg:mb-[-400px] xl:mb-[-600px]"
+    >
       <Container className="max-w-page">
         <Row>
           <Col md="10" push={{ md: 1 }}>
@@ -68,7 +71,7 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
         {/*  */}
         <div className="relative" ref={containerRef}>
           {imageCards && imageCards.length && (
-            <Row className="gap-y-lg">
+            <Row className="gap-y-md">
               <Col sm="6" md="5" push={{ md: 1 }}>
                 <div ref={listOneRef} className="space-y-lg sm:space-y-0">
                   {list1?.map((cardItem, index) => {

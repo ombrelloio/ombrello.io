@@ -1,6 +1,6 @@
 // TRANSITION EFFECTS FOR FADE IN ETC OF ELEMENTS ON PAGE.
 // THIS IS DISABLED ON SMALL SCREENS
-@media screen and (min-width: 414px) {
+@media screen and (min-width: 768px) {
   // BASE PROPS
   .transition-base-hidden {
     opacity: 0;

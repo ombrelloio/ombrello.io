@@ -16,7 +16,7 @@ const CaseList = ({ cases = [], kicker, multiLink }: CaseListProps) => {
             </Col>
           </Row>
         )}
-        <div className="[&>*+*]:mt-lg">
+        <div className="space-y-lg">
           {cases?.map(({ id, ...rest }, index) => {
             return (
               <Case

@@ -32,7 +32,7 @@ export const ListItem = ({
           "sm:aspect-square": !last,
         })}
       >
-        {imageCardTitle && <h3 className="text-h3 mb-6">{imageCardTitle}</h3>}
+        {imageCardTitle && <h3 className="text-h3 mb-4">{imageCardTitle}</h3>}
         {text && <Multiline text={text} />}
         {internalLinkLabel && (
           <p className="mt-6 inline-block underline underline-offset-4">

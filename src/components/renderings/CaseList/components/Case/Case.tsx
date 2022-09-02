@@ -21,7 +21,7 @@ const Case = ({
       {images && images.length && (
         <Row>
           <Col md="10" push={{ md: 1 }}>
-            <div className="flex justify-between items-end mb-12">
+            <div className="flex justify-between items-end mb-6 md:mb-12">
               {title && <h2 className="text-h2">{title}</h2>}
               {!!showLinkToAll && (
                 <MultiLink {...showLinkToAll} className="opacity-50" />
@@ -59,11 +59,13 @@ const Case = ({
           </Col>
         </Row>
       )}
-      <Row className="mt-12 gap-y-sm">
-        <Col md="3" push={{ md: 1 }}>
-          {tags && <p>{tags}</p>}
-        </Col>
-        <Col md="7" className="space-y-sm">
+      <Row className="mt-6 md:mt-12 gap-y-sm">
+        {tags && (
+          <Col md="3" push={{ md: 1 }}>
+            <p>{tags}</p>
+          </Col>
+        )}
+        <Col md="7" push={{ md: !tags ? 4 : "0" }} className="space-y-sm">
           {text && <Multiline text={text} />}
           {link && <MultiLink {...link} />}
         </Col>
