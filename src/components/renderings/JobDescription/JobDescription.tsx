@@ -1,8 +1,12 @@
 import { RichText } from "@atoms";
 import { Col, Row, Section, Container } from "@layout";
 import { JobDescriptionProps } from "@types";
+import { useEffect } from "react";
 
 const JobDescription = ({ jobHeader, jobDescription }: JobDescriptionProps) => {
+  useEffect(() => {
+    document.body.classList.remove("inverted");
+  });
   return (
     <Section rendering="JobDescription">
       <Container>
