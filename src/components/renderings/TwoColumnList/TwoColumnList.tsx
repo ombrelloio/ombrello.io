@@ -15,49 +15,53 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
   const listTwoRef = useRef(null);
 
   useEffect(() => {
+    const mediaMatch = gsap.matchMedia();
+
     const trigger = containerRef.current;
 
     if (trigger) {
-      gsap.fromTo(
-        listOneRef.current,
-        {
-          y: 0,
-        },
-        {
-          y: -100,
-          scrollTrigger: {
-            trigger,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.1,
+      mediaMatch.add(`(min-width: 640px)`, () => {
+        gsap.fromTo(
+          listOneRef.current,
+          {
+            y: 0,
           },
-        }
-      );
-      gsap.fromTo(
-        listTwoRef.current,
-        {
-          y: 0,
-        },
-        {
-          y: -800,
-          scrollTrigger: {
-            trigger,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.1,
+          {
+            y: -100,
+            scrollTrigger: {
+              trigger,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.1,
+            },
+          }
+        );
+        gsap.fromTo(
+          listTwoRef.current,
+          {
+            y: 0,
           },
-        }
-      );
+          {
+            y: -800,
+            scrollTrigger: {
+              trigger,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.1,
+            },
+          }
+        );
+      });
     }
   }, []);
 
   return (
-    <Section rendering="TwoColumnList" flush className="-mb-[500px]">
+    <Section rendering="TwoColumnList" className="sm:-mb-[500px]">
       <Container className="max-w-page">
         <Row>
           <Col md="10" push={{ md: 1 }}>
             {heading && (
-              <h2 className="text-h2 mb-lg md:mb-xl max-w-xl">{heading}</h2>
+              <h2 className="text-h2 sm:mb-lg md:mb-xl max-w-xl">{heading}</h2>
             )}
           </Col>
         </Row>
@@ -65,13 +69,8 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
         <div className="relative" ref={containerRef}>
           {imageCards && imageCards.length && (
             <Row className="gap-y-lg">
-              <Col
-                sm="6"
-                md="5"
-                push={{ md: 1 }}
-                className="space-y-lg sm:space-y-0"
-              >
-                <div ref={listOneRef}>
+              <Col sm="6" md="5" push={{ md: 1 }}>
+                <div ref={listOneRef} className="space-y-lg sm:space-y-0">
                   {list1?.map((cardItem, index) => {
                     return cardItem.internalLink &&
                       cardItem.internalLink.page.slug ? (
@@ -98,8 +97,8 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
                   })}
                 </div>
               </Col>
-              <Col sm="6" md="5" className="space-y-lg sm:space-y-0">
-                <div ref={listTwoRef}>
+              <Col sm="6" md="5">
+                <div ref={listTwoRef} className="space-y-lg sm:space-y-0">
                   {list2?.map((cardItem, index) => {
                     return cardItem.internalLink &&
                       cardItem.internalLink.page.slug ? (

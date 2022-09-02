@@ -1,64 +1,68 @@
-// BASE PROPS
-.transition-base-hidden {
-  opacity: 0;
-  transition-timing-function: ease-out;
-  pointer-events: none;
-  visibility: hidden;
-}
-.transition-base-visible {
-  opacity: 1;
-  pointer-events: all;
-  visibility: visible;
-}
+// TRANSITION EFFECTS FOR FADE IN ETC OF ELEMENTS ON PAGE.
+// THIS IS DISABLED ON SMALL SCREENS
+@media screen and (min-width: 414px) {
+  // BASE PROPS
+  .transition-base-hidden {
+    opacity: 0;
+    transition-timing-function: ease-out;
+    pointer-events: none;
+    visibility: hidden;
+  }
+  .transition-base-visible {
+    opacity: 1;
+    pointer-events: all;
+    visibility: visible;
+  }
 
-// extra prop: duration
-.duration-normal {
-  transition-duration: 0.25s;
-}
-.duration-slow {
-  transition-duration: 0.5s;
-}
+  // extra prop: duration
+  .duration-normal {
+    transition-duration: 0.25s;
+  }
+  .duration-slow {
+    transition-duration: 0.5s;
+  }
 
-// PULL UP
-.pullup-hidden {
-  transition-property: opacity, transform;
-  transform: translateY(1rem) scale(0.999);
-}
+  // PULL UP
+  .pullup-hidden {
+    transition-property: opacity, transform;
+    transform: translateY(1rem) scale(0.999);
+  }
 
-.pullup-visible {
-  transform: none;
-}
+  .pullup-visible {
+    transform: none;
+  }
 
-// FADE
-.fade-hidden {
-  transition-property: opacity;
-}
+  // FADE
+  .fade-hidden {
+    transition-property: opacity;
+  }
 
-.fade-visible {
-  visibility: visible;
-  opacity: 1;
-  pointer-events: all;
-}
+  .fade-visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+  }
 
-// ZOOM IN
-.zoomin-hidden {
-  transition: transform 300ms, opacity 0.75s 0.2s;
-  transition-timing-function: ease-out;
-  transform: scale(0.95);
-}
-.zoomin-visible {
-  transform: scale(1);
-}
+  // ZOOM IN
+  .zoomin-hidden {
+    transition: transform 300ms, opacity 0.75s 0.2s;
+    transition-timing-function: ease-out;
+    transform: scale(0.95);
+  }
+  .zoomin-visible {
+    transform: scale(1);
+  }
 
-// ZOOM OUT
-.zoomout-hidden {
-  transition: transform 300ms, opacity 0.75s 0.2s;
-  transition-timing-function: ease-out;
-  transform: scale(1.15);
-}
+  // ZOOM OUT
+  .zoomout-hidden {
+    transition: transform 300ms, opacity 0.75s 0.2s;
+    transition-timing-function: ease-out;
+    transform: scale(1.15);
+  }
 
-.zoomout-visible {
-  transform: scale(1);
+  .zoomout-visible {
+    transform: scale(1);
+  }
 }
 
 //

@@ -135,7 +135,7 @@ module.exports = {
         },
       },
       animation: {
-        slideDown: "slideDown 0.4s ease-in 1s forwards",
+        slideDown: "slideDown 0.4s ease-in .2s forwards",
         slideUp: "slideUp 0.4s ease-in 0.4s forwards",
         "pullup-media": "pullupMedia 0.3s ease-out 1s forwards",
         clicked: "slideDown 0.4s ease-in 1s forwards",
