@@ -18,10 +18,12 @@
   // -----------------
   //
   --bg: theme("colors.black");
+  --bg-strong: black;
   --bg-opaq: rgba(var(--blackRGB), 0.9);
 
   --body: theme("colors.offwhite");
   --on-bg: theme("colors.offwhite");
+  --on-bg-fade: rgba(var(--offwhiteRGB), 0.7);
 
   // inverted MAIN CONTEXT:
 
@@ -49,11 +51,13 @@
   // ------------
   //
   --bg: theme("colors.offwhite");
+  --bg-strong: white;
+
   --bg-opaq: rgba(var(--offwhiteRGB), 0.9);
 
   --body: theme("colors.black");
   --on-bg: theme("colors.black");
-
+  --on-bg-fade: rgba(var(--blackRGB), 0.7);
   // inverted MAIN CONTEXT
   //
   --bg-inverted: theme("colors.black");

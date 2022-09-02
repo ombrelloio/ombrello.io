@@ -1,4 +1,4 @@
-import { KeyboardEvent, MouseEvent, ReactNode } from "react";
+import { CSSProperties, KeyboardEvent, MouseEvent, ReactNode } from "react";
 import NextLink, { LinkProps } from "next/link";
 import { fixSlug, isURL } from "@app/helpers/utils.helpers";
 import { LinkTargetType } from "@types";
@@ -16,6 +16,7 @@ interface LinkExtProps extends LinkProps {
   keyHandler?: (event: KeyboardEvent<HTMLAnchorElement>) => void;
   noUnderline?: boolean;
   block?: boolean;
+  style?: CSSProperties;
 }
 
 const Link = ({
@@ -29,6 +30,7 @@ const Link = ({
   ariaLabel,
   noUnderline,
   block,
+  style,
   ...props
 }: LinkExtProps) => {
   // if (!href) {
@@ -46,6 +48,7 @@ const Link = ({
         rel={isURL(href) ? "noopener" : ""}
         target={target}
         aria-label={ariaLabel}
+        style={style}
         /* Handlers applied this way to avoid es-linting errors: */
         {...(clickHandler ? { onClick: clickHandler } : {})}
         {...(keyHandler ? { onkeydown: keyHandler } : {})}

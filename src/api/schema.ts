@@ -168,6 +168,7 @@ export const openPositionsSchema = `
                 id
                 hours
                 jobHeader
+                teaser
             }
         }
     }

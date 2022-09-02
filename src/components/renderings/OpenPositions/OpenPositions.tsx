@@ -33,7 +33,7 @@ const OpenPositions = ({
               )}
             </FadeIntersect>
           </Col>
-          <Col md="5" push={{ md: 1 }} className="space-y-8">
+          <Col root="12" lg="10" push={{ lg: 1 }} className="space-y-8">
             {jobPages &&
               jobPages.length &&
               jobPages.map(({ slug, renderings }, index) => {
@@ -52,12 +52,24 @@ const OpenPositions = ({
                     >
                       <Link
                         href={slug}
-                        className="block rounded-lg p-8 transition bg-th-bg-inverted text-th-body-inverted hover:scale-105"
+                        className="relative block rounded-[1rem] p-8 pb-9 bg-th-bg-strong gradient-border"
                         noUnderline
                       >
-                        <p className="font-bold">{position.jobHeader}</p>
-                        <p>{position.hours}</p>
+                        <div className="flex items-baseline justify-between flex-wrap gap-x-sm">
+                          <h3 className="text-h3 mb-4 basis-full shrink-0 sm:basis-auto">
+                            {position.jobHeader}
+                          </h3>
+                          {position.hours && (
+                            <p className="text-14 whitespace-nowrap uppercase text-th-on-bg-fade mb-4 sm:mb-0">
+                              {position.hours}
+                            </p>
+                          )}
+                        </div>
+                        {position.teaser && (
+                          <Multiline text={position.teaser} />
+                        )}
                       </Link>
+                      {/* </div> */}
                     </FadeIntersect>
                   )
                 );

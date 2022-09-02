@@ -19,7 +19,7 @@ const PageFooter = () => {
 
   return (
     <footer
-      className="sticky top-[100vh] mt-15 md:mt-section-gap pb-[208px]"
+      className="sticky top-[100vh] mt-15 md:mt-section-gap pb-12"
       id="contact"
     >
       <Container className="max-w-xxl">
@@ -47,7 +47,7 @@ const PageFooter = () => {
               />
             </FadeIntersect>
           </Col>
-          <Col sm="3" md="2" push={{ md: 1 }}>
+          <Col sm="3">
             <ColumnData {...rightColumn} />
           </Col>
         </Row>

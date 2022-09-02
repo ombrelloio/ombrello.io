@@ -206,6 +206,7 @@ export interface OpenPositionsProps {
       id: string;
       hours?: string;
       jobHeader?: string;
+      teaser?: string;
       __typename?: string; // is this a union "JobDescription" ???
     }[];
   }[];

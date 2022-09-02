@@ -20,9 +20,9 @@ const CardList = ({ heading, list = [] }: CardListProps) => {
               <Col key={index} sm="6" md="4" lg="3">
                 <article>
                   <FadeIntersect method="zoomIn" stagger={`${index * 16}ms`}>
-                    <h3 className="text-h3 mb-8 relative">
+                    <h3 className="text-h3 mb-8 relative flex items-baseline">
                       <span className="relative bg-th-on-bg inline-block w-4 h-[1px] mr-3 bottom-2" />
-                      {title}
+                      <span>{title}</span>
                     </h3>
                     <RichText text={text} />
                   </FadeIntersect>
