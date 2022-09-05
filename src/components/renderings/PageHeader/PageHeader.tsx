@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+/* eslint-disable no-console */
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import classNames from "classnames";
 import { Container } from "@layout";
@@ -11,8 +12,49 @@ const PageHeader = () => {
   const { pages } = siteMenu || {};
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    /**
+     * LISTEN FOR SECTIONS WITH INVERTED THEMES =>
+     * UPDATE THEME ON PAGEHEADER TO REFLECT THEME
+     */
+    if (headerRef.current) {
+      /* consts */
+      const readAttrName = "data-component-theme"; // data attr that holds a keyword, used by css
+      const writeAttrName = "data-mirror-theme"; // new data attr on header is set to reflect the underlying sections theme
+      const headerHeight = headerRef.current.offsetHeight;
+      const elements = document.querySelectorAll(`[${readAttrName}]`);
+
+      /* FNs */
+      const isInViewport = (el: Element) => {
+        const rect = el.getBoundingClientRect();
+        return rect.top < headerHeight && rect.bottom > headerHeight;
+      };
+
+      const updateTheme = (strTheme: string) =>
+        headerRef.current?.setAttribute(writeAttrName, strTheme);
+
+      /* Listener */
+      document.addEventListener(
+        "scroll",
+        () => {
+          elements.forEach((box) => {
+            if (isInViewport(box)) {
+              const theme = box.getAttribute(readAttrName);
+              if (theme) updateTheme(theme);
+            }
+          });
+        },
+        {
+          passive: true,
+        }
+      );
+    }
+
+    /**
+     * ROUTE CHANGE => CLOSE MENU
+     */
     const handleRouteChange = () => {
       setIsOpen(false);
     };
@@ -26,7 +68,10 @@ const PageHeader = () => {
 
   return (
     <>
-      <header className="pageHeader absolute top-0 left-0 w-full pointer-events-none z-50 bg-th-bg-opaq">
+      <header
+        className="xpageHeader fixed top-0 left-0 w-full pointer-events-none z-50 bg-th-bg transition duration-200 ease-linear"
+        ref={headerRef}
+      >
         <Container className="flex justify-between items-center py-5 duration-300">
           <Link href="/">
             <span className={classNames("w-24 block pointer-events-auto")}>

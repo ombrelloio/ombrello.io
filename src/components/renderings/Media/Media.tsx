@@ -9,7 +9,10 @@ const Media = ({ image, componentThemingConfiguration: theme }: MediaProps) => {
     <Section rendering="Media" flush={isSplitTop}>
       <Container className="relative">
         {isSplitTop && (
-          <div className="absolute bg-th-bg-inverted inset-0 bottom-1/2 will-change-transform origin-top scale-y-0 animate-slideDown" />
+          <div
+            className="absolute bg-th-bg-inverted inset-0 bottom-1/2 will-change-transform origin-top scale-y-0 animate-slideDown"
+            data-component-theme="inverted"
+          />
         )}
         {image && image.url && (
           <ZoomImage
