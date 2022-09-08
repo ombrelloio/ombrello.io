@@ -9,17 +9,17 @@
 
 let currentRendering: HTMLDivElement | undefined;
 
-function getTheme(elm: any) {
+const getTheme = (elm: HTMLElement) => {
   if (elm) {
     const theme = elm.getAttribute("data-component-theme");
     return theme;
   }
-}
+};
 
-export const getComponentTheme = () => {
-  let theme = "";
+export const getComponentTheme = (y: number) => {
+  let theme: string | undefined | null = "";
 
-  const elements = document.elementsFromPoint(1, 75);
+  const elements = document.elementsFromPoint(1, y);
 
   elements.forEach((elm) => {
     if (elm.hasAttribute("data-component-theme")) {

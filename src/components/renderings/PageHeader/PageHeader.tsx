@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import debounce from "lodash/debounce";
 import { useRouter } from "next/router";
-import classNames from "classnames";
+import cx from "classnames";
 import { Container, Transitionator } from "@layout";
 import { Logo, Link } from "@atoms";
 import { usePageContext } from "@app/hooks/PageContext/PageContext";
 import { Locations } from "@molecules";
+import { useScrollDirection } from "@app/hooks/useScrollDirection/useScrollDirection";
+import { useFooterIsVisible } from "@app/hooks/useFooterIsVisible/useFooterIsVisible";
 import { getComponentTheme } from "./pageHeader.helper";
 
 const PageHeader = () => {
@@ -13,25 +15,25 @@ const PageHeader = () => {
   const { pages } = siteMenu || {};
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  // consts for theming and hide/show of header =>
   const headerRef = useRef<HTMLElement>(null);
-  const [hasTheme, setHasTheme] = useState(false);
-
+  const [isReady, setIsReady] = useState(false);
   const [theme, setTheme] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!hasTheme) setHasTheme(true);
-  }, [theme]);
+  const scrollDirection = useScrollDirection();
+  const { isFooterVisible } = useFooterIsVisible();
 
   const checkTheming = () => {
-    setTheme(getComponentTheme());
+    setTheme(getComponentTheme(headerRef?.current?.offsetHeight || 76));
   };
+
+  useEffect(() => {
+    checkTheming();
+  });
 
   useEffect(() => {
     /**
      *  SCROLL LISTENER => change theme on pageheader
-     *
      */
-    // initial check
     checkTheming();
 
     if (document) {
@@ -53,36 +55,38 @@ const PageHeader = () => {
     // clean up
     return () => {
       router.events.on("routeChangeStart", handleRouteChange);
-      window.removeEventListener("scroll", debounce(checkTheming, 48));
+      window.removeEventListener("scroll", debounce(checkTheming, 80));
     };
   }, []);
 
   useEffect(() => {
-    checkTheming();
-  });
+    if (!isReady) setIsReady(true);
+  }, [theme]);
 
   return (
     <>
-      <Transitionator method="fade" stagger="200ms" isIn={hasTheme}>
+      <Transitionator method="fade" stagger="200ms" isIn={isReady}>
         <header
-          className={classNames(
-            "fixed top-0 left-0 w-full pointer-events-none z-50 transition duration-[50] ease-linear",
+          className={cx(
+            "fixed top-0 left-0 w-full pointer-events-none z-50 transition duration-200",
             {
-              "bg-th-bg": hasTheme,
+              "bg-th-bg": isReady,
+              "-translate-y-full ":
+                scrollDirection === "down" && !isFooterVisible,
             }
           )}
           ref={headerRef}
           data-mirror-theme={theme}
         >
-          <Container className="flex justify-between items-center py-5 xduration-300">
+          <Container className="flex justify-between items-center  gap-x-5 py-5 will-change-transform transition-all">
             <Link href="/">
-              <span className={classNames("w-24 block pointer-events-auto")}>
+              <span className={cx("w-24 block pointer-events-auto")}>
                 <Logo />
               </span>
             </Link>
             {/* desktop */}
             {pages && pages.length && (
-              <nav className="absolute left-0 w-full justify-center hidden md:flex pointer-events-none">
+              <nav className="absolute left-0 w-full lg:flex justify-center hidden pointer-events-none">
                 <ul className="flex display:text-[0.8vw] space-x-[1.5em] pointer-events-auto">
                   {pages.map(({ slug, navigationLabel }) => (
                     <li key={slug as string}>
@@ -103,7 +107,7 @@ const PageHeader = () => {
             <Locations />
             {/* mobile */}
             <button
-              className="w-5 pointer-events-auto md:hidden"
+              className="w-5 pointer-events-auto lg:hidden"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? (
@@ -151,7 +155,7 @@ const PageHeader = () => {
       </Transitionator>
       {/* mobile  */}
       {isOpen && (
-        <div className="fixed top-0 left-0 w-full h-full z-40 bg-black text-white md:hidden py-10 flex flex-col justify-between overflow-y-scroll">
+        <div className="fixed top-0 left-0 w-full h-full z-40 bg-black text-white lg:hidden py-10 flex flex-col justify-between overflow-y-scroll">
           {pages && pages.length && (
             <ul className="text-center pt-20 text-20 space-y-6">
               {pages.map(({ slug, navigationLabel }) => (

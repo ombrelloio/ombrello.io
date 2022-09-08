@@ -21,6 +21,7 @@ const PageFooter = () => {
     <footer
       className="sticky top-[100vh] mt-15 md:mt-section-gap pb-12"
       id="contact"
+      data-footer
     >
       <Container className="max-w-xxl">
         <Row className="space-y-12">
@@ -33,7 +34,7 @@ const PageFooter = () => {
           >
             <FadeIntersect method="pullup">
               {mainContent && mainContent.title && (
-                <h2 className="text-vw-medium">{mainContent.title}</h2>
+                <h2 className="text-vw-large">{mainContent.title}</h2>
               )}
               {mainContent && mainContent.text && mainContent.text.html && (
                 <RichText
