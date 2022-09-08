@@ -3,6 +3,7 @@ import { FC, useState, useEffect, useRef } from "react";
 import classnames from "classnames";
 import gsap from "gsap";
 import cache from "memory-cache";
+import Image from "next/image";
 
 type locationsData = {
   list: {
@@ -103,7 +104,7 @@ export const Locations: FC = () => {
   }, [data]);
 
   return (
-    <ul className="relative w-48 h-9 overflow-hidden" ref={list}>
+    <ul className="relative w-48 h-9 overflow-hidden grow" ref={list}>
       {data &&
         data.list.map(({ name, sys, weather }, index) => (
           <li
@@ -119,8 +120,10 @@ export const Locations: FC = () => {
             <span className="w-8">
               {weather && weather[0] && (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <Image
                   src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
+                  width="32"
+                  height="32"
                   alt=""
                   className="block w-full h-auto "
                 />

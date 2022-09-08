@@ -1,16 +1,11 @@
 // Component level theming
 
-.th-c-inverted {
-  @apply bg-th-bg-inverted text-th-body-inverted;
-
+.th-c-inverted,
+[data-mirror-theme="inverted"] {
   // button colors
   --btn-prim-front: var(--on-body-inverted);
   --btn-prim-bg: var(--bg-inverted);
   --btn-prim-bg-hover: var(--btn-prim-bg-hover-inverted);
-}
 
-body.inverted {
-  .pageHeader {
-    @apply bg-th-bg-inverted text-th-body-inverted;
-  }
+  @apply bg-th-bg-inverted text-th-body-inverted;
 }
