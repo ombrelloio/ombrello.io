@@ -63,7 +63,6 @@ export type PageProps = {
   slug: SlugUrlObject;
   navigationLabel: string;
   pageTheme?: string;
-  topComponentTheme?: string;
   // highlightColor: {
   //   hex: string | undefined;
   // };
@@ -245,4 +244,5 @@ export interface HGPageProps {
   page: PageProps;
   siteMenu: PageHeaderProps;
   siteFooter: PageFooterProps;
+  headerTheme?: string;
 }
