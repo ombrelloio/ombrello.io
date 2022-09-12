@@ -24,9 +24,6 @@ html {
         ((100vw - #{$from}px) / (#{$to} - #{$from}))
     );
   }
-  @media (prefers-reduced-motion: no-preference) {
-    scroll-behavior: smooth;
-  }
 }
 
 html,

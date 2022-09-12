@@ -19,7 +19,7 @@ const PageTitle = ({ title, text, componentTheming }: PageTitleProps) => {
   return (
     <InvertibleHeroSection
       rendering="PageTitle"
-      className={cx("md:pb-18 ", {
+      className={cx("md:pb-32 ", {
         "th-c-inverted": componentTheming?.theme === "inverted",
       })}
       inverted={componentTheming?.theme === "inverted"}
@@ -37,11 +37,11 @@ const PageTitle = ({ title, text, componentTheming }: PageTitleProps) => {
               </Transitionator>
             )}
           </Col>
-          <Col md="5">
+          <Col md="6" lg="5" push={{ lg: 1 }}>
             {text && (
-              <div className="max-w-xl">
+              <div className="max-w-xl md:mt-[3.8em]">
                 <Transitionator method="zoomIn" stagger="100ms" isIn={isReady}>
-                  <Multiline text={text} className="text-20" />
+                  <Multiline text={text} />
                 </Transitionator>
               </div>
             )}

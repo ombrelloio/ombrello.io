@@ -58,7 +58,7 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
   return (
     <Section
       rendering="TwoColumnList"
-      className="sm:mb-[-300px] lg:mb-[-400px] xl:mb-[-600px]"
+      className="sm:mb-[-300px] lg:mb-[-400px] xl:mb-[-600px] overflow-hidden"
     >
       <Container className="max-w-page">
         <Row>
@@ -73,7 +73,7 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
           {imageCards && imageCards.length && (
             <Row className="gap-y-md">
               <Col sm="6" md="5" push={{ md: 1 }}>
-                <div ref={listOneRef} className="space-y-lg sm:space-y-0">
+                <div ref={listOneRef} className="space-y-lg md:space-y-xxxl">
                   {list1?.map((cardItem, index) => {
                     return cardItem.internalLink &&
                       cardItem.internalLink.page.slug ? (
@@ -101,7 +101,7 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
                 </div>
               </Col>
               <Col sm="6" md="5">
-                <div ref={listTwoRef} className="space-y-lg sm:space-y-0">
+                <div ref={listTwoRef} className="space-y-lg md:space-y-xxxl">
                   {list2?.map((cardItem, index) => {
                     return cardItem.internalLink &&
                       cardItem.internalLink.page.slug ? (

@@ -29,7 +29,7 @@ export const ListItem = ({
       </div>
       <div
         className={cx({
-          "sm:aspect-square": !last,
+          // "sm:aspect-square": !last,
         })}
       >
         {imageCardTitle && <h3 className="text-h3 mb-4">{imageCardTitle}</h3>}

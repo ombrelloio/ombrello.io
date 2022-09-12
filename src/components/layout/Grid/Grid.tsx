@@ -161,7 +161,7 @@ const GridDebug: FC<GridType> = () => {
       </button>
       {visible && (
         <div className="fixed inset-0 w-full h-screen z-[99999999] pointer-events-none">
-          <Container>
+          <Container className="max-w-page">
             <Row>
               {[...Array(12)].map((_e, i) => (
                 <Col root="1" key={`c_${i}`} className="hidden md:block">

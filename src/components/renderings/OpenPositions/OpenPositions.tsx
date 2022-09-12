@@ -13,8 +13,8 @@ const OpenPositions = ({
   return (
     <Section rendering="openPositions">
       <Container className="max-w-page">
-        <Row className="space-y-md">
-          <Col md="6">
+        <Row className="space-y-xl">
+          <Col root="12" lg="10" push={{ lg: 1 }}>
             <FadeIntersect method="zoomIn" className="space-y-sm">
               {heading && <h2 className="text-h2 max-w-xl">{heading}</h2>}
               {text && <Multiline text={text} className="max-w-md" />}
@@ -66,7 +66,10 @@ const OpenPositions = ({
                           )}
                         </div>
                         {position.teaser && (
-                          <Multiline text={position.teaser} />
+                          <Multiline
+                            text={position.teaser}
+                            className="max-w-6xl"
+                          />
                         )}
                       </Link>
                       {/* </div> */}

@@ -24,9 +24,9 @@ const HeadlineAndTextAndLink = ({
               />
             </Col>
           )}
-          <Col md="5" className="space-y-md md:pt-[5vw] xl:pt-lg">
+          <Col md="5" className="space-y-md">
             <RichText text={html} />
-            <MultiLink {...link} />
+            <MultiLink {...link} showAsButton={false} />
           </Col>
         </Row>
       </Container>

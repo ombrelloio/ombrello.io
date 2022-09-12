@@ -85,9 +85,9 @@ module.exports = {
         xl: [pxToRem(96)],
         xxl: [pxToRem(128)],
         xxxl: [pxToRem(192)],
-        "section-gap": [pxToRem(96)],
-        "section-gap-xl": "calc(96px + 4.5vw)",
-        "section-gap-display": [pxToRem(192)],
+        "section-gap": [pxToRem(120)],
+        "section-gap-xl": "calc(120px + 4.5vw)",
+        "section-gap-display": [pxToRem(240)],
         // push a column in flex-grid to the right by using these as margin left
         "0/12": "0%",
         "1/12": `${(100 / 12) * 1}%`,
@@ -105,7 +105,7 @@ module.exports = {
         "half-col": "calc((100 / 24) * 1% - 10px)",
       },
       maxWidth: {
-        page: "calc(1640px + 6rem - 20px)",
+        page: "calc(1880px + 6rem - 20px)",
       },
       keyframes: {
         slideDown: {

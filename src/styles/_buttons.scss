@@ -1,8 +1,19 @@
 .btn {
-  @apply inline-flex justify-center items-center text-center border-[1.5px] rounded-[2rem] px-4 py-2 text-16 leading-normal no-underline uppercase transition ease-linear;
+  @apply relative inline-flex justify-center items-center text-center px-5 py-2.5 text-16 leading-normal no-underline uppercase transition ease-linear border-[red];
+
+  &:before {
+    @apply absolute top-0 left-0 w-full h-full  border-[1px] rounded-[2rem] duration-300 ease-out will-change-transform ;
+    content: '';
+  }
+
+  &:hover {
+    &:before {
+      @apply scale-105 opacity-40;
+    }
+  }
 }
 
-.btn-prim {
-  @apply text-th-btn-prim-front bg-transparent;
-  @apply hover:scale-105;
-}
+// .btn-prim {
+//   @apply text-th-btn-prim-front bg-transparent;
+//   @apply hover:scale-105;
+// }

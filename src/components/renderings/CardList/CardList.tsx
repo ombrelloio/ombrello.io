@@ -9,11 +9,11 @@ const CardList = ({ heading, list = [] }: CardListProps) => {
       <Container className="max-w-page">
         <Row>
           <Col md="5" push={{ md: 1 }}>
-            {heading && <h2 className="text-h2 mb-9">{heading}</h2>}
+            {heading && <h2 className="text-h2 mb-24">{heading}</h2>}
           </Col>
         </Row>
 
-        <Row className={cx("gap-y-md")}>
+        <Row className={cx("gap-y-xl")}>
           {list &&
             list.length &&
             list.map(({ title, text }, index) => (
