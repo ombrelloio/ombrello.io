@@ -11,7 +11,11 @@ import {
 import { PageTitleProps } from "@types";
 import { useEffect, useState } from "react";
 
-const PageTitle = ({ title, text, componentTheming }: PageTitleProps) => {
+const PageTitle = ({
+  heading: title,
+  text,
+  componentTheming,
+}: PageTitleProps) => {
   const [isReady, setIsReady] = useState(false);
   useEffect(() => {
     setIsReady(true);

@@ -213,7 +213,7 @@ export interface OpenPositionsProps {
 
 export interface PageTitleProps {
   id: string;
-  title: string;
+  heading: string;
   text?: string;
   componentTheming?: ComponentThemingConfiguration;
 }
