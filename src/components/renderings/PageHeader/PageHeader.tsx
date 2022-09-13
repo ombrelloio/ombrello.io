@@ -78,7 +78,7 @@ const PageHeader = () => {
           ref={headerRef}
           data-mirror-theme={theme}
         >
-          <Container className="flex justify-between items-center  gap-x-5 py-5 will-change-transform transition-all">
+          <Container className="flex justify-between items-center gap-x-5 py-5 will-change-transform transition-all">
             <Link href="/">
               <span className={cx("w-24 block pointer-events-auto")}>
                 <Logo />
@@ -87,7 +87,7 @@ const PageHeader = () => {
             {/* desktop */}
             {pages && pages.length && (
               <nav className="absolute left-0 w-full lg:flex justify-center hidden pointer-events-none">
-                <ul className="flex display:text-[0.8vw] space-x-[1.5em] pointer-events-auto">
+                <ul className="flex space-x-[1.5em] pointer-events-auto">
                   {pages.map(({ slug, navigationLabel }) => (
                     <li key={slug as string}>
                       <Link href={slug} noUnderline>
