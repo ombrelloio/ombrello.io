@@ -36,10 +36,10 @@ const useScrollDirection = () => {
 
     window.addEventListener(
       "scroll",
-      debounce(onScroll, 160, { leading: true, trailing: true })
+      debounce(onScroll, 0, { leading: true, trailing: true })
     );
 
-    return () => window.removeEventListener("scroll", debounce(onScroll, 160));
+    return () => window.removeEventListener("scroll", debounce(onScroll, 0));
   }, []);
 
   return scrollDirection;

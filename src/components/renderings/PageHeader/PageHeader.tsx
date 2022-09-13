@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import debounce from "lodash/debounce";
 import { useRouter } from "next/router";
+import NextLink from "next/link";
 import cx from "classnames";
 import { Container, Transitionator } from "@layout";
 import { Logo, Link } from "@atoms";
@@ -39,7 +40,7 @@ const PageHeader = () => {
     if (document) {
       window.addEventListener(
         "scroll",
-        debounce(checkTheming, 80, { leading: true, trailing: true })
+        debounce(checkTheming, 0, { leading: true, trailing: true })
       );
     }
 
@@ -55,7 +56,7 @@ const PageHeader = () => {
     // clean up
     return () => {
       router.events.on("routeChangeStart", handleRouteChange);
-      window.removeEventListener("scroll", debounce(checkTheming, 80));
+      window.removeEventListener("scroll", debounce(checkTheming, 0));
     };
   }, []);
 
@@ -78,12 +79,12 @@ const PageHeader = () => {
           ref={headerRef}
           data-mirror-theme={theme}
         >
-          <Container className="flex justify-between items-center gap-x-5 py-5 will-change-transform transition-all">
-            <Link href="/">
-              <span className={cx("w-24 block pointer-events-auto")}>
+          <Container className="flex justify-between items-center gap-x-5 py-5 will-change-transform">
+            <NextLink href="/">
+              <a className={cx("w-24 block pointer-events-auto")}>
                 <Logo />
-              </span>
-            </Link>
+              </a>
+            </NextLink>
             {/* desktop */}
             {pages && pages.length && (
               <nav className="absolute left-0 w-full lg:flex justify-center hidden pointer-events-none">
