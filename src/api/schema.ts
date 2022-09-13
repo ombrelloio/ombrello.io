@@ -192,7 +192,7 @@ export const pageTitleSchema = `
         __typename
         id
         text
-        title
+        heading: title
         componentTheming {
             theme
         }
