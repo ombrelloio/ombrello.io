@@ -1,4 +1,3 @@
-import { ZoomImage } from "@atoms";
 import { Container, Section } from "@layout";
 import { Image } from "@atoms";
 import { MediaProps } from "@types";
