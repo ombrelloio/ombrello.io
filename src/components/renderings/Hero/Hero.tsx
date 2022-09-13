@@ -28,28 +28,24 @@ const Hero = ({
         <Row>
           <Col sm="10" display="8" push={{ sm: 1, display: 2 }}>
             {title && (
-              <FadeIntersect method="zoomIn">
-                <Multiline
-                  text={title}
-                  tag="h1"
-                  className="text-h1 leading-[1.1] font-medium"
-                />
-              </FadeIntersect>
+              <Multiline
+                text={title}
+                tag="h1"
+                className="text-h1 leading-[1.1] font-medium"
+              />
             )}
           </Col>
           {(text || isMultiLinkValid(cta)) && (
             <Col md="6" push={{ md: 3 }}>
-              <FadeIntersect method="zoomIn" stagger="50ms">
-                {text && (
-                  <Multiline
-                    text={text}
-                    className="opacity-80 mt-8 max-w-xl m-auto"
-                  />
-                )}
-                {isMultiLinkValid(cta) && (
-                  <MultiLink {...cta} asButton className="mt-8" />
-                )}
-              </FadeIntersect>
+              {text && (
+                <Multiline
+                  text={text}
+                  className="opacity-80 mt-8 max-w-xl m-auto"
+                />
+              )}
+              {isMultiLinkValid(cta) && (
+                <MultiLink {...cta} asButton className="mt-8" />
+              )}
             </Col>
           )}
         </Row>

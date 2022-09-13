@@ -10,7 +10,7 @@ const Banner = ({ title, text, link }: BannerProps) => {
         <Row>
           <Col md="10" push={{ md: 1 }}>
             <FadeIntersect method="pullup">
-              <div className="p-15 md:py-18 md:px-16 xl:py-[6vw] rounded-lg text-center bg-th-banner-bg text-th-banner-on-bg">
+              <div className="p-15 md:py-18 md:px-16 xl:py-[6vw] rounded-lg text-center brand-gradiant text-white">
                 {title && <h2 className="text-h2 mb-sm">{title}</h2>}
                 <RichText text={html} className="max-w-xl m-auto" />
                 <MultiLink {...link} className="mt-8" asButton />
