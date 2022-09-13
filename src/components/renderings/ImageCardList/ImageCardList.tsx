@@ -15,7 +15,7 @@ const ImageCardList = ({ images = [], heading }: ImageCardListProps) => {
 
         {images.length && (
           <Row
-            className={cx("gap-y-md", {
+            className={cx("gap-y-xl ", {
               "lg:justify-center": images.length < 4,
             })}
           >
@@ -29,7 +29,7 @@ const ImageCardList = ({ images = [], heading }: ImageCardListProps) => {
                         alt={imageCardTitle}
                         lazyUrl={image.lazyUrl}
                         sizes="400px"
-                        className="relative aspect-square mb-sm"
+                        className="relative aspect-[9/11] mb-sm"
                         stagger={`${index * 24}ms`}
                       />
                       {imageCardTitle && (

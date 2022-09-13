@@ -12,7 +12,7 @@ const Banner = ({ title, text, link }: BannerProps) => {
             <FadeIntersect method="pullup">
               <div className="p-15 md:py-18 md:px-16 xl:py-[6vw] rounded-lg text-center bg-th-banner-bg text-th-banner-on-bg">
                 {title && <h2 className="text-h2 mb-sm">{title}</h2>}
-                <RichText text={html} className="max-w-lg m-auto" />
+                <RichText text={html} className="max-w-xl m-auto" />
                 <MultiLink {...link} className="mt-8" asButton />
               </div>
             </FadeIntersect>

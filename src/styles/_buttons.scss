@@ -1,5 +1,5 @@
 .btn {
-  @apply relative inline-flex justify-center items-center text-center px-5 py-2.5 text-16 leading-normal no-underline uppercase transition ease-linear border-[red];
+  @apply relative inline-flex justify-center items-center text-center px-5 py-2 text-16 leading-normal no-underline transition ease-linear border-[red];
 
   &:before {
     @apply absolute top-0 left-0 w-full h-full  border-[1px] rounded-[2rem] duration-300 ease-out will-change-transform ;

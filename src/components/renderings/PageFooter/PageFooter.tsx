@@ -28,7 +28,7 @@ const PageFooter = () => {
           <Col sm="9" md="8" push={{ md: 1, xxl: 1 }}>
             <FadeIntersect method="pullup">
               {mainContent && mainContent.title && (
-                <h2 className="text-vw-large">{mainContent.title}</h2>
+                <h2 className="text-h1 leading-none">{mainContent.title}</h2>
               )}
               {mainContent && mainContent.text && mainContent.text.html && (
                 <RichText

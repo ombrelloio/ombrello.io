@@ -13,9 +13,9 @@
 @import "gradients";
 
 $minFont: 16;
-$maxFont: 18;
-$from: 1680;
-$to: 2560;
+$maxFont: 22;
+$from: 1860;
+$to: 3000;
 
 html {
   @media screen and (min-width:#{$from}px) {

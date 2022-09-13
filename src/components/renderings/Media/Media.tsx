@@ -1,5 +1,6 @@
 import { ZoomImage } from "@atoms";
 import { Container, Section } from "@layout";
+import { Image } from "@atoms";
 import { MediaProps } from "@types";
 
 const Media = ({ image, componentThemingConfiguration: theme }: MediaProps) => {
@@ -18,12 +19,16 @@ const Media = ({ image, componentThemingConfiguration: theme }: MediaProps) => {
           </>
         )}
         {image && image.url && (
-          <ZoomImage
-            className="relative aspect-video"
-            url={image.url}
-            alt={image.fileName}
-            lazyUrl={image.smallUrl}
-          />
+          <div className="relative aspect-video">
+            <Image
+              src={image.url}
+              layout="fill"
+              objectPosition="center"
+              objectFit="cover"
+              blurDataURL={image.smallUrl}
+              placeholder="blur"
+            />
+          </div>
         )}
       </Container>
     </Section>

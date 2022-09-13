@@ -105,7 +105,7 @@ module.exports = {
         "half-col": "calc((100 / 24) * 1% - 10px)",
       },
       maxWidth: {
-        page: "calc(1880px + 6rem - 20px)",
+        page: "calc(2400px + 6rem - 20px)",
       },
       keyframes: {
         slideDown: {

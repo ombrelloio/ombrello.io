@@ -1,6 +1,6 @@
 @layer base {
   .text-h1 {
-    @apply text-40 md:text-48 lg:text-64 xl:text-96 xxl:text-102 display:text-120;
+    @apply text-40 md:text-48 lg:text-64 xl:text-80 xxl:text-96;
   }
   .text-h1-vw,
   .text-vw-large {
