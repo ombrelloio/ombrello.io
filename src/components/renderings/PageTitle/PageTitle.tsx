@@ -32,11 +32,13 @@ const PageTitle = ({
         <Row>
           <Col md="6">
             {title && (
-              <Multiline
-                text={title}
-                tag="h1"
-                className="text-40 md:text-96 xxl:text-96 !leading-none mb-6 font-medium"
-              />
+              <FadeIntersect method="fade" stagger="400ms">
+                <Multiline
+                  text={title}
+                  tag="h1"
+                  className="text-40 md:text-96 xxl:text-96 !leading-none mb-6 font-medium"
+                />
+              </FadeIntersect>
             )}
           </Col>
         </Row>
@@ -44,7 +46,9 @@ const PageTitle = ({
           <Col md="6" lg="6">
             {text && (
               <div className="max-w-xl md:mt-[1em]">
-                <Multiline text={text} />
+                <FadeIntersect method="fade" stagger="450ms">
+                  <Multiline text={text} />
+                </FadeIntersect>
               </div>
             )}
           </Col>

@@ -85,19 +85,40 @@ const PageHeader = () => {
                 <Logo />
               </a>
             </NextLink>
+
             {/* desktop */}
             {pages && pages.length && (
               <nav className="absolute left-0 w-full lg:flex justify-center hidden pointer-events-none">
                 <ul className="flex space-x-[1.5em] pointer-events-auto">
                   {pages.map(({ slug, navigationLabel }) => (
                     <li key={slug as string}>
-                      <Link href={slug} noUnderline>
+                      <Link
+                        href={slug}
+                        noUnderline
+                        className={`relative after:absolute after:bottom-[-2px] after:content[''] after:w-full after:left-0 after:h-[1px] after:bg-white after:duration-500 after:ease-out after:will-change-transform after:opacity-0 ${
+                          router.asPath.substring(1) === slug
+                            ? "after:opacity-100"
+                            : ""
+                        }`}
+                      >
                         {navigationLabel}
                       </Link>
                     </li>
                   ))}
                   <li>
-                    <Link href="#contact" noUnderline>
+                    <Link
+                      href="#contact"
+                      noUnderline
+                      clickHandler={(e: any) => {
+                        const elm = document.getElementById("contact");
+                        e.preventDefault();
+                        if (elm) {
+                          elm.scrollIntoView({
+                            behavior: "smooth",
+                          });
+                        }
+                      }}
+                    >
                       Contact
                     </Link>
                   </li>
@@ -161,7 +182,15 @@ const PageHeader = () => {
             <ul className="text-center pt-20 text-20 space-y-6">
               {pages.map(({ slug, navigationLabel }) => (
                 <li key={slug as string}>
-                  <Link href={slug} noUnderline>
+                  <Link
+                    href={slug}
+                    noUnderline
+                    className={
+                      router.asPath.substring(1) === slug
+                        ? "underline underline-offset-2"
+                        : ""
+                    }
+                  >
                     {navigationLabel}
                   </Link>
                 </li>

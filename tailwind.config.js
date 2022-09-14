@@ -85,9 +85,9 @@ module.exports = {
         xl: [pxToRem(96)],
         xxl: [pxToRem(128)],
         xxxl: [pxToRem(192)],
-        "section-gap": [pxToRem(120)],
-        "section-gap-xl": "calc(120px + 4.5vw)",
-        "section-gap-display": [pxToRem(240)],
+        "section-gap": [pxToRem(110)],
+        "section-gap-xl": "calc(110px + 4.5vw)",
+        "section-gap-display": [pxToRem(220)],
         // push a column in flex-grid to the right by using these as margin left
         "0/12": "0%",
         "1/12": `${(100 / 12) * 1}%`,

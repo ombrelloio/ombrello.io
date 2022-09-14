@@ -12,7 +12,7 @@ const InvertibleHeroSection = forwardRef<
 >(({ className, children, rendering, inverted }, ref) => {
   return (
     <section
-      className={cx("py-[20vh]", className)}
+      className={cx("pt-[18vh] pb-[12vh]", className)}
       data-rendering={rendering}
       data-component-theme={inverted ? "inverted" : null}
       ref={ref}

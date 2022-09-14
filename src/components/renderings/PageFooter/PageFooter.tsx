@@ -24,11 +24,13 @@ const PageFooter = () => {
       data-footer
     >
       <Container className="max-w-page">
-        <Row className="space-y-12">
-          <Col sm="9" md="8" push={{ md: 1, xxl: 1 }}>
+        <Row className="space-y-12 lg:space-y-0">
+          <Col lg="9" xl="8" push={{ xl: 1 }}>
             <FadeIntersect method="pullup">
               {mainContent && mainContent.title && (
-                <h2 className="text-h1 leading-none">{mainContent.title}</h2>
+                <h2 className="text-40 md:text-80 lg:text-96 !leading-none font-medium max-w-4xl md:pr-16">
+                  {mainContent.title}
+                </h2>
               )}
               {mainContent && mainContent.text && mainContent.text.html && (
                 <RichText
@@ -42,7 +44,7 @@ const PageFooter = () => {
               />
             </FadeIntersect>
           </Col>
-          <Col sm="3">
+          <Col lg="3">
             <ColumnData {...rightColumn} />
           </Col>
         </Row>
