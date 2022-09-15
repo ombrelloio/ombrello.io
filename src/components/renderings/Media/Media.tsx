@@ -26,6 +26,7 @@ const Media = ({ image, componentThemingConfiguration: theme }: MediaProps) => {
               objectFit="cover"
               blurDataURL={image.smallUrl}
               placeholder="blur"
+              priority
             />
           </div>
         )}
