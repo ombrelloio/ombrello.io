@@ -67,10 +67,14 @@ const PageHeader = () => {
   return (
     <>
       <header
-        className={cx("fixed top-0 left-0 w-full pointer-events-none z-50", {
-          "bg-th-bg": isReady,
-          "-translate-y-full ": scrollDirection === "down" && !isFooterVisible,
-        })}
+        className={cx(
+          "fixed top-0 left-0 w-full pointer-events-none z-50 transition-transform duration-300 ease-out",
+          {
+            "bg-th-bg": isReady,
+            "-translate-y-full ":
+              scrollDirection === "down" && !isFooterVisible,
+          }
+        )}
         ref={headerRef}
         data-mirror-theme={theme}
       >
@@ -90,7 +94,7 @@ const PageHeader = () => {
                     <Link
                       href={slug}
                       noUnderline
-                      className={`relative after:absolute after:bottom-[-2px] after:content[''] after:w-full after:left-0 after:h-[1px] after:bg-white after:duration-500 after:ease-out after:will-change-transform after:opacity-0 ${
+                      className={`relative after:absolute after:bottom-[-2px] after:content[''] after:w-full after:left-0 after:h-[1px] after:bg-white after:duration-500 after:ease-out after:will-change-transform after:opacity-0 duration-200 ease-out hover:opacity-60 ${
                         router.asPath.substring(1) === slug
                           ? "after:opacity-100"
                           : ""
@@ -181,7 +185,7 @@ const PageHeader = () => {
                     noUnderline
                     className={
                       router.asPath.substring(1) === slug
-                        ? "underline underline-offset-2"
+                        ? "underline underline-offset-2 duration-200 ease-out hover:opacity-60"
                         : ""
                     }
                   >

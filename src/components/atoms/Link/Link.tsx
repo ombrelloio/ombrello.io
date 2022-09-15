@@ -41,7 +41,7 @@ const Link = ({
       <a
         role={role}
         className={cx(className, "", {
-          "transition underline underline-offset-2 hover:opacity-100":
+          "transition underline underline-offset-2 hover:opacity-60 duration-200 ease-out":
             !block && !noUnderline,
           block,
         })}

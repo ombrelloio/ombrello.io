@@ -61,7 +61,11 @@ export const MultiLink = (props: MultiLinkType) => {
     <Link
       href={useAsHref}
       target={isExternal ? "_blank" : "_self"}
-      className={cx(inline ? "inline" : "inline-block", className)}
+      className={cx(
+        inline ? "inline" : "inline-block",
+        className,
+        "duration-200 ease-out hover:opacity-60"
+      )}
     >
       {useAsLabel}
     </Link>
