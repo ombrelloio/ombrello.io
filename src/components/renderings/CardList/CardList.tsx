@@ -17,7 +17,7 @@ const CardList = ({ heading, list = [] }: CardListProps) => {
           {list &&
             list.length &&
             list.map(({ title, text }, index) => (
-              <Col key={index} sm="6" md="4" lg="3">
+              <Col key={index} sm="6" md="4">
                 <article>
                   <FadeIntersect method="zoomIn" stagger={`${index * 16}ms`}>
                     <h3 className="text-h3 mb-8 relative flex items-baseline">

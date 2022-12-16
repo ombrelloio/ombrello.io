@@ -10,7 +10,7 @@ const RichText: FC<{
   text ? (
     <div
       className={classNames("richtext", className)}
-      dangerouslySetInnerHTML={{ __html: text }}
+      dangerouslySetInnerHTML={{ __html: text.replace(/\n/g, "<br />") }}
     >
       {children}
     </div>

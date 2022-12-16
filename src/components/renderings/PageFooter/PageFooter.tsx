@@ -35,7 +35,7 @@ const PageFooter = () => {
               {mainContent && mainContent.text && mainContent.text.html && (
                 <RichText
                   text={mainContent.text.html}
-                  className="max-w-sm m-auto"
+                  className="max-w-sm mt-4"
                 />
               )}
               <MultiLink
