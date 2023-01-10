@@ -132,7 +132,7 @@ export const imageCardListSchema = `
     __typename
     id
     heading: title,
-    images {
+    images(last: 100) {
         id
         imageCardTitle
         text
