@@ -50,24 +50,30 @@ const OpenPositions = ({
                       stagger={`${index * 16}ms`}
                       key={index}
                     >
-                      <div className="relative block rounded-[1rem] p-8 pb-9 bg-th-bg-strong gradient-border">
-                        <div className="flex items-baseline justify-between flex-wrap gap-x-sm">
-                          <h3 className="text-h3 mb-4 basis-full shrink-0 sm:basis-auto">
-                            {position.jobHeader}
-                          </h3>
-                          {position.hours && (
-                            <p className="text-14 whitespace-nowrap uppercase text-th-on-bg-fade mb-4 sm:mb-0">
-                              {position.hours}
-                            </p>
+                      <a
+                        href="mailto:jobs@ombrello.io"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <div className="relative block rounded-[1rem] p-8 pb-9 bg-th-bg-strong gradient-border">
+                          <div className="flex items-baseline justify-between flex-wrap gap-x-sm">
+                            <h3 className="text-h3 mb-4 basis-full shrink-0 sm:basis-auto">
+                              {position.jobHeader}
+                            </h3>
+                            {position.hours && (
+                              <p className="text-14 whitespace-nowrap uppercase text-th-on-bg-fade mb-4 sm:mb-0">
+                                {position.hours}
+                              </p>
+                            )}
+                          </div>
+                          {position.teaser && (
+                            <Multiline
+                              text={position.teaser}
+                              className="max-w-6xl"
+                            />
                           )}
                         </div>
-                        {position.teaser && (
-                          <Multiline
-                            text={position.teaser}
-                            className="max-w-6xl"
-                          />
-                        )}
-                      </div>
+                      </a>
                       {/* </div> */}
                     </FadeIntersect>
                   )
