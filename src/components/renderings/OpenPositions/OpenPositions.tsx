@@ -50,11 +50,7 @@ const OpenPositions = ({
                       stagger={`${index * 16}ms`}
                       key={index}
                     >
-                      <Link
-                        href={slug}
-                        className="relative block rounded-[1rem] p-8 pb-9 bg-th-bg-strong gradient-border"
-                        noUnderline
-                      >
+                      <div className="relative block rounded-[1rem] p-8 pb-9 bg-th-bg-strong gradient-border">
                         <div className="flex items-baseline justify-between flex-wrap gap-x-sm">
                           <h3 className="text-h3 mb-4 basis-full shrink-0 sm:basis-auto">
                             {position.jobHeader}
@@ -71,7 +67,7 @@ const OpenPositions = ({
                             className="max-w-6xl"
                           />
                         )}
-                      </Link>
+                      </div>
                       {/* </div> */}
                     </FadeIntersect>
                   )
