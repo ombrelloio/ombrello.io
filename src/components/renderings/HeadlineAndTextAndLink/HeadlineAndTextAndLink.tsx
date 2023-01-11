@@ -12,7 +12,7 @@ const HeadlineAndTextAndLink = ({
   return (
     <Section rendering="HeadlineAndTextAndLink">
       <Container>
-        <Row className="gap-y-lg">
+        <Row className="gap-y-md">
           {headline && (
             <Col md="5" push={{ md: 1 }}>
               <FadeIntersect method="fade" stagger="100ms">

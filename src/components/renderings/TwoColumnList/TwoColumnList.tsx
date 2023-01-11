@@ -59,7 +59,7 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
     <Section rendering="TwoColumnList" className="overflow-hidden">
       <Container className="max-w-page">
         {heading && (
-          <h2 className="text-h2 mt-16 sm:mb-lg md:mb-xl text-center">
+          <h2 className="text-h2 mt-16 mb-md md:mb-xl text-center">
             {heading}
           </h2>
         )}

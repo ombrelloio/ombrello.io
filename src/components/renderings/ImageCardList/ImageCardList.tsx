@@ -35,7 +35,7 @@ const ImageCardList = ({ images = [], heading }: ImageCardListProps) => {
                       {imageCardTitle && (
                         <h3 className="text-h3">{imageCardTitle}</h3>
                       )}
-                      {text && <Multiline className="mt-4" text={text} />}
+                      {text && <Multiline className="mt-1" text={text} />}
                     </article>
                   </Col>
                 )
