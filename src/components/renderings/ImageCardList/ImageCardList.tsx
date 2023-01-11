@@ -29,7 +29,7 @@ const ImageCardList = ({ images = [], heading }: ImageCardListProps) => {
                         alt={imageCardTitle}
                         lazyUrl={image.lazyUrl}
                         sizes="400px"
-                        className="relative aspect-[9/11] mb-sm"
+                        className="relative aspect-[9/11] mb-sm filter grayscale"
                         stagger={`${index * 24}ms`}
                       />
                       {imageCardTitle && (
