@@ -25,7 +25,7 @@ const PageFooter = () => {
     >
       <Container className="max-w-page">
         <Row className="space-y-12 lg:space-y-0">
-          <Col lg="9" xl="8" push={{ xl: 1 }}>
+          <Col lg="9">
             <FadeIntersect method="pullup">
               {mainContent && mainContent.title && (
                 <h2 className="text-40 md:text-80 lg:text-96 !leading-none font-medium max-w-4xl md:pr-16">

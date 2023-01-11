@@ -1,5 +1,5 @@
 import { MultiLink, RichText } from "@atoms";
-import { Container, Section, Row, Col } from "@layout";
+import { Container, Section, Row, Col, FadeIntersect } from "@layout";
 import { HeadlineAndTextAndLinkProps } from "@types";
 
 const HeadlineAndTextAndLink = ({
@@ -15,18 +15,24 @@ const HeadlineAndTextAndLink = ({
         <Row className="gap-y-lg">
           {headline && (
             <Col md="5" push={{ md: 1 }}>
-              <h2
-                className="text-h2 break-words"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{
-                  __html: headline.replaceAll("\n", "<br/>"),
-                }}
-              />
+              <FadeIntersect method="fade" stagger="100ms">
+                <h2
+                  className="text-h2 break-words"
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{
+                    __html: headline.replaceAll("\n", "<br/>"),
+                  }}
+                />
+              </FadeIntersect>
             </Col>
           )}
           <Col md="5" className="space-y-md">
-            <RichText text={html} />
-            <MultiLink {...link} showAsButton={false} />
+            <FadeIntersect method="fade" stagger="200ms">
+              <RichText text={html} />
+            </FadeIntersect>
+            <FadeIntersect method="fade" stagger="300ms">
+              <MultiLink {...link} />
+            </FadeIntersect>
           </Col>
         </Row>
       </Container>

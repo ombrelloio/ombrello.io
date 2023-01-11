@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { Link } from "@atoms";
+import { ZoomImage, Multiline, Link, Button } from "@atoms";
 import { Col, Container, Row, Section } from "@layout";
 import { TwoColumnListProps } from "@types";
 import { ListItem } from "./components/ListItem/ListItem";
@@ -56,23 +56,69 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
   }, []);
 
   return (
-    <Section
-      rendering="TwoColumnList"
-      className="sm:mb-[-300px] lg:mb-[-400px] xl:mb-[-600px] overflow-hidden"
-    >
+    <Section rendering="TwoColumnList" className="overflow-hidden">
       <Container className="max-w-page">
-        <Row>
-          <Col md="10" push={{ md: 1 }}>
-            {heading && (
-              <h2 className="text-h2 sm:mb-lg md:mb-xl max-w-xl">{heading}</h2>
-            )}
-          </Col>
-        </Row>
-        {/*  */}
+        {heading && (
+          <h2 className="text-h2 mt-16 sm:mb-lg md:mb-xl text-center">
+            {heading}
+          </h2>
+        )}
         <div className="relative" ref={containerRef}>
-          {imageCards && imageCards.length && (
-            <Row className="gap-y-md">
-              <Col sm="6" md="5" push={{ md: 1 }}>
+          <Row>
+            <Col className="space-y-20">
+              {imageCards &&
+                imageCards.length &&
+                imageCards.map((cardItem, index) => (
+                  <Row
+                    className={`items-center ${
+                      index % 2 === 0 ? "" : "md:flex-row-reverse"
+                    }`}
+                  >
+                    <Col md="6">
+                      <div>
+                        {cardItem.image && cardItem.image.url && (
+                          <ZoomImage
+                            url={cardItem.image.url}
+                            alt={cardItem.imageCardTitle}
+                            lazyUrl={cardItem.image.lazyUrl}
+                            sizes="600px"
+                            className="relative aspect-square rounded-lg overflow-hidden"
+                            rootMargin="500px"
+                          />
+                        )}
+                      </div>
+                    </Col>
+                    <Col md="6" className="flex justify-center">
+                      <div>
+                        {cardItem.imageCardTitle && (
+                          <h3 className="text-h3 mb-4 mt-6">
+                            {cardItem.imageCardTitle}
+                          </h3>
+                        )}
+                        {cardItem.text && (
+                          <Multiline
+                            text={cardItem.text}
+                            className="max-w-md"
+                          />
+                        )}
+
+                        {cardItem.internalLinkLabel && cardItem.internalLink && (
+                          <Button
+                            link={{
+                              href: cardItem.internalLink.page.slug as string,
+                            }}
+                            className="mt-6"
+                          >
+                            {cardItem.internalLinkLabel}
+                          </Button>
+                        )}
+                      </div>
+                    </Col>
+                  </Row>
+                ))}
+            </Col>
+          </Row>
+          {/* <Col sm="6" md="5" push={{ md: 1 }}>
                 <div ref={listOneRef} className="space-y-lg md:space-y-xxxl">
                   {list1?.map((cardItem, index) => {
                     return cardItem.internalLink &&
@@ -99,8 +145,8 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
                     );
                   })}
                 </div>
-              </Col>
-              <Col sm="6" md="5">
+              </Col> */}
+          {/* <Col sm="6" md="5">
                 <div ref={listTwoRef} className="space-y-lg md:space-y-xxxl">
                   {list2?.map((cardItem, index) => {
                     return cardItem.internalLink &&
@@ -127,9 +173,9 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
                     );
                   })}
                 </div>
-              </Col>
-            </Row>
-          )}
+              </Col> */}
+          {/* </Row> */}
+          {/* )} */}
         </div>
       </Container>
     </Section>

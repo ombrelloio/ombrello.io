@@ -8,7 +8,7 @@ const Banner = ({ title, text, link }: BannerProps) => {
     <Section rendering="Banner">
       <Container className="max-w-page">
         <Row>
-          <Col md="10" push={{ md: 1 }}>
+          <Col>
             <FadeIntersect method="pullup">
               <div className="p-15 md:py-18 md:px-16 xl:py-[6vw] rounded-lg text-center brand-gradiant text-white">
                 {title && <h2 className="text-h2 mb-sm">{title}</h2>}

@@ -8,7 +8,7 @@ const ImageCardList = ({ images = [], heading }: ImageCardListProps) => {
     <Section rendering="ImageCardList">
       <Container className="max-w-page">
         <Row>
-          <Col md="5" push={{ md: 1 }}>
+          <Col md="6">
             {heading && <h2 className="text-h2 mb-24">{heading}</h2>}
           </Col>
         </Row>
@@ -29,7 +29,7 @@ const ImageCardList = ({ images = [], heading }: ImageCardListProps) => {
                         alt={imageCardTitle}
                         lazyUrl={image.lazyUrl}
                         sizes="400px"
-                        className="relative aspect-[9/11] mb-sm filter grayscale"
+                        className="relative aspect-[9/11] mb-sm filter grayscale rounded-lg overflow-hidden"
                         stagger={`${index * 24}ms`}
                       />
                       {imageCardTitle && (
