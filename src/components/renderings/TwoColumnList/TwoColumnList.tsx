@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ZoomImage, Multiline, Link, Button } from "@atoms";
-import { Col, Container, Row, Section } from "@layout";
+import { ZoomImage, Multiline, Button } from "@atoms";
+import { Col, Container, Row, Section, FadeIntersect } from "@layout";
 import { TwoColumnListProps } from "@types";
 import { ListItem } from "./components/ListItem/ListItem";
 
@@ -73,9 +73,10 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
                     className={`items-center ${
                       index % 2 === 0 ? "" : "md:flex-row-reverse"
                     }`}
+                    key={index}
                   >
                     <Col md="6">
-                      <div>
+                      <FadeIntersect method="pullup" stagger="100ms">
                         {cardItem.image && cardItem.image.url && (
                           <ZoomImage
                             url={cardItem.image.url}
@@ -86,31 +87,37 @@ const TwoColumnList = ({ heading, imageCards = [] }: TwoColumnListProps) => {
                             rootMargin="500px"
                           />
                         )}
-                      </div>
+                      </FadeIntersect>
                     </Col>
                     <Col md="6" className="flex justify-center">
                       <div>
                         {cardItem.imageCardTitle && (
-                          <h3 className="text-h3 mb-4 mt-6">
-                            {cardItem.imageCardTitle}
-                          </h3>
+                          <FadeIntersect method="pullup" stagger="100ms">
+                            <h3 className="text-h3 mb-4 mt-6">
+                              {cardItem.imageCardTitle}
+                            </h3>
+                          </FadeIntersect>
                         )}
                         {cardItem.text && (
-                          <Multiline
-                            text={cardItem.text}
-                            className="max-w-md"
-                          />
+                          <FadeIntersect method="pullup" stagger="200ms">
+                            <Multiline
+                              text={cardItem.text}
+                              className="max-w-md"
+                            />
+                          </FadeIntersect>
                         )}
 
                         {cardItem.internalLinkLabel && cardItem.internalLink && (
-                          <Button
-                            link={{
-                              href: cardItem.internalLink.page.slug as string,
-                            }}
-                            className="mt-6"
-                          >
-                            {cardItem.internalLinkLabel}
-                          </Button>
+                          <FadeIntersect method="pullup" stagger="300ms">
+                            <Button
+                              link={{
+                                href: cardItem.internalLink.page.slug as string,
+                              }}
+                              className="mt-6"
+                            >
+                              {cardItem.internalLinkLabel}
+                            </Button>
+                          </FadeIntersect>
                         )}
                       </div>
                     </Col>
