@@ -4,6 +4,7 @@ import Head from "next/head";
 import Script from "next/script";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { Analytics } from "@vercel/analytics/react";
 
 import SEO from "../../next-seo.config";
 import "@app/styles/global.scss";
@@ -97,6 +98,7 @@ function App({ Component, pageProps }: AppProps) {
       />
 
       <Component {...pageProps} />
+      <Analytics />
     </>
   );
 }

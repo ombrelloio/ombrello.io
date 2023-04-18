@@ -27,6 +27,7 @@
   "dependencies": {
     "@types/memory-cache": "^0.2.2",
     "@types/react-transition-group": "^4.4.4",
+    "@vercel/analytics": "^0.1.11",
     "classnames": "^2.3.1",
     "date-fns": "^2.11.1",
     "dotenv-flow": "^3.2.0",
